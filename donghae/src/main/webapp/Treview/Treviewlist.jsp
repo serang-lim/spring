@@ -6,7 +6,7 @@
 
 <!-- 본문 시작 Treview.jsp -->
    <h3 align="center">후기</h3>
-   <p><a href="TreviewcreateForm.jsp">[작성하기]</a></p>
+   <p><a href="Treviewcreate.jsp">[작성하기]</a></p>
    <table border='1' class="table_list">
    <tr>
       <th>조회수</th>

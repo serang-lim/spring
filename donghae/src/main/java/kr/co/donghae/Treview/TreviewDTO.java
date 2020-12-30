@@ -1,5 +1,7 @@
 package kr.co.donghae.Treview;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class TreviewDTO {
@@ -21,6 +23,7 @@ public class TreviewDTO {
 	  
 	  //<input type='file' name='photonameMF'> 
 	  private MultipartFile photonameMF;
+	  private List<MultipartFile> files;
 	  
   //-------------------------------------
 	
@@ -113,13 +116,26 @@ public class TreviewDTO {
 	public void setPhotonameMF(MultipartFile photonameMF) {
 		this.photonameMF = photonameMF;
 	}
+	
+	
+
+	public List<MultipartFile> getFiles() {
+		return files;
+	}
+
+	public void setFiles(List<MultipartFile> files) {
+		this.files = files;
+	}
 
 	@Override
 	public String toString() {
 		return "TreviewDTO [Rnum=" + Rnum + ", Rsubject=" + Rsubject + ", Rcontent=" + Rcontent + ", Rpasswd=" + Rpasswd
 				+ ", Rphoto_name=" + Rphoto_name + ", Rphoto_size=" + Rphoto_size + ", Rregion=" + Rregion + ", Rid="
-				+ Rid + ", Rdate=" + Rdate + ", Rreadcnt=" + Rreadcnt + ", photonameMF=" + photonameMF + "]";
+				+ Rid + ", Rdate=" + Rdate + ", Rreadcnt=" + Rreadcnt + ", photonameMF=" + photonameMF + ", files="
+				+ files + "]";
 	}
+	
+	
 
 	
 }//class end

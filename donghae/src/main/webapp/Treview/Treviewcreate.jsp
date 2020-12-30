@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../header.jsp"%>
   
 <!-- 본 문 시 작 TreviewcreateFrom -->
@@ -23,7 +23,7 @@
 	</tr>
 	<tr>
 	   <th>첨부파일</th>
-	   <td><input type="file" name="photonameMF" size='50'></td>
+	   <td><input type="file" name="photonameMF" multiple size='50'></td>
 	</tr>
 	<tr>
 	   <th>지역</th>
@@ -50,6 +50,5 @@
 	</table>
 </form>
 	
-
 <!-- 본 문 끝 !! -->
 <%@ include file="../footer.jsp"%>

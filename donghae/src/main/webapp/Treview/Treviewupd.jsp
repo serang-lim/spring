@@ -21,7 +21,7 @@
 	</tr>
 	<tr>
 	   <th>첨부파일</th>
-	   <td><input type="file" name="photonameMF" size='50'></td>
+	   <td><input type="file" name="photonameMF" multiple size='50'></td>
 	</tr>
 	<tr>
 	   <th>지역</th>

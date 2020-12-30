@@ -1,7 +1,17 @@
 package kr.co.donghae.Treview;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Formatter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,12 +20,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.donghae.Treview.TreviewDTO;
@@ -27,6 +39,7 @@ public class TreviewCont {
 
 	@Autowired
 	TreviewDAO dao;
+	FileUploadService fileUploadService;
 
 	public TreviewCont() {
 		System.out.println("---TreviewCont()객체 생성됨");
@@ -56,30 +69,54 @@ public class TreviewCont {
 
 	@RequestMapping(value = "Treview/createrform.do", method = RequestMethod.GET)
 	public String createForm() {
-		return "Treview/Treviewcreateform";
+		return "Treview/Treviewcreate";
 		
 	}// createform() end
 
 	@RequestMapping(value = "Treview/create.do", method = RequestMethod.POST)
 	public ModelAndView createProc(@ModelAttribute TreviewDTO dto
-									,HttpServletRequest req
+									,MultipartHttpServletRequest req
 									,HttpServletResponse resp
-									,HttpSession session) {
+									,HttpSession session
+									,List<MultipartFile> files) {
+		
 		ModelAndView mav = new ModelAndView();
+		
 		mav.setViewName("Treview/msgView");
 		mav.addObject("root", Utility.getRoot());
 		
-		//-------------------------------------
+		/*/-------------------------------------
 	
-		String basePath=req.getRealPath("./storage");
+		String uploadPath=req.getRealPath("./storage");
 		
 		//1)<input type='file' name='photonameMF'> 파일 가져오기
 		MultipartFile photonameMF=dto.getPhotonameMF();
-		String photoname=UploadSaveManager.saveFileSpring30(photonameMF, basePath);
+		String photoname=UploadSaveManager.saveFileSpring30(photonameMF, uploadPath);
 		dto.setRphoto_name(photoname);
 		dto.setRphoto_size((long)photonameMF.getSize());
 		
-		//-------------------------------------
+		//-------------------------------------*/
+		
+		List<MultipartFile> files = uploadForm.getFiles();
+
+		// success.jsp 로 보낼 파일 이름 저장
+		List<String> fileNames = new ArrayList<String>();
+
+		if (null != files && files.size() > 0) {
+			for (MultipartFile multipartFile : files) {
+				String fileName = multipartFile.getOriginalFilename();
+
+				String path = uploadForm.getUpDir() + fileName;
+
+				File f = new File(path);
+
+				multipartFile.transferTo(f);
+
+				fileNames.add(fileName);
+
+			}//for end
+		}//if end
+		rep.addAttribute("files", fileNames);
 		
 		int cnt=dao.create(dto);
 		
@@ -99,8 +136,8 @@ public class TreviewCont {
 			mav.addObject("link1", link1);
 			mav.addObject("link2", link2);
 		}//if end
+		//return mav;
 		
-		return mav;
 	}//createProc() end
 	
 	
