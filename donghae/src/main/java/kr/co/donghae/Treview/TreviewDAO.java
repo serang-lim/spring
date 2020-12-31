@@ -184,73 +184,65 @@ public class TreviewDAO {
 		}//delete() end
 		
 
-	public ArrayList<TreviewDTO> list2(String col1, String col2) {
-	   ArrayList<TreviewDTO> list=null;
-	   try {
-	      con=dbopen.getConnection();
-	      sql=new StringBuilder();
-	      
-	      sql.append(" Select Rid, Rnum, Rphoto_name, Rregion, Rsubject, Rdate");
-	      sql.append(" From review");
-	
-	      //검색어가 있다면   
-         
-      if(col1.equals("0")){
-         sql.append(" Where rid=?");
-         sql.append(" Order by rnum desc");
+		public ArrayList<TreviewDTO> list2(String col, String word) {
+	         ArrayList<TreviewDTO> list=null;
+	         try {
+	            con=dbopen.getConnection();
+	            sql=new StringBuilder();
+	            
+	            sql.append(" SELECT Rreadcnt, Rnum, Rsubject, Rregion, Rid, Rdate");
+	            sql.append(" From review");
 
-         pstmt=con.prepareStatement(sql.toString());
-         pstmt.setString(1, col2);
-         
-      }else if(col2.equals("0")){
-         //sql.append(" Where rid like '%"+ word + "%'");
-         sql.append(" Order by rnum desc");
-
-         pstmt=con.prepareStatement(sql.toString());
-         pstmt.setString(1, col1);
-      
-      }else if(col1.equals("0")&&col2.equals("0")) {
-         sql.append(" Order by rnum desc");
-         pstmt=con.prepareStatement(sql.toString());
-
-      }else {
-         sql.append(" Where rid=? and rregion=?");
-         sql.append(" Order by rnum desc");
-         pstmt=con.prepareStatement(sql.toString());
-         pstmt.setString(1, col2);
-         pstmt.setString(2, col1);
-      }
-      
-      
-      rs=pstmt.executeQuery();
-      if(rs.next()) {
-        list=new ArrayList<TreviewDTO>(); //전체 행 저장
-        do {
-        	TreviewDTO dto=new TreviewDTO(); //한줄 저장
-          dto.setRid(rs.getString("rid"));
-          dto.setRnum(rs.getInt("rnum"));
-          dto.setRsubject(rs.getString("rsubject"));
-          dto.setRregion(rs.getString("rregion"));
-          dto.setRdate(rs.getString("rdate"));
-          dto.setRphoto_name(rs.getString("rphoto_name")); 
-          list.add(dto);
-        }while(rs.next());
-      }else {        
-        list=null;        
-      }//if end   
-      
-   }catch (Exception e) {
-      
-      System.out.println("목록실패:"+e);
-   }finally {
-      DBClose.close(con, pstmt, rs);
-   }//end
-   
-   return list;
-}//list() end
+	            //검색어가 있다면
+	            //" Where wname like '%"+ word + "%'";
+	               
+	            if(col.equals("0")){
+	               sql.append(" Where Rid like '%"+word+"%'");
+	               sql.append(" Order by rnum desc");
+	               pstmt=con.prepareStatement(sql.toString());
+	            }else if(word.equals(null)) {
+	               sql.append(" Where Rregion=?");
+	               sql.append(" Order by rnum desc");
+	               pstmt=con.prepareStatement(sql.toString());
+	               pstmt.setString(1, col);
+	               
+	            }else {
+	               sql.append(" Where Rregion=? and Rid like '%"+word+"%'");
+	               sql.append(" Order by rnum desc");
+	               pstmt=con.prepareStatement(sql.toString());
+	               pstmt.setString(1, col);
+	               
+	            }
+	            
+	            rs=pstmt.executeQuery();
+	            if(rs.next()) {
+	              list=new ArrayList<TreviewDTO>(); //전체 행 저장
+	              do {
+	                 TreviewDTO dto=new TreviewDTO(); //한줄 저장
+	                dto.setRreadcnt(rs.getInt("rreadcnt"));
+	                dto.setRnum(Integer.parseInt(rs.getString("rnum")));
+	                dto.setRsubject(rs.getString("rsubject"));
+	                dto.setRregion(rs.getString("rregion"));
+	                dto.setRid(rs.getString("rid"));
+	                dto.setRdate(rs.getString("rdate")); 
+	                list.add(dto);
+	              }while(rs.next());
+	            }else {        
+	              list=null;        
+	            }//if end   
+	            
+	         }catch (Exception e) {
+	            
+	            System.out.println("목록실패:"+e);
+	         }finally {
+	            DBClose.close(con, pstmt, rs);
+	         }//end
+	         
+	         return list;
+	      }//list() end
    
 	//글갯수 구하기 
-		public int getArticleCount() throws Exception {
+		public int Count() {
 		      int x=0;
 		      try {
 		         con=dbopen.getConnection();
@@ -270,6 +262,9 @@ public class TreviewDAO {
 		      
 		      return x;
 		      
-		   }//getArticleCount() end
+		   }//count() end
+		
+		
+		
 	
 }//class end

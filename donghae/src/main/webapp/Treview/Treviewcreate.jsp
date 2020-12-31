@@ -29,7 +29,7 @@
 	   <th>지역</th>
 	   <td>
 	   <select name="rregion"  id="rregion">
-          <option value="없음" selected>선택하세요.</option>
+          <option value="0" selected>선택하세요.</option>
           <option value="동해">동해</option>
           <option value="삼척">삼척</option>
           <option value="속초">속초</option>

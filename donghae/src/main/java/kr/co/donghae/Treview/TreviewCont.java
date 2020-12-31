@@ -85,7 +85,7 @@ public class TreviewCont {
 		mav.setViewName("Treview/msgView");
 		mav.addObject("root", Utility.getRoot());
 		
-		/*/-------------------------------------
+		//-------------------------------------
 	
 		String uploadPath=req.getRealPath("./storage");
 		
@@ -95,7 +95,7 @@ public class TreviewCont {
 		dto.setRphoto_name(photoname);
 		dto.setRphoto_size((long)photonameMF.getSize());
 		
-		//-------------------------------------*/
+		/*/-------------------------------------x
 		
 		List<MultipartFile> files = uploadForm.getFiles();
 
@@ -117,6 +117,7 @@ public class TreviewCont {
 			}//for end
 		}//if end
 		rep.addAttribute("files", fileNames);
+		*/
 		
 		int cnt=dao.create(dto);
 		
@@ -136,7 +137,7 @@ public class TreviewCont {
 			mav.addObject("link1", link1);
 			mav.addObject("link2", link2);
 		}//if end
-		//return mav;
+		return mav;
 		
 	}//createProc() end
 	
@@ -229,74 +230,26 @@ public class TreviewCont {
 	}//deleteProc() end
 	
 	@RequestMapping("Treview/Treview2.do")
-	   public ModelAndView list2(TreviewDTO dto, String col1, String col2,  HttpServletRequest req) {
-	      ModelAndView mav=new ModelAndView();
-	      col1=req.getParameter("col1");
-	      col2=req.getParameter("col2");
+	   public ModelAndView list2(TreviewDTO dto
+			   					 , String col
+			   					 , String word,HttpServletRequest req) {
+	      col=req.getParameter("col");
+	      word=req.getParameter("word");
 	      
+	      ModelAndView mav = new ModelAndView();
 	      mav.setViewName("Treview/Treviewlist");
 	      mav.addObject("root", Utility.getRoot());
-	      mav.addObject("list", dao.list2(col1, col2));
-
+	      mav.addObject("list", dao.list2(col, word));
 	      return mav;
-	   }//list2() end
-	/*
-	@RequestMapping("Treview/Treview3.do")
-	   public ModelAndView list3(HttpServletRequest req, HttpServletResponse resp) throws Throwable { 
-			  
-		    //총 게시글 수
-			int total_cnt = 0;
-			TreviewDAO dao=new TreviewDAO();
-			total_cnt=dao.getArticleCount();
-			
-			//페이징
-			int numPerPage=8; //한 페이지당 레코드 갯수
-			int pagePerBlock=10;  //페이지 리스트
-			
-			String pageNum=req.getParameter("pageNum");
-			if(pageNum==null) {
-				pageNum="1";
-			}
-		
-			int currentPage=Integer.parseInt(pageNum); 
-			int startRow=(currentPage-1)*numPerPage+1; 
-			int endRow=currentPage*numPerPage;
-			
-			//페이지수 
-			double totcnt = (double)total_cnt/numPerPage; 
-			int totalPage = (int)Math.ceil(totcnt); 
-			
-			double d_page = (double)currentPage/pagePerBlock; 
-			int Pages = (int)Math.ceil(d_page)-1; 
-			int startPage = Pages*pagePerBlock; 
-			int endPage = startPage+pagePerBlock+1;
-			
-			mav.setViewName("Treview/Treviewlist");
-			
-			List articleList=null;       
-			if(total_cnt>0){ 
-				articleList=dao.get(startRow, endRow);
-			} else { 
-			articleList=Collections.EMPTY_LIST; 
-			}//if end 
-			
-		    int number=0; 
-		    number=total_cnt-(currentPage-1)*numPerPage; 
-		    req.setAttribute("number",    new Integer(number)); 
-		    req.setAttribute("pageNum",   new Integer(currentPage)); 
-		    req.setAttribute("startRow",  new Integer(startRow)); 
-		    req.setAttribute("endRow",    new Integer(endRow)); 
-		    req.setAttribute("count",     new Integer(total_cnt)); 
-		    req.setAttribute("pageSize",  new Integer(pagePerBlock)); 
-		    req.setAttribute("totalPage", new Integer(totalPage)); 
-		    req.setAttribute("startPage", new Integer(startPage)); 
-		    req.setAttribute("endPage",   new Integer(endPage)); 
-		    req.setAttribute("articleList", articleList); 
-		    
-
-		    return mav;
-		    
-	   }//list2() end
-*/
+	   }// list2() end
+	
+	// 게시물 목록 + 페이징 추가
+	@RequestMapping(value = "Treview/listpage.do", method = RequestMethod.GET)
+	public void getListPage(Model model) throws Exception {
+	  
+	 List list = null; 
+	 list = dao.list();
+	 model.addAttribute("list", list);   
+	}//getListPage end
 	
 }// class end
