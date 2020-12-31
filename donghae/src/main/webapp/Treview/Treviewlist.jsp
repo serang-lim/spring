@@ -61,27 +61,33 @@
  	
  %>  
  --%>
- 
+ <style>
+ .table_list{
+  width: 80%
+  margin-left: 500px;
+  margin-right: 500px;
+}
+</style>
 <!-- 본문 시작 Treview.jsp -->
    <h3 align="center">후기</h3>
    <p><a href="Treviewcreate.jsp">[작성하기]</a></p>
-   <table border='1' class="table_list">
+   <table border='1' class="table_list" >
    <tr>
-      <th>조회수</th>
       <th>글번호</th>
-      <th>제목</th>
       <th>지역</th>
+      <th>제목</th>
       <th>작성자</th>
       <th>작성일</th>
+      <th>조회수</th>
    </tr>
    <c:forEach var="dto" items="${list}">
    <tr>
-   	  <td>${dto.rreadcnt}</td>
       <td>${dto.rnum}</td>
-      <td><a href="read.do?rnum=${dto.rnum}">${dto.rsubject}</a></td>
       <td>${dto.rregion}</td>
+      <td><a href="read.do?rnum=${dto.rnum}">${dto.rsubject}</a></td>
       <td>${dto.rid}</td>
       <td>${dto.rdate}</td>
+      <td>${dto.rreadcnt}</td>
    </tr>
    </c:forEach>
    </table>
@@ -100,39 +106,31 @@
          <input type="text" name="word" placeholder="아이디검색">
          <input type="submit" value="검색">
       </form>
-	<!-- search{s} 
 
-		<div class="form-group row justify-content-center" align="center">
-
-			<div class="w100" style="padding-right:10px">
-
-				<select class="form-control form-control-sm" name="searchType" id="searchType">
-
-					<option value="rsubject">제목</option>
-
-					<option value="rregion">지역</option>
-
-					<option value="rid">작성자</option>
-
-				</select>
-
-			</div>
-
-			<div class="w300" style="padding-right:10px">
-
-				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-
-			</div>
-
-			<div>
-
-				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
-
-			</div>
-
-		</div>
-
-		<!-- search{e} -->
+		
+<!-- 페이지 리스트 --> 
+ <c:if test="${count>0 }"> 
+    <c:set var="pageCount" value="${totalPage }"/> 
+    <c:set var="startPage" value="${startPage }"/> 
+    <c:set var="endPage" value="${endPage }"/> 
+  
+    <c:if test="${endPage>pageCount }"> 
+    <c:set var="endPage" value="${pageCount+1 }"/> 
+    </c:if> 
+  
+    <c:if test="${startPage>0 }"> 
+       <a href="./Treview.do?rnum=${startPage }">[이전]</a>  
+    </c:if> 
+  
+    <c:forEach var="i" begin="${startPage+1 }" end="${endPage-1 }"> 
+       <a href="./Treview.do?rnum=${i }">[${i }]</a> 
+    </c:forEach> 
+  
+    <c:if test="${endPage<pageCount }"> 
+       <a href="./Treview.do?rnum=${startPage+11 }">[다음]</a> 
+    </c:if>   
+ </c:if> 
+ 		
 	 
 <!-- 본문 끝 -->
 <%@ include file="../footer.jsp" %> 

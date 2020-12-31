@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -123,23 +124,6 @@ public class TreviewDAO {
 		        return dto;
 		}//read() end
 		
-		public void incrementCnt(int Rnum) { //조회수
-			try {
-				con=dbopen.getConnection();
-				sql=new StringBuilder();
-				sql.append(" UPDATE review ");
-				sql.append(" SET Rreadcnt=Rreadcnt+1 ");
-				sql.append(" WHERE Rnum=? ");
-				pstmt=con.prepareStatement(sql.toString());
-				pstmt.setInt(1, Rnum);
-	          pstmt.executeUpdate();
-			}catch (Exception e) {
-		         System.out.println("조회수 증가 실패:"+e);
-		      }finally {
-		         DBClose.close(con, pstmt);
-		      }//end
-		}//incrementCnt() end
-		
 		public int update(TreviewDTO dto) { 
 			int cnt=0;
 			try {
@@ -242,7 +226,7 @@ public class TreviewDAO {
 	      }//list() end
    
 	//글갯수 구하기 
-		public int Count() {
+		public int getArticleCount() {
 		      int x=0;
 		      try {
 		         con=dbopen.getConnection();
@@ -262,9 +246,95 @@ public class TreviewDAO {
 		      
 		      return x;
 		      
-		   }//count() end
+		   }//getArticleCount() end
 		
 		
+		//글목록 구하기 
+		public List<TreviewDTO> getArticles(int start, int end) throws Exception{
+		      List articleList=null;
+		      sql=new StringBuilder();
+		      sql.append(" Select AA.* ");
+		      sql.append(" From( ");
+		      sql.append("    Select Rownum as ronum, BB.* ");
+		      sql.append("     From (");
+		      sql.append("       Select rnum, rid, rcontent, rsubject, rpasswd, rdate ");
+		      sql.append("             rregion, rreadcnt ");
+		      sql.append("      From review Order byrnum desc");
+		      sql.append("       ) BB ");
+		      sql.append("    )AA ");
+		      sql.append(" Where AA.ronum>=? and AA.ronum<=? ");
+		      
+		      try {
+		         con=dbopen.getConnection();
+		         pstmt=con.prepareStatement(sql.toString());
+		         pstmt.setInt(1, start);
+		         pstmt.setInt(2, end);
+		         rs=pstmt.executeQuery();
+		         
+		         if(rs.next()) {
+		            articleList=new ArrayList(end);
+		            do {
+		            	TreviewDTO article=new TreviewDTO();
+		            	article.setRnum(rs.getInt("rnum"));
+		                article.setRid(rs.getString("rid"));
+		                article.setRreadcnt(rs.getInt("rreadcnt"));
+		                article.setRsubject(rs.getString("rsubject"));
+		                article.setRpasswd(rs.getString("rpasswd"));
+		                article.setRdate(rs.getString("rdate"));
+		                article.setRregion(rs.getString("rregion"));
+		                article.setRcontent(rs.getString("rcontent"));
+		              
+		               articleList.add(article);
+		               
+		            }while(rs.next());
+		         }//if end
+		         
+		      }catch (Exception e) {
+		         e.printStackTrace();
+		      }finally {
+		         DBClose.close(con, pstmt, rs);
+		      }//end
+		      return articleList;
+		   }//getArticles() end	
 		
+		public TreviewDTO getArticle(int rnum) throws Exception{
+			TreviewDTO article=null;
+			try{
+				con=dbopen.getConnection();
+				sql=new StringBuilder();
+				sql.append(" UPDATE review SET rreadcnt=rreadcnt+1 WHERE rnum=? "); 
+				pstmt=con.prepareStatement(sql.toString());
+				pstmt.setInt(1, rnum);
+				pstmt.executeUpdate();
+				
+				sql.delete(0, sql.length());
+				sql.append(" SELECT rnum, rid, rcontent, rsubject, rpasswd, rdate, rregion, rreadcnt ");
+			 	sql.append(" FROM board WHERE rnum=? ");
+	 			pstmt=con.prepareStatement(sql.toString());
+				pstmt.setInt(1, rnum);
+				rs=pstmt.executeQuery();
+		         
+		        if(rs.next()) {
+		        	article=new TreviewDTO(); 
+		        	article.setRnum(rs.getInt("rnum"));
+	                article.setRid(rs.getString("rid"));
+	                article.setRreadcnt(rs.getInt("rreadcnt"));
+	                article.setRsubject(rs.getString("rsubject"));
+	                article.setRpasswd(rs.getString("rpasswd"));
+	                article.setRdate(rs.getString("rdate"));
+	                article.setRregion(rs.getString("rregion"));
+	                article.setRcontent(rs.getString("rcontent"));
+		        	
+		        }//if end
+				
+			}catch (Exception e) {
+		         e.printStackTrace();
+		      }finally {
+		         DBClose.close(con, pstmt, rs);
+		      }//end
+			
+			return article;
+			
+		}//getArticle() end
 	
 }//class end

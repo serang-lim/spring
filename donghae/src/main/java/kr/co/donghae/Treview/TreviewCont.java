@@ -78,7 +78,7 @@ public class TreviewCont {
 									,MultipartHttpServletRequest req
 									,HttpServletResponse resp
 									,HttpSession session
-									,List<MultipartFile> files) {
+									) {
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -95,8 +95,8 @@ public class TreviewCont {
 		dto.setRphoto_name(photoname);
 		dto.setRphoto_size((long)photonameMF.getSize());
 		
-		/*/-------------------------------------x
-		
+		/*/-------------------------------------
+		,List<MultipartFile> files
 		List<MultipartFile> files = uploadForm.getFiles();
 
 		// success.jsp 로 보낼 파일 이름 저장
@@ -118,7 +118,7 @@ public class TreviewCont {
 		}//if end
 		rep.addAttribute("files", fileNames);
 		*/
-		
+		System.out.println(dto);
 		int cnt=dao.create(dto);
 		
 		if(cnt==0) {
