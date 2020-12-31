@@ -84,14 +84,17 @@ select * from review;
 --4)프로모션
 create table Tpromotion(
     Tbno            NUMBER          NOT NULL    --글번호  
-    ,Timage_name    VARCHAR2(250)   NOT NULL    --업체사진이름     
+    ,Timage_name    VARCHAR2(250)   NOT NULL    --업체사진이름(리스트 이미지)     
     ,Timage_size    NUMBER          NOT NULL    --업체사진사이즈
+    ,Timage_name2   VARCHAR2(250)   NOT NULL    --업체사진이름(상세보기 이미지)     
+    ,Timage_size2   NUMBER          NOT NULL    --업체사진사이즈   
     ,Tregion        VARCHAR(30)     NOT NULL    --지역(강릉,동해,삼척,속초)
     ,Tsubject       VARCHAR   (60)  NOT NULL    --글제목
     ,Twdate         DATE            NOT NULL    --작성일
     ,Ttime          DATE            NOT NULL    --게시기간
     ,Tnum           NUMBER          NOT NULL    --사업자번호
-    ,Twrter         VARCHAR   (20)  NOT NULL    --작성자
+    ,Twriter        VARCHAR   (20)  NOT NULL    --작성자
+    ,Ticon         VARCHAR(30)      NOT NULL   --아이콘(숙소,음식점, 액티비티)
     ,PRIMARY KEY(Tbno)
 );
 
@@ -143,13 +146,17 @@ values('member','123456','회원','010-6886-4885','emeber@naver.com',02682,'서�
 select * from Tmember;
 
 --7)예약
-create table reserve(
+create table Treserve(
     resid        VARCHAR(20) NOT NULL   --아이디
     ,resdate     DATE        NOT NULL   --예약날짜
     ,resbno      NUMBER      NOT NULL   --사업자번호
-    ,ressub      VARCHAR(60) NOT NULL   --글제목
-    ,result      VARCHAR(20) NOT NULL   --결과(예약대기,예약완료,예약실패)
-    ,PRIMARY KEY(resid)
+    ,ressub      VARCHAR(60) NOT NULL   --글제목    
+    ,result      VARCHAR(20) default '예약대기'  --결과(예약대기,예약완료,예약실패)
+    ,resnum   NUMBER      NOT NULL  --번호비교
+    ,resregion   VARCHAR(30) NOT NULL    --지역(강릉,동해,삼척,속초)
+    ,resicon      VARCHAR(30) NOT NULL    --아이콘(여행지,맛집,숙소,축제)
+    ,resimage_name    VARCHAR2(250)   NOT NULL    --업체사진이름     
+    ,resimage_size    NUMBER          NOT NULL    --업체사진사이즈
 );
 
 insert into reserve(resid,resdate,resbno,ressub,result)

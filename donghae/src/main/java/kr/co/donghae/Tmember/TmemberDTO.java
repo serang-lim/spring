@@ -14,7 +14,7 @@ public class TmemberDTO {
 	private String Mdate;
 	
 public TmemberDTO() {
-	System.out.println("---객체생성---");
+	System.out.println("---DTO객체생성---");
 }
 	
 	public String getMid() {

@@ -52,12 +52,12 @@
       <tr>
          <td rowspan="3" align="center">
          ${sessionScope.memid} 님이 방문하셨습니다.
-         <form method="post" action="./logout.do">
+         <form method="post" action="./Tlogout.do">
             <input type="submit" value="로그아웃">
          </form>
          
-         <form method="post" action="./ModifyCheck.do">
-            <input type="hidden" name="id" value="${sessionScope.memid}">
+         <form method="post" action="./Tmodifycheck.do">
+            <input type="hidden" name="Mid" value="${sessionScope.memid}">
             <input type="submit" value="회원정보변경">
          </form>
          

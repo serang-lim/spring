@@ -5,27 +5,27 @@
 
 <!-- 본문 시작 TmemberForm.jsp-->
 
-<h2 align='center'>* 회/원/가/입 *<br><br>
+<h2 align='center'>* 회/원/가/입 *</h2><br><br>
 
-<form name="Tmemfrm" id="memfrm" 
+<form name="Tmemfrm" id="Tmemfrm" 
 
 	  method="post"
 
-	  action="../TmemberProc.do" 
+	  action="../Tmember/TmemberPro.do" 
 
 	  onsubmit="return memberCheck()"><!-- myscript.js -->
 
-<span style="color:red; font-weight: bold">* 필수입력</span>
+<h3 style="color:red; font-weight: bold" align="center">* 필수입력 *</h3>
 
 <br>
 
-<table class="table">
+<table class="table" >
 
 <tr>
 
 	<th>*아이디</th>
 
-	<td>
+	<td >
 
       <input type="text" name="Mid" id="Mid" size="15"  readonly>
 
@@ -39,7 +39,7 @@
 
 	<th>*비밀번호</th>
 
-	<td><input type="password" name="Mpasswd" id="passwd" size="15" required></td>
+	<td><input type="password" name="Mpasswd" id="Mpasswd" size="15" required></td>
 
 </tr>
 
@@ -113,6 +113,13 @@
 
 <tr>  
 
+  <th>사업자번호</th>
+
+  <td><input type="text" name="Mnum" id="Mnum" size="45"></td>
+
+</tr>
+<tr>  
+
   <th>회원분류</th>
 
   <td><select name="Mlevel"  id="Mlevel">
@@ -132,7 +139,7 @@
 
 <tr>
 
-	<td colspan="2">
+	<td colspan="2" align="center">
 
 		<input type="submit" value="회원가입"  class="btn btn-primary"/>
 
@@ -147,14 +154,14 @@
  
 
 <!-- ----- DAUM 우편번호 API 시작 ----- -->
-<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 110px;position:relative">
+<div id="Mwrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 110px;position:relative">
   <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 </div>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     // 우편번호 찾기 화면을 넣을 element
-    var element_wrap = document.getElementById('wrap');
+    var element_wrap = document.getElementById('Mwrap');
 
     function foldDaumPostcode() {
         // iframe을 넣은 element를 안보이게 한다.
@@ -188,8 +195,8 @@
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('zipcode').value = data.zonecode; //5자리 새우편번호 사용
-                document.getElementById('address1').value = fullAddr;
+                document.getElementById('Mzipcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('Maddress1').value = fullAddr;
 
                 // iframe을 넣은 element를 안보이게 한다.
                 // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
@@ -198,7 +205,7 @@
                 // 우편번호 찾기 화면이 보이기 이전으로 scroll 위치를 되돌린다.
                 document.body.scrollTop = currentScroll;
                 
-                $('#address2').focus();
+                $('#Maddress2').focus();
             },
             // 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
             onresize : function(size) {
@@ -211,6 +218,87 @@
         // iframe을 넣은 element를 보이게 한다.
         element_wrap.style.display = 'block';
     }
+    function memberCheck(){
+    	//회원가입 유효성검사
+    	//1)아이디 5~10글자 인지
+    	var id=document.getElementById("Mid").value; //작성자 가져오기
+    	id=id.trim();		//좌우 공백 제거하기
+    	if(!(mid.length>=5 && mid.length<=10)){
+    		alert("id 5~10글자 이내");
+    		document.getElementById("Mid").focus();
+    		return false;		//전송하지 않음
+    	}//if end
+
+    	//2)비밀번호 5~10글자 인지
+    	var passwd=document.getElementById("Mpasswd").value;
+    	passwd=passwd.trim();
+    	if(!(passwd.length>=5 && passwd.length<=10)){
+    		alert("비밀번호 5~10글자이내");
+    		document.getElementById("Mpasswd").focus();
+    		return false;
+    	}//if end
+
+    	//3)비밀번호와 비밀번호 확인이 서로 일치하는지
+    	var repasswd=document.getElementById("repasswd").value;
+        repasswd=repasswd.trim();
+       if(passwd!=repasswd){
+       alert("비밀번호와 비밀번호 확인이 같지 않습니다.");
+       document.getElementById("passwd").focus();      
+       return false;
+       }//if end
+       
+    	//4)이름 1~20글자 인지?
+    	var mname=document.getElementById("Mname").value;
+    	mname=mname.trim();
+    	if(!(mname.length>=1 && mname.length <=20)){
+    		alert("이름을 정확히 써주세요");
+    		document.getElementById("Mname").focus();
+    		return false;
+    	}
+    	//5)이메일 5글자 이상인지
+    	var email=document.getElementById("Memail").value;
+    	email=email.trim();
+    	if(email.length <=4){
+    		alert("5글자 이상 써주세요")
+    		document.getElementById("Memail").focus();
+    		return false;
+    	}
+    	//6)직업을 선택했는지?
+    	var job=document.getElementById("Mlevel").value;
+    	if(Mlevel=="0"){
+    		alert("직업 선택 요망");
+    		return false;
+    	}
+
+    	return true;
+    }//memberCheck end
+
+    function idCheck(){
+    	//id 중복확인
+    	
+    	//부트스트랩 모달창
+    	//https://www.w3schools.com/bootstrap/bootstrap.asp참조
+    	//->부모창과 자식창이 한몸으로 구성되어 있음
+
+    	//새창만들기
+    	//-> 부모창과 자식창이 별개로 구성되어있음
+    	//-> 모바일에 기반을 둔 frontend단에서는 사용하지 말것!!
+    	//window.open("파일명","새창이름","다양한옵션들")
+    	window.open("TidcheckForm.jsp"
+    				,"idwin"
+    				,"width=400, height=350");
+
+
+    }//idCheck end
+
+    function emailCheck(){
+    	
+    	window.open("TemailcheckForm.jsp"
+    				,"emailwin"
+    				,"width=400, height=350");
+    	
+    }//emailCheck end
+
 </script>
 <!-- ----- DAUM 우편번호 API 종료----- -->
 

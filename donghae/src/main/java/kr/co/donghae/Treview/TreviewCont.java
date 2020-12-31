@@ -45,6 +45,7 @@ public class TreviewCont {
 		System.out.println("---TreviewCont()객체 생성됨");
 	}// MediaCont() end
 
+//----------------------------------------------------------------------------------------	
 	@RequestMapping("Treview/Treview.do")
 	public ModelAndView list(TreviewDTO dto) {
 		ModelAndView mav = new ModelAndView();
@@ -53,7 +54,8 @@ public class TreviewCont {
 		mav.addObject("list", dao.list());
 		return mav;
 	}// list() end
-	
+
+//----------------------------------------------------------------------------------------	
 	@RequestMapping(value = "/Treview/read.do", method = RequestMethod.GET)
 	public ModelAndView read(int rnum, HttpServletRequest req) {
 		ModelAndView mav=new ModelAndView();
@@ -66,7 +68,8 @@ public class TreviewCont {
 		
 		return mav;
 	}//read() end
-
+	
+//----------------------------------------------------------------------------------------
 	@RequestMapping(value = "Treview/createrform.do", method = RequestMethod.GET)
 	public String createForm() {
 		return "Treview/Treviewcreate";
@@ -141,7 +144,7 @@ public class TreviewCont {
 		
 	}//createProc() end
 	
-	
+//----------------------------------------------------------------------------------------	
 	@RequestMapping(value="Treview/updateform.do", method = RequestMethod.GET)
 	   public ModelAndView updateForm(TreviewDTO dto) {
 	      ModelAndView mav = new ModelAndView();
@@ -194,7 +197,8 @@ public class TreviewCont {
 		
 		return mav;
 	}//updateProc() end
-	
+
+//----------------------------------------------------------------------------------------	
 	@RequestMapping(value="Treview/delete.do", method = RequestMethod.GET)
 	public ModelAndView deleteForm(TreviewDTO dto) {
 		ModelAndView mav = new ModelAndView();
@@ -204,7 +208,8 @@ public class TreviewCont {
 		mav.addObject("dto", dao.read(dto.getRnum()));
 		return mav;
 	}//deleteForm() end
-	
+
+//----------------------------------------------------------------------------------------	
 	@RequestMapping(value="Treview/delete.do", method = RequestMethod.POST)
 	public ModelAndView deleteProc(TreviewDTO dto, HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
@@ -242,7 +247,8 @@ public class TreviewCont {
 	      mav.addObject("list", dao.list2(col, word));
 	      return mav;
 	   }// list2() end
-	
+
+//----------------------------------------------------------------------------------------	
 	// 게시물 목록 + 페이징 추가
 	@RequestMapping(value = "Treview/listpage.do", method = RequestMethod.GET)
 	public void getListPage(Model model) throws Exception {
@@ -252,4 +258,32 @@ public class TreviewCont {
 	 model.addAttribute("list", list);   
 	}//getListPage end
 	
+//----------------------------------------------------------------------------------------	
+	@RequestMapping(value = "/progress2")
+	public ModelAndView progress2(Model model) {
+		ModelAndView mv = new ModelAndView("/test/progress2");
+		return mv;
+	}
+
+	@RequestMapping("/fileUpload")
+	public void fileUpload(MultipartHttpServletRequest multipartHttpServletRequest) throws IOException {
+		//파일경로
+		String filePath ="D:\\Upload\\";
+		
+		//파일들을 List형식으로 보관
+		List<MultipartFile> files = multipartHttpServletRequest.getFiles("files");
+		
+		File file = new File(filePath);
+		//파일이 없다면 디렉토리를 생성
+		if (file.exists() == false) {
+			file.mkdirs();
+		}
+		
+		for (int i = 0; i < files.size(); i++) {
+			System.out.println(files.get(i).getOriginalFilename() +" 업로드");
+			//파일 업로드 소스 여기에 삽입
+			file = new File(filePath+files.get(i).getOriginalFilename());
+			files.get(i).transferTo(file);	
+		}		
+	}
 }// class end
