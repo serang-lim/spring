@@ -14,6 +14,10 @@ create table Tmember(
     ,PRIMARY KEY(Mid)
 );
 
+insert into tmember(Mid,Mpasswd,Mname,Memail,Mlevel,Mdate
+values('serang','tpfkd','임세랑','tpfkd22@naver.com','A1',sysdate);
+
+
 --신애언니
 create table Tpromotion(
     Tbno            NUMBER          NOT NULL    --글번호  

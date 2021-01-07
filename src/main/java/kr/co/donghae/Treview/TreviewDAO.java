@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,9 +29,9 @@ public class TreviewDAO {
 
       public TreviewDAO() {
          System.out.println("---TreviewDAO() 객체 생성됨...");
-      }//MediaDAO() end
+      }//TreviewDAO() end
       
-      
+    //---------------------------------------------------------------------------------------------    
       public int seqselect() {
     	  int seq=0;
           TreviewDTO dto=new TreviewDTO();
@@ -54,14 +55,8 @@ public class TreviewDAO {
               DBClose.close(con,pstmt,rs);
            }//end
     	  
-    	  
-    	  
-    	  
     	  return seq;
-      }
-      
-      
-      
+      }//seqselect() end
       
       public int create(TreviewDTO dto) { //쓰기
          int cnt=0;
@@ -107,7 +102,9 @@ public class TreviewDAO {
              }
               return cnt;
        }//create() end
-       
+     
+    //---------------------------------------------------------------------------------------------
+      
       public ArrayList<TreviewDTO> list(){ //목록
          ArrayList<TreviewDTO> list = null;
          try {
@@ -142,10 +139,17 @@ public class TreviewDAO {
          return list;
       }//list() end
       
+    //---------------------------------------------------------------------------------------------    
       public TreviewDTO read(int rnum) { //상세보기
          TreviewDTO dto = null;
          try {
                  con=dbopen.getConnection();
+                 sql=new StringBuilder();
+                 sql.append(" UPDATE review SET Rreadcnt=Rreadcnt+1 WHERE rnum=?");
+                 pstmt=con.prepareStatement(sql.toString());
+                 pstmt.setInt(1, rnum);
+                 pstmt.executeUpdate();
+                 
                  sql=new StringBuilder();
                  sql.append(" SELECT Rnum, Rsubject, Rcontent, Rregion, Rid, Rdate, Rreadcnt");
                  sql.append(" FROM review");
@@ -173,6 +177,9 @@ public class TreviewDAO {
               }//end
               return dto;
       }//read() end
+      
+    //---------------------------------------------------------------------------------------------     
+      
       public ArrayList<TreviewFileDTO> fread(int rnum){ //목록
           ArrayList<TreviewFileDTO> list = null;
           try {
@@ -206,6 +213,9 @@ public class TreviewDAO {
           } // end
           return list;
        }//list() end
+      
+    //---------------------------------------------------------------------------------------------
+      
       public int update(TreviewDTO dto) { 
          int cnt=0;
          try {
@@ -228,6 +238,8 @@ public class TreviewDAO {
                }//end
                return cnt;
       }//update() end
+    
+    //---------------------------------------------------------------------------------------------
       
       public int delete(int rnum) {
          int cnt=0;
@@ -246,6 +258,7 @@ public class TreviewDAO {
                }//end
                return cnt;
       }//delete() end
+      
       public int fdelete(int rnum) {
           int cnt=0;
           try {
@@ -322,7 +335,7 @@ public class TreviewDAO {
             
             return list;
          }//list() end
-   
+    //---------------------------------------------------------------------------------------------  
    //글갯수 구하기 
       public int getArticleCount() {
             int x=0;
@@ -339,13 +352,9 @@ public class TreviewDAO {
             
             }finally {
                DBClose.close(con, pstmt, rs);
-               
             }//end
-            
             return x;
-            
          }//getArticleCount() end
-      
       
       //글목록 구하기 
       public List<TreviewDTO> getArticles(int start, int end) throws Exception{
@@ -435,10 +444,4 @@ public class TreviewDAO {
          
       }//getArticle() end
       
-      //사진 저장하기 
-      
-            
-       
-            
-   
 }//class end

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <%@ include file="../header.jsp"%>
+<script src="../js/treviewscript.js"></script>
   
 <!-- 본 문 시 작 TreviewcreateFrom -->
    <form name='updatefrm' method="post" action="update.do"
@@ -20,10 +21,6 @@
 	   <td><input type="password" name="rpasswd"></td>
 	</tr>
 	<tr>
-	   <th>첨부파일</th>
-	   <td><input type="file" name="photonameMF" multiple size='50'></td>
-	</tr>
-	<tr>
 	   <th>지역</th>
 	   <td>
 	   <select name="rregion"  id="rregion">
@@ -39,15 +36,18 @@
 	   <th>내용</th>
 	   <td><input type="text" name="rcontent" rows="5" cols="30" value="${dto.rcontent }"></td>
 	</tr>
-	
-	
+	<tr>
+	   <th>첨부파일</th>
+	   <td><input type="file" name="photonameMF" multiple size='50'></td>
+	</tr>
+	</table>
+	<br>
+	<p align="center">
 	<td colspan='2'>
       <input type="submit"  value="등록">
       <input type="button" value="목록" onclick="location.href='Treview.do'">
-      <input type="button" value="HOME" onclick="location.href=${root}/home.do'">
-	</table>
-</form>
-	
+      </p><br>
+	</form>
 
 <!-- 본 문 끝 !! -->
 <%@ include file="../footer.jsp"%>
