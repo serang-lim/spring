@@ -1,0 +1,134 @@
+--3)후기
+create table review(
+     Rnum            NUMBER          NOT NULL     --글번호 
+    ,Rsubject        VARCHAR   (60)  NOT NULL     --제목 
+    ,Rcontent        VARCHAR2(4000)  NOT NULL     --내용
+    ,Rpasswd		 VARCHAR2(10)    NOT NULL	  --글비밀번호
+    ,Rphoto_name     VARCHAR2(250)                --사진이름
+    ,Rphoto_size     NUMBER                       --사진크기
+    ,Rregion         VARCHAR(30)                  --지역(강릉,동해,삼척,속초)
+    ,Rid             VARCHAR   (20)  NOT NULL     --작성자 
+    ,Rdate           DATE            NOT NULL     --작성일
+    ,Rreadcnt        NUMBER          default 0    --조회수
+    ,PRIMARY KEY(Rnum)
+);
+
+create sequence Rnum_seq;
+
+insert into review(Rnum,Rsubject,Rcontent,Rpasswd,Rphoto_name,Rphoto_size,Rregion,Rid,Rdate)
+values(Rnum_seq.nextval,'강릉가즈아','강릉재밌어요','1234','image.png',23548,'강릉','삼시세깡',sysdate);
+
+select * from review;
+
+create table treviewfile(
+	fileNum NUMBER
+	,imgnum NUMBER NOT NULL
+	,fileName VARCHAR2(4000)
+	,realName VARCHAR2(4000)
+	,filesize NUMBER
+	,rnum NUMBER FOREIGN KEY REFERENCES NOT NULL
+	,PRIMARY KEY(imgnum)
+);
+
+create sequence imgnum_seq;
+insert into review(Rnum, imagnum, realname);
+----------------------------------------------------------------------------------------
+
+--3)후기
+create table Sreview(
+     snum            NUMBER          NOT NULL     --글번호 
+    ,ssubject        VARCHAR   (60)  NOT NULL     --제목 
+    ,scontent        VARCHAR2(4000)  NOT NULL     --내용
+    ,spasswd		 VARCHAR2(10)    NOT NULL	  --글비밀번호
+    ,sphoto_name     VARCHAR2(250)                --사진이름
+    ,sphoto_size     NUMBER                       --사진크기
+    ,sregion         VARCHAR(30)                  --지역(강릉,동해,삼척,속초)
+    ,sid             VARCHAR   (20)  NOT NULL     --작성자 
+    ,sdate           DATE            NOT NULL     --작성일
+    ,sreadcnt        NUMBER          default 0    --조회수
+    ,PRIMARY KEY(snum)
+);
+
+create sequence snum_seq;
+
+insert into sreview(snum, ssubject, scontent, spasswd, sphoto_name, sphoto_size, sregion, sid, sdate)
+values(snum_seq.nextval,'강릉가즈아','강릉재밌어요','1234','image.png',23548,'강릉','삼시세깡',sysdate);
+
+select * from sreview;
+
+SELECT sreadcnt, snum, ssubject, sregion, sid, sdate
+FROM Sreview
+ORDER BY snum DESC
+
+SELECT snum, ssubject, scontent, sregion, sid, sdate, sreadcnt, sphoto_name, sphoto_size
+FROM Sreview
+WHERE snum=?
+
+UPDATE sreview
+SET ssubject=?, scontent=?, sphoto_name=?, sphoto_size=?, sregion=?, spasswd=?
+WHERE snum=?
+
+DELETE FROM sreview
+WHERE snum=?
+
+SELECT count(*) FROM sreview
+
+UPDATE sreview SET sreadcnt=sreadcnt+1 WHERE snum=?
+
+----------------------------------------------------------------------------------------
+
+    <!-- 파일 리스트 -->
+    <select id="TreviewFileList" resulttype="kr.co.mybatis.treview.TreviewFileDTO">
+      <![CDATA[
+    select * from treviewfile
+    where rnum = #{rnum}
+    order by FileNum asc
+    </select>
+     ]]>
+     
+    <!-- 파일 삭제 -->
+    <delete id="deleteTreviewFile" parametertype="hashmap">  
+      <![CDATA[
+    delete
+    from treviewfile
+    where FileNum in (
+        <foreach item="item" index="index" collection="fileNum" separator=",">
+            ${item}
+        </foreach>
+        )
+      ]]>  
+    </delete>
+    
+    <!-- 페이징 + 검색처리된 게시물 조회(게시판 전체) -->
+    <sql id="testing">
+    <if test="searchType != null">
+        <if test="searchType == 't'.toString()">
+        where Title like CONCAT("%", #{keyword} ,"%") 
+        </if>
+        <if test="searchType == 'w'.toString()">
+        where Writer like CONCAT("%", #{keyword} ,"%")
+        </if>
+    </if>   
+    </sql>
+     
+    <select id="listNotice" resulttype="kr.co.mybatis.treview.TreviewDTO" parametertype="searchCriteria">
+      <![CDATA[
+    SELECT
+    nb.*, 
+    nbf.FileNum,
+    IF(DATE_SUB(NOW(), INTERVAL 7 DAY) <= nb.regDate, 1, 0) AS icon
+    FROM review nb
+    LEFT JOIN treviewfile nbf ON (nb.rnum = nbf.rnum) 
+         
+    order by nb.rnum DESC
+    limit #{pageStart}, #{perPageNum}
+    	]]>
+    </select>
+ 
+    <!-- 검색 결과 게시물 총 갯수 계산 -->
+    <select id="NoticeCount" resulttype="int" parametertype="searchCriteria">
+      <![CDATA[
+    SELECT COUNT(*) FROM review nb
+    LEFT JOIN treviewfile nbf ON (nb.rnum = nbf.rnum)
+     ]]>
+    </select>

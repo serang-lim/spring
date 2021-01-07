@@ -1,0 +1,794 @@
+@charset "utf-8";
+
+
+@media all and (max-width:1200px) {
+
+/*sub01_css*/
+
+/*01*/
+#sub_cont section.sub_visual .tite{width:92%; padding:16% 0 0 8%;}
+#sub_cont section#cont article.sub_wrap{width:64.286em;}
+#sub_cont section#cont article.sub_wrap nav.depth{ top:-4%;; left:0; width:100%;}
+#sub_cont section#cont article.sub_wrap nav.depth ul li{width:33.3%;}
+
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd{width:23%; margin-right:2%; height:20rem; overflow:hidden;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.ico{width:58%; padding:5%; margin:0 auto;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.ico img{width:100%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box p.num{width:1.875em; height:1.875em; line-height:1.875em; font-size:1.2rem; letter-spacing:-0.08rem; top:1%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box h4{font-size:1.3rem;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box p.ctxt{font-size:1rem; line-height:150%;}
+
+#sub_cont section#sub_map article.map_wrap{width:64.286em;}
+#sub_cont section#sub_map article.map_wrap .container ul.tab li{width:33.3%;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .map{width:57.3%;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .map img{width:100%;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box{width:36%; height:auto;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd{width:31.3%; margin:0 2% 5% 0; overflow:hidden;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd:nth-child(3n){margin: 0 0 5% 0;}
+
+#sub_cont section#hotel_search article.wrap{width:64.286em;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd:hover::after{width:100%; height:100%;}
+
+/*02*/
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd{width:30.3%; margin-right:3%; height:21.4rem;}
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd div.ico{width:45%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd::after{right:-11%;}
+
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd .reserv_btn{bottom:-25%; left:24%; width:50%;}
+
+#sub_cont section#delevery_time article.wrap{width:64.286em;}
+#sub_cont section#delevery_area article.wrap{width:64.286em;}
+#sub_cont section#delevery_area article.wrap dl.area_box dd .ibox img{width:100%;}
+
+/*03*/
+#sub_cont section#charge_box article.wrap{width:64.286em;}
+#sub_cont section#charge_box article.wrap dl.box dd{width:31.3%; margin:0 2% 2% 0;}
+#sub_cont section#charge_box article.wrap dl.box dd:nth-child(3n){margin-right:0;}
+#sub_cont section#charge_box article.wrap dl.box dd:nth-child(4n){margin-right:2%;}
+
+
+
+/*딜리버리시간*/
+#delevery_box .ani{background-size:contain;}
+
+#sub_cont section#delevery_fee article.wrap{width:64.286em;}
+#sub_cont section#delevery_fee article.wrap .ibox{left:4%;}
+#sub_cont section#delevery_fee article.wrap .tbox{left:48%;}
+
+
+/*sub02_css*/
+.reserv_wrap .left_box{float:none; width:94%;}
+.reserv_wrap .right_box{float:none; width:100%; border-left:none; height:auto; min-height:auto;}
+.reserv_wrap .right_box .tite{border-top:solid 1px #ddd;}
+
+.content ul li p.tit{display:inline-block;}
+.content ul li p.data{display:inline-block; padding-right:2%;}
+
+.reserv_txt{width:94%; margin:0; padding:3%; }
+.reserv_txt span{display:inline-block;}
+
+/*숙소검색_pop*/
+.popup-inner{width:74%; height:53%;}
+
+
+/*고객정보입력*/
+.package-item dl dd{width:33%;}
+
+.right_box{position:relative;}
+.reserv_wrap .right_box .step2-img{padding: 0 2% 0 6%}
+.right_box .step2-txt{width:50%; position:absolute; top:20%; left:43%; border-top:none; font-size:1.5rem; line-height:180%;}
+.right_box .step2-txt span{display:block;}
+
+
+/*본인인증*/
+.memb-auth{width:38%; height:65%;}
+
+/*짐캐리 서비스 이용약관*/
+.scroll-box{height:35rem; font-size:1.3rem; word-break:keep-all; line-height:160%;}
+
+
+}
+
+@media all and (max-width:1000px) {
+/*sub01_css*/
+#sub_cont section.sub_visual, #sub_cont section.bg2{display:none;}
+.mdepth2{display:none;}
+
+/*01*/
+#sub_cont section.sub_visual, #sub_cont section.bg2, #sub_cont section.bg3{height:16.429em;}
+#sub_cont section.sub_visual .tite{font-size:2.143em; line-height:1.429em; letter-spacing:-0.036em; width:92%;}
+
+#sub_cont section#cont article.sub_wrap{width:100%;}
+#sub_cont section#cont article.sub_wrap nav.depth{position:static; top:0; left:0;}
+#sub_cont section#cont article.sub_wrap nav.depth ul{border-radius:0; border:none; border-bottom:solid 1px #ddd; border-top:solid 1px #ddd; font-size:1.143em;}
+#sub_cont section#cont article.sub_wrap nav.depth ul li{width:33.3%;}
+#sub_cont section#cont article.sub_wrap nav.navi{display:none;}
+#sub_cont section#cont article.sub_wrap h2{font-size:2.000em; letter-spacing:-0.036em; padding:0% 0% 5% 0%; margin:10% 5% 0% 5%; text-align:left;}
+
+#sub_cont section#cont article.sub_wrap .wrap{margin:7%;}
+#sub_cont section#cont article.sub_wrap .wrap h4{font-size:1.714em; line-height:3.571em;}
+#sub_cont section#cont article.sub_wrap .wrap p.txt{font-size:1.286em; line-height:1.786em; letter-spacing:-0.036em;}
+
+#sub_cont section#cont article.sub_wrap .wrap dl.box{overflow:hidden;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd{width:100%; height: auto; margin-right:5%; margin-bottom:5%}
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd:nth-child(2n){margin-bottom:20%;}
+
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.ico{float:left; width:26%; padding:3% 2%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.ico img{width:100%;}
+
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box{float:left; width:54%; padding:6% 0 14% 16%; text-align:left;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box p.num{font-size:1.000em; width:1.714em; height:1.714em; line-height:1.714em; border-radius:1.714em; top:23%; left:11%; text-align:center; padding:1%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box h4{font-size: 1.3rem; line-height:190%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box p.ctxt{font-size:1rem;}
+
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd .reserv_btn{bottom:-46%; width:100%; left:0; border-radius:1.429em 0;}
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd .reserv_btn a{padding:4%;}
+
+#sub_cont section#sub_map{padding:7% 0 0 0;}
+#sub_cont section#sub_map article.map_wrap{width:100%;}
+#sub_cont section#sub_map article.map_wrap h2{font-size: 1.714em;}
+#sub_cont section#sub_map article.map_wrap .container{padding:5% 0 0 0;}
+#sub_cont section#sub_map article.map_wrap .container ul.tab{border-radius:0;}
+#sub_cont section#sub_map article.map_wrap .container ul.tab li{width:33.3%; padding:4% 0; font-size:1.143em;}
+
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box{float:none; width:88%; padding:6%;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box h2{font-size:1.786em; padding:8% 0 2% 0;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box dl{margin:5% 0;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box dl dd{font-size:1.286em; line-height:190%;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box dl dd span{padding:1% 3%;}
+
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box .ibox{position:relative; width:100%; height:17.857em; overflow:hidden;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box .ibox img{position:absolute; top:-56%; left:0; width:100%;}
+
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .map{float:none; width:100%;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .map img{width:100%;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box p{padding:3%; font-size:1.143em; position:relative; bottom:0; width:94%;}
+
+
+#sub_cont section#hotel_search{margin:7% 0;}
+#sub_cont section#hotel_search article.wrap{width:100%;}
+#sub_cont section#hotel_search fieldset input[type="search"]{width:55%; height:4.000em; font-size:1rem; padding:0 0 0 4%;}
+
+#sub_cont section#hotel_search article.wrap .hotel_list{width:90%; padding:5%;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl{margin:0;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd{width:48%; margin: 0 2% 5% 0; height: 33.571em;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd:hover::after{width:100%;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd:nth-child(2n){margin:0 0 5% 0;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd:nth-child(3){margin: 0 2% 5% 0 !important;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd:nth-child(3n){margin:auto;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .thumb{width:100%; background-size:cover;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box h2{font-size:1.429em;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box p{font-size:1.071em; line-height:150%;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .map_view{font-size:1.143em;}
+
+.control .prev{left:7%;}
+.control .next{right:7%;}
+
+
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd:first-child::after, #sub_cont section#cont article.sub_wrap .wrap dl.w33 dd:nth-child(2)::after{background:none;}
+
+/*02*/
+#sub_cont section#delevery_time article.wrap{width:100%; padding:7% 0;}
+#sub_cont section#delevery_time article.wrap h4{font-size: 1.714em; line-height: 3.571em;}
+
+#sub_cont section#delevery_area article.wrap{width:100%; margin:7% auto;}
+#sub_cont section#delevery_area article.wrap dl.area_box dd{width:33.3%;}
+#sub_cont section#delevery_area article.wrap dl.area_box dd .ibox::after{}
+#sub_cont section#delevery_area article.wrap dl.area_box dd .ibox p img{width:100%;}
+
+#sub_cont section#delevery_time article.wrap .delevery_box{padding:5%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd{overflow:visible;}
+
+/*딜리버리시간*/
+#delevery_box{margin-top:5%; margin-right:5%; margin-left:5%;}
+#delevery_box .ani{background: url("../images/img/deliver_cont3_img02_m.png") no-repeat 50% 100%; max-width:680px; height:228px; background-size: contain;}
+#delevery_box .ani:before{top:26%; left:-2%; background-size:85%;}
+
+
+#delevery_box .notice{width:100%; left:1%; top:-29%; margin-left:0;}
+#delevery_box .ani.on:before{left:75%;}
+#delevery_box .notice p{font-size: 1.4rem;}
+
+
+.delevery-select{width:95%;}
+.select-selected{font-size:1rem; padding:4% 8%;}
+.select-items div{font-size:1rem;}
+
+#sub_cont section#delevery_area article.wrap h4{font-size: 1.714em; line-height: 3.571em;}
+#sub_cont section#delevery_fee article.wrap{width:100%;}
+#sub_cont section#delevery_area article.wrap dl.area_box{margin:7% 5%;}
+#sub_cont section#delevery_area article.wrap dl.area_box dd .tbox{font-size:1.3rem;}
+
+#sub_cont section#delevery_fee{background-position:35% 50%; height:auto; background-size:cover;}
+#sub_cont section#delevery_fee article.wrap .ibox{width:20%; left:14%;}
+#sub_cont section#delevery_fee article.wrap .ibox img{width:100%;}
+
+#sub_cont section#delevery_fee article.wrap .tbox{width:45%; left:43%;}
+#sub_cont section#delevery_fee article.wrap .tbox h2{font-size:1.6rem; letter-spacing:-0.08rem;}
+#sub_cont section#delevery_fee article.wrap .tbox dl{width:99%;}
+#sub_cont section#delevery_fee article.wrap .tbox dl dd span{width:49%; padding:4%;}
+#sub_cont section#delevery_fee article.wrap .etc_txt{font-size:1.2rem;}
+
+
+/*03*/
+#sub_cont section.bg3{background-position:66% 50%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.mb dd:nth-child(2n){margin-bottom:5% !important;}
+#sub_cont section#charge_box article.wrap{width:100%;}
+
+#sub_cont section#charge_box article.wrap{width:90%; margin:5%;}
+#sub_cont section#charge_box article.wrap dl.box dd{width:49%; margin: 0 2% 2% 0;}
+#sub_cont section#charge_box article.wrap dl.box dd:nth-child(2n){margin:0 0 2% 0 !important;}
+#sub_cont section#charge_box article.wrap dl.box dd:nth-child(3n){margin-right:2%;}
+
+#sub_cont section#charge_box article.wrap dl.box dd .ibox{width:80%; margin:0 auto;}
+#sub_cont section#charge_box article.wrap dl.box dd .ibox img{width:100%;}
+
+#sub_cont section#charge_box article.wrap dl.box dd .tbox h5{font-size:1.5rem;}
+#sub_cont section#charge_box article.wrap dl.box dd .tbox p{font-size:1rem;}
+
+#sub_cont section#charge_box article.wrap dl.box2 dd{width:100%; float:none; overflow:hidden; margin:0 0 2% 0;}
+#sub_cont section#charge_box article.wrap dl.box2 dd div.img{width:33%;}
+#sub_cont section#charge_box article.wrap dl.box2 dd div.img img{width:100%;}
+
+#sub_cont section#charge_box article.wrap dl.box2 dd div.txt{font-size:1.3rem; padding:14% 0 0 2%;}
+
+/*sub02_css*/
+dl.step_list{height:auto; border:none;}
+
+dl.step_list dd.on{display:block; text-align:left; padding-left:6%;}
+dl.step_list dd{width:100%; font-size:1.2rem; letter-spacing:-0.05rem; font-weight:600; display:none;}
+
+dl.step_list dd.on{text-align:center; padding-left:0; background-color:#f7b618; border-radius:25px; color:#fff; margin-bottom:3%;}
+dl.step_list dd.on::after{background:none;}
+
+.reserv_wrap{height:auto; border:none;}
+.reserv_wrap h3{font-size:1.2rem;}
+.reserv_wrap .left_box{float:none; /*width:94%; padding:3%;*/ width:100%; padding:0;}
+.reserv_wrap .right_box{float:none; width:100%; border:solid 1px #ddd;}
+.reserv_wrap .right_box .tite{border-top:none;}
+.reserv_wrap .left_box fieldset{margin:0 0 3% 0;}
+.reserv_wrap .left_box .delevery-select{width:100%; margin-right:0;}
+.reserv_wrap .left_box input[type="radio"] + label{width:49%; text-align:center; line-height:69px;}
+
+.reserv_box .box1{width:100%; float:none;}
+.reserv_box .box2{width:100%; float:none;}
+
+.box1 .select-selected, .box2 .select-selected{margin-bottom:0;}
+
+.btn_wrap{text-align:center; margin:8% 0;}
+.air_box, .hotel_box{margin:3% 0;}
+
+.hotel_box .btn-title i{width:4rem; font-size:1rem;}
+.hotel_box input[type='text']{width:100%; padding-left:6%;}
+
+.reserv_box1{width:100%;}
+.reserv_box1 fieldset{margin-right:0; width:100%;}
+
+.reserv_wrap .left_box .reserv_box1 .delevery-select .select-selected{width:100%;}
+.time_box .select-items{width:138%;}
+.reserv_wrap .left_box .time_box{width:32%; margin-top:3%; margin-right:17%;}
+.reserv_wrap .left_box .time_ico::after{top:40%; right:-50%;}
+
+.time_txt{font-size:1rem; margin-top:5%; margin-bottom:5%; line-height:160%;}
+
+.reserv_wrap .right_box{height:auto; border-bottom:solid 1px #ddd;}
+.reserv_txt{width:90%; margin:5%; font-size:1.1rem; line-height:1.8rem;}
+
+/*숙소검색_popup*/
+.popup-inner{width:88%; height:49rem; overflow:hidden;}
+.popup-close{font-size:1.8rem; width:7%;}
+.popup-close img{width:100%;}
+
+.popup #sub_cont section#hotel_search{margin:7% 0; overflow:hidden;}
+.popup #sub_cont section#hotel_search article.wrap fieldset button{top:20%; right:15%;}
+
+.popup #sub_cont section#hotel_search article.wrap .hotel_list{width:100%; padding:0;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl{width:100%; margin:6% 0 2% 0;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd{width:93%; margin:0 0 5% 0; height:auto; padding:3%;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd:hover::after{content:""; height:100%;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box{width:56%; float:left; padding: 0 0 0 4%; text-align:left;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .thumb{width:40%; float:left; height:192px;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .map_view{left:45%;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .sale{width:25%;}
+
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box h2{font-size:1.733em; margin:0;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box p{font-size:1.2rem;}
+
+.popup .control .prev{left:2%;}
+.popup .control .next{right:2%}
+
+
+/*고객정보입력*/
+.user-form fieldset{width:100%;}
+.user-form fieldset.frm-input{margin-bottom:3%;}
+button.user-identity{position:static; width:100%; height:60px;}
+
+.user-form .in-under{float:none; width:100%;}
+.package-item p{letter-spacing:-0.05rem; line-height:150%; margin:0 0 4% 0;}
+
+.user-form .in-more{width:100%; margin-bottom:6%;}
+.quantity{width:100%;}
+.quantity input{width:100%;}
+.user-form .in-under h5, .user-form .in-more h5{font-size:1.2rem; padding:3% 0 5% 0;}
+
+.reserv_wrap .right_box .step2-img{width:44%; margin:0 auto; padding:0;}
+.reserv_wrap .right_box .step2-img img{width:100%;}
+
+.package-item dl dd{width:24%; margin-right:1%; /*border-bottom:dashed 1px #ddd;*/ padding-bottom:7%;}
+.package-item dl dd:nth-child(4n){border-bottom:none; margin-right:0;}
+
+.package-item dl dd .check-box{padding:5% 0;}
+.package-item dl dd .thumb{/*margin:0 auto;*/}
+.package-item dl dd .quantity, .package-item dl dd .quantity input{/*margin:0 auto;*/}
+
+.memb-auth{padding:5%; /*height:44rem;*/}
+.terms_use{height:49rem; width:88%; overflow:hidden;}
+.popup-contents ul{padding:3%; margin:4% 0;}
+.popup-contents ul li{font-size:1rem;}
+.popup-contents .send_auth_btn a.send_btn{padding:5% 0; margin:3% auto; font-size:1rem;}
+
+.user-form fieldset input[type="text"]{width:59%;}
+.user-form fieldset.send-input label{left:0;}
+.user-form fieldset.send-input label:after{left:93px;}
+.user-form fieldset.send-input{padding: 0px 0 0 100px;}
+
+.popup-contents .send_auth_btn a.send_btn{width:100%;}
+.popup-contents .close_btn a{width:100%; margin:2% auto; padding:5% 0;}
+
+.right_box .step2-txt{position: static; width:89%; font-size:1.1rem;}
+
+
+/*예약확인 및 결제*/
+.reserv_confirm{padding:0;}
+.reserv_confirm dl.confirm-box{padding:3%;}
+.reserv_confirm dl.confirm-box dd {font-size: 1.1rem; letter-spacing: -0.05rem;}
+.reserv_confirm dl.confirm-box dd span{width:40%;}
+.reserv_confirm dl.confirm-box dd span.data{width:59%; padding-left:46px !important;}
+
+.reserv_confirm dl.confirm-box dd span.code{display:block; padding-left: 0; margin:2% 0;}
+.reserv_confirm dl.confirm-box dd span.code input[type="text"]{width:98%;}
+.reserv_confirm dl.confirm-box dd .sale_coupon{top:53%; left:53%; height:3.45rem;}
+
+.pay-box{padding:3%; margin-bottom:3%;}
+.pay-box label{width:49%; margin-bottom:1.5%;}
+.pay-box p{line-height:150%;}
+span.useful{display:block; margin:2% 0; text-align:center; margin:7% 0 0 0; background:#efefef; padding:5%;}
+
+
+/*짐캐리 서비스 이용약관*/
+.scroll-box{height:32rem; font-size:1rem;}
+.popup-contents h2.tite{font-size:1.4rem; padding-left:3%; margin:2% 0;}
+
+/*조회하기*/
+#reserv_page{padding:5% 0; min-height:auto;}
+
+
+/*sub03_css*/
+dl.event_list{width:100%; float:none; margin:0 0 10% 0;}
+dl.event_list dd.item{width:97%; margin:0 0 6% 0; box-shadow:0.4rem 0.4rem 0.5rem 0px rgba(119,119,119,0.1); border:solid 1px #ddd; box-sizing:border-box; max-width:100%;}
+dl.event_list dd.item .thumb{float:left; padding-top:46%; width:46%; border-right:solid 1px #ddd; box-sizing:border-box;}
+dl.event_list dd.item .box{float:left; width:54%; padding:0;}
+
+dl.event_list dd.item .box h4{font-size:2rem !important; padding:0 !important; margin:13% 0 3% 0; line-height: 3rem !important;}
+dl.event_list dd.item div.event_ico{padding:2% 3%; font-size:1rem;}
+dl.event_list dd.item .box p.data{font-size:1.2rem; letter-spacing:-0.07rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; background-position:9% 50%; background-size:1rem; padding-left: 9%;}
+dl.event_list dd.item .box p.btn{padding:6% 0; margin-top:8%; font-size:1rem; width:50%;}
+
+.btn_wrap button.add_btn, .btn_wrap button.next_btn{width:49%;}
+
+/*sub04_css*/
+
+.board_search{text-align:center;}
+.board_search select{padding:0 2%; height:3rem;}
+.board_search input.btn{width:4rem; font-size:1rem; height:3rem; padding:0;}
+.board_search input[type='text']{height:3rem; width:13rem;}
+
+.notice_tal{font-size:1rem; letter-spacing:-0.05rem;}
+.notice_tal thead th.m-none, .notice_tal tbody td.m-none{display:none;}
+.notice_tal thead th{padding:4% 0;}
+.notice_tal thead th:nth-child(2){width:100%;}
+
+/*faq*/
+dl.faq_box dt span{font-size:1.1rem; width:90%; line-height:160%; word-break:keep-all;}
+dl.faq_box dt::before{font-size:1.6rem; top:30%;}
+
+dl.faq_box dt, dl.faq_box dd{padding:6%;}
+dl.faq_box dd div.tite{width:8%; font-size:1.6rem;}
+dl.faq_box dd div.cont_box{width:92%; font-size:1.1rem;}
+dl.faq_box dd div.cont_box span{display:inline;}
+
+/*이용후기*/
+.board_tal colgroup{display:none;}
+.board_tal tbody tr{display:block; width:100%;}
+
+.board_tal tbody td{display:block; padding:4%}
+.board_tal tbody td.name{border-bottom:0; padding:4% 4% 0 4%; text-align:left; font-size:1.2rem;}
+.board_tal td div.title{font-size:1.2rem;}
+.board_tal td div.content{font-size:1.1rem; letter-spacing:-0.08rem; color:#555; padding:0;}
+
+/*글쓰기*/
+#form_box{padding-top:9%;}
+#form_box fieldset.half.mid + .half.mid{margin-left:0;}
+
+#form_box fieldset{padding-left:0; border:none;}
+#form_box fieldset input[type="text"], #form_box fieldset input[type="password"]{border:solid 1px #d6d6d6; box-sizing:border-box; width:100%; height: 4rem; font-size:1rem;}
+#form_box fieldset label{position:relative; top:0; text-align:left; width:100%;}
+#form_box fieldset label:after{content:''; display:none;}
+#form_box fieldset.textarea textarea{width:100%; padding:2%; border: 1px solid #d6d6d6; box-sizing:border-box; font-size:1rem;}
+#form_box fieldset + fieldset{margin-top:8%;}
+#form_box fieldset.half.mid{margin-bottom:8%;}
+
+#sub_cont section.sub_visual, #sub_cont section.bg2{background-attachment:initial; background-position:50% 50%;}
+#sub_cont section.bg3{background-position:66% 50%;}
+#sub_cont section.sub4_bg{background-position:25% 48%;}
+
+.reserv_wrap .right_box .step2-img span.add_txt{width:100%; left:0; bottom:0; position: relative; padding:0; word-break:keep-all;}
+
+/*예약조회 예약취소하기*/
+.kakao_cs{width:90%; float:none; padding:4% !important;}
+.zim_cs{width:90%; float:none; padding:4% !important;}
+.cancel_tit{line-height:1.5; word-break:keep-all;}
+.user_time{padding:1% 0 0 0 !important;}
+}
+
+
+@media all and (max-width:800px){
+
+#sub_cont section#delevery_fee{height:auto; background-position:29% 25%;}
+#sub_cont section#delevery_fee article.wrap{width:90%; padding:5%; height:auto;}
+#sub_cont section#delevery_fee article.wrap .ibox{position:static; width:35%; margin:0 auto;}
+#sub_cont section#delevery_fee article.wrap .tbox{position:static; width:100%;}
+
+#cont02 .cont_wrap dl.event dd.item .box p.data{background:none;}
+
+.package-item dl dd{width:32%;}
+.package-item dl dd:nth-child(2n){border-bottom:none; margin-right:1%;}
+.package-item dl dd:nth-child(3n){border-bottom:none; margin-right:0;}
+.package-item dl dd:nth-child(4n){border-bottom:none; margin-right:1%;}
+
+.memb-auth{height:45rem;}
+.terms_use{height:47rem;}
+
+.hotel_box .btn-title i{line-height: 69px;}
+.hotel_box input[type='text']{height:71px;}
+
+dl.event_list dd.item{height:255px; overflow:hidden;}
+dl.event_list dd.item .box p.data{background-size:6%; background-position:19% 50%;}
+
+.scroll-box{height:32rem;}
+
+}
+
+@media all and (max-width:580px){
+
+
+/*01*/
+#sub_cont section.sub_visual .tite{padding:17% 0 0 8%;}
+#sub_cont section#cont article.sub_wrap nav.depth ul li{height:65px; line-height:65px;}
+#sub_cont section#cont article.sub_wrap .wrap{margin:5%;}
+#sub_cont section#cont article.sub_wrap .wrap p.txt{font-size:1.1rem;/*1.143em;*/ letter-spacing:-0.12rem; word-break: keep-all; padding:0 0 3% 0;}
+
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.ico{float:left; width:28%; padding:10% 4%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box{float:left; width:58%; padding:13% 0 13% 6%; text-align:left;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box p.num{top:11%; left:9%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd:nth-child(2n){margin-bottom:22%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd .reserv_btn{width:100%; bottom:-69px; left:0; border-radius:1.286em 0;}
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd .reserv_btn a{font-size:1rem; padding:5%;}
+
+#sub_cont section#sub_map{padding:7% 0 0 0;}
+#sub_cont section#cont article.sub_wrap .wrap h4{font-size: 1.6rem; line-height:4rem;}
+
+#sub_cont section#sub_map article.map_wrap .container{padding:5% 0 0 0;}
+#sub_cont section#sub_map article.map_wrap .container ul.tab li{padding:7% 0;}
+
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box h2{padding:0 0 2% 0;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box .ibox img{top:-23%;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box{height:32.857em;/*34.286em;*/}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box dl dd{line-height:150%; font-size:1.2rem;}
+
+#sub_cont section#hotel_search fieldset{padding:0 5%;}
+#sub_cont section#hotel_search fieldset input[type="search"]{width:90%; padding:0 0 0 6%;}
+#sub_cont section#hotel_search article.wrap fieldset button{top:23%; right:12%;}
+
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd{width:90%; padding:5%; height:auto;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .thumb{width:40%; float:left; height: 9.571em;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box{width:56%; float:left; padding:0 0 0 4%; text-align: left;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box p{font-size:1rem; letter-spacing:-0.08rem;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd:hover::after{height:100%;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .map_view{width:25%; font-size:1rem; left:45%; bottom:11%;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd:nth-child(6){margin-bottom:5%;}
+
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .sale{font-size:1rem; width:20%; padding:3%;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .sale span{font-size:0.8rem;}
+
+.control .prev{left:8%;}
+.control .next{right:8%;}
+
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd{border:solid 1px #ddd;}
+
+/*02*/
+#sub_cont section#delevery_time article.wrap h4{font-size: 1.6rem; line-height: 4rem;}
+#sub_cont section#delevery_time article.wrap .delevery_box .notice{top:2%; left:18%; width:60%; font-size:1rem;}
+#sub_cont section.sub_visual .tite{text-shadow:0.133em 0.200em 0.467em rgba(0, 0, 0, 0.6);}
+
+#sub_cont section.sub_visual, #sub_cont section.bg2, #sub_cont section.bg3{height: 9rem !important; position:relative;}
+#sub_cont section.sub_visual .tite{font-size:1.5rem; padding:9% 0 0 8%;}
+#sub_cont section#sub_map article.map_wrap h2{padding:5% 0;}
+
+/*딜리버리시간*/
+
+#delevery_box{margin-top:5%; margin-right:5%; margin-left:5%;}
+#delevery_box .ani{background: url("../images/img/deliver_cont3_img02_m.png") no-repeat 50% 100%; max-width:680px; height:228px; background-size: contain;}
+#delevery_box .ani:before{/*background: url("../images/img/deliver_cont2_img01_m.png") no-repeat 0 0;*/ width:110px; height:108px; background-size:contain; top:49%; left:-2%;}
+#delevery_box .nice-select{min-width:183px; width:42%; padding-left:6%;}
+#delevery_box .nice-select > span{font-size:1rem;}
+.nice-select:after{right:10px;}
+
+#delevery_box .notice{width:100%; left:1%; top:-14%; margin-left:0;}
+#delevery_box .ani.on:before{left:70%;}
+#delevery_box .notice p{font-size: 1.1rem;}
+
+#sub_cont section#delevery_fee article.wrap .ibox{margin:0 auto 3% auto;}
+#sub_cont section#delevery_fee article.wrap .tbox h2{padding:3% 0 1% 0; text-align:center;}
+#sub_cont section#delevery_fee article.wrap .tbox dl{font-size:1.1rem;}
+#sub_cont section#delevery_fee article.wrap .tbox dl dd span{width:58%;}
+#sub_cont section#delevery_fee article.wrap .tbox dl dd span.cash-box{width:40%;}
+
+#sub_cont section#delevery_fee{background-position:26% 25%;}
+#sub_cont section#delevery_fee article.wrap .etc_txt{font-size:1rem;}
+#sub_cont section#delevery_fee article.wrap .etc_txt ul li{padding-bottom:1%;}
+
+/*event*/
+dl.event_list dd{margin-right:0 !important;}
+dl.event_list dd.item{width:100%; height:160px; overflow:hidden;}
+dl.event_list dd.item .thumb{width:42%;}
+dl.event_list dd.item .box{width:50%; padding:4%; text-align:left;}
+dl.event_list dd.item .box h4{margin:5% 0 0 0; font-size:1.2rem !important; line-height:2.5rem !important;}
+dl.event_list dd.item .box p.data{padding-left:0; letter-spacing:-0.04rem; font-size:0.9rem; background:none;}
+dl.event_list dd.item .box p.btn{margin:0; text-align:center; margin-top:8%; width:60%;}
+dl.event_list dd.item div.event_ico{left:82%; width:45px;}
+
+/*faq*/
+dl.faq_box dt, dl.faq_box dd{padding:7%;}
+dl.faq_box dt::before{left:5%;}
+dl.faq_box dt span{padding-left:6%; width:87%;}
+
+/*이용후기*/
+.board_wrap{padding:15% 0 8% 0;}
+.write_btn{width:8rem; line-height:3.2rem; font-size:1.2rem;}
+
+
+/*예약확인 및 결제*/
+.reserv_confirm dl.confirm-box dd {font-size: 1rem; letter-spacing: -0.05rem;}
+.reserv_confirm dl.confirm-box dd span{width:40%;}
+.reserv_confirm dl.confirm-box dd span.data{width:58%; padding-left:0;}
+.reserv_wrap .right_box .step2-img{width:77%;}
+.reserv_confirm dl.confirm-box dd .sale_coupon{top:51%; left:13rem;}
+
+.select-items div{padding:5%;}
+
+/*조회하기*/
+#reserv_page .icon-title{height:7rem; margin-bottom:11%;}
+#reserv_page .reserv-title{font-size:1.5rem;}
+#reserv_page .inner{padding:5%;}
+#reserv_page .user-form p.small{font-size:1rem; letter-spacing:-0.08rem; text-align:left; line-height:160%;}
+
+#reserv_page .sec .reserv-list{overflow-y:scroll;}
+#reserv_page .sec .reserv-list table{width:46.667em; font-size:1rem;}
+
+.scroll-box{height:24rem;}
+
+.reserv_wrap h3{margin:6% 0 4% 0;}
+.package-item h3{margin:6% 0 4% 0;}
+
+.package-item dl dd .thumb{width:180px;}
+.package-item dl dd .quantity, .package-item dl dd .quantity input{width:180px; height:55px;}
+.package-item .quantity-button.quantity-down, .package-item .quantity-button.quantity-up{height:53px; line-height:53px;}
+
+.select-selected{font-size:1rem; padding:6% 8%;}
+.reserv_wrap .left_box input[type="radio"] + label{line-height:50px;}
+
+.hotel_box .btn-title i{line-height:50px;}
+.hotel_box input[type='text']{height:50px;}
+
+.popup-inner{height:36rem; width:88%;}
+.popup-contents .close_btn a{padding:7% 0;}
+.popup-contents h2.tite{margin:5% 0;}
+
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .thumb{height:9rem;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box h2{font-size:1.429em;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box p{font-size:1rem;}
+
+.package-item dl dd{width:49%;}
+.package-item dl dd:nth-child(2n){border-bottom:none; margin-right:0;}
+.package-item dl dd:nth-child{3n){margin-right:1%;}
+.package-item dl dd:nth-child(4n){border-bottom:none; margin-right:1%;}
+
+}
+
+@media all and (max-width:400px){
+.reserv_wrap .right_box{min-height:auto;}
+
+/*sub01_css*/
+
+/*01*/
+#sub_cont section#cont article.sub_wrap .wrap h4{line-height:2.8rem; font-size:1.2rem !important; letter-spacing:-0.08rem;}
+#sub_cont section#cont article.sub_wrap .wrap p.txt{font-size:1rem; padding:0 0 5% 0;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box h4{font-size:1.3rem !important;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box .ibox{ height:13.067em;}
+
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .map_view{bottom:9%;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box p{display:-webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp:2;  overflow:hidden; height:37px; padding:2% 0 5% 0;}
+
+
+/*02*/
+#sub_cont section#delevery_time article.wrap .delevery_box .notice{width:69%; left:11%;}
+#sub_cont section#sub_map article.map_wrap h2{font-size:1.5rem; padding:5% 0;}
+#sub_cont section#sub_map article.map_wrap .container ul.tab li span{display:block;}
+#sub_cont section#sub_map article.map_wrap .container ul.tab li{height:36px; line-height:130%; font-size:16px;}
+#sub_cont section#sub_map article.map_wrap .container ul.tab li:first-child{height:36px; line-height:36px;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box{height:auto;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box p{position:static; width:94%;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box h2{padding:5% 0;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box dl dd{padding:0 0 0 15%;}
+
+
+.delevery_box .ani::before{background-size:100%; width:93px; top:47%; left:-7%;}
+.select-selected, .select-items div{font-size:1rem;}
+
+#sub_cont section#delevery_area article.wrap dl.area_box dd .tbox{font-size:1.2rem;}
+
+/*딜리버리시간*/
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd .reserv_btn{bottom:-36%;}
+
+#delevery_box{margin-top:0;}
+#delevery_box .ani:before{top:58%; background-size:80%;}
+
+#delevery_box .left{float:none; width:100%; margin-bottom:3%;}
+#delevery_box .right{float:none; width:100%; text-align:left;}
+#delevery_box .nice-select{width:100%; max-width:100%;}
+
+#sub_cont section#delevery_area article.wrap h4{line-height:160%;}
+
+#sub_cont section#delevery_fee article.wrap .tbox dl{font-size:1rem;}
+#sub_cont section#delevery_fee article.wrap .tbox dl dd span{width:61%;}
+#sub_cont section#delevery_fee article.wrap .tbox dl dd span.cash-box{width:37%;}
+#sub_cont section#hotel_search article.wrap fieldset button{top:23%; right:9%;}
+
+/*03*/
+#sub_cont section#charge_box article.wrap dl.box2 dd div.txt{font-size:1.2rem; padding: 14% 0 0 1%;}
+#sub_cont section#charge_box article.wrap dl.box dd .tbox h5{font-size:1.2rem;}
+
+/*sub02*/
+
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd{padding: 5% 5% 6% 5%; width:89%;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .thumb{height:107px;}
+
+/*예약확인 및 결제*/
+.scroll-box{height:20rem;}
+
+.reserv_confirm dl.confirm-box dd span{width:100%;}
+.reserv_confirm dl.confirm-box dd span.data{width:100%;}
+.reserv_confirm dl.confirm-box dd .sale_coupon{left:10rem;}
+
+dl.step_list dd{font-size:1rem;}
+.reserv_wrap .left_box input[type="radio"] + label{padding:0;}
+.data input[type="text"]{width:69%;}
+.time_box .select-selected{line-height:4.2rem;}
+.reserv_wrap .left_box .time_box{height:4.2rem;}
+.btn_wrap button.add_btn, .btn_wrap button.next_btn{/*width:140px;*/}
+
+.popup-inner{/*height:33rem;*/height:470px;}
+.popup-close{right:6px; top:6px;}
+#sub_cont section#hotel_search article.wrap .hotel_list{width:90%;}
+
+#sub_cont section#hotel_search fieldset{padding:0;}
+.popup #sub_cont section#hotel_search fieldset input[type="search"]{width:100%; height:47px;}
+.popup #sub_cont section#hotel_search article.wrap fieldset button{top:15%; right:4%;}
+
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl{margin:6% 0 0 0;}
+
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box h2{font-size:1.1rem; letter-spacing:-0.05rem;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd{padding:5%; width:89%;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .thumb{height:8rem;}
+.popup #sub_cont section#hotel_search article.wrap .hotel_list dl dd .txt_box p{height:40px; overflow:hidden;}
+.pay-box label{height:40px; line-height:38px; font-size:14px;}
+
+.popup-contents .close_btn{margin-top:3%;}
+button.user-identity{height:57px;/*height:3.333em;*/}
+
+#reserv_page .reserv-title{font-size:1.3rem; line-height:150%; font-weight:600; margin-top:-4%; letter-spacing:-0.03rem; margin-bottom:9%;}
+.reserv_confirm dl.confirm-box dd span.code input[type="text"]{font-size:13px;}
+.reserv_confirm dl.confirm-box dd .sale_coupon{font-size:13px;}
+.pay-box{margin-bottom:5%;}
+.reserv_confirm dl.confirm-box{padding:6%;}
+
+/*event*/
+dl.event_list dd.item{height:150px;}
+dl.event_list dd.item div.event_ico{left:81%;}
+
+/*본인인증*/
+.popup-contents{padding:4%;}
+.popup-contents h2.tite{font-size:1.2rem; padding-left:5%; margin:2% 0 7% 0;}
+.popup-contents ul li{font-size:13px;}
+.popup-contents .memb_from .check-box label{font-size:13px;}
+.popup-contents .close_btn a{padding:5% 0;}
+
+.user-form::after{content:''; display:block; clear:both;}
+.user-form fieldset.send-input{min-height:4.000em; height:4.000em;}
+.user-form fieldset input[type="text"]{width:65%;}
+.user-form fieldset.send-input .send_auth_btn a.auth_btn{width:24%; height:58px; line-height:58px;}
+
+.popup-inner.memb-auth{height:34.000em;}
+.select-items{top:97%;}
+.hotel_box .btn-title i{line-height:59px;}
+.hotel_box input[type='text']{height:59px;}
+.data input[type="text"]{height:59px;}
+.reserv_wrap .left_box .reserv_box1 .delevery-select .select-selected{height:59px;}
+
+.reserv_wrap h3{margin:9% 0 6% 0;}
+
+dl.step_list dd{width:100%;}
+dl.step_list dd.on::after{background:none;}
+dl.step_list dd.on{text-align:center; padding-left:0; background-color:#f7b618; border-radius:25px; color:#fff;}
+.user-form fieldset{min-height:57px;}
+.user-form fieldset{height:57px;}
+.user-form fieldset.frm-input.phone i{line-height:57px;}
+.user-form input[type="number"]{height:57px;}
+.quantity-button.quantity-up{height:55px; line-height:55px;}
+.quantity-button.quantity-down{height:55px; line-height:55px;}
+
+#reserv_page{margin:5% 0;}
+span.useful{margin:7% 0 0 0; border:none; background:#efefef;}
+.payment{font-size:17px;}
+.payment strong{28px;}
+
+/****************************
+	고객센터 CSS
+****************************/
+.board_search input[type='text']{width:10rem;}
+
+/*faq*/
+dl.faq_box dt::before, dl.faq_box dd div.tite{font-size:1.4rem;}
+dl.faq_box dt::after, dl.faq_box dt.on::after{width:1.5rem; height:1.5rem; background-size:100%;}
+
+/*write*/
+.board_wrap{padding:21% 0 8% 0;}
+.btn-group .btn{min-width:100px;}
+
+dl.faq_box dd div.cont_box{font-size:1rem;}
+.board_tal td div.content{font-size:1rem;}
+.write_btn{width:6rem; line-height:3rem; font-size:1rem;}
+
+.package-item dl dd .thumb{width:158px; height:153px;}
+.package-item dl dd .quantity, .package-item dl dd .quantity input{width:158px; height:55px;}
+.package-item .quantity-button.quantity-down, .package-item .quantity-button.quantity-up{height:53px; line-height:53px;}
+
+
+}
+
+@media all and (max-width:320px){
+.popup-inner{height:50%;}
+#sub_cont section#cont article.sub_wrap nav.depth ul li{height:4.000em; line-height:4.000em;}
+#sub_cont section#cont article.sub_wrap .wrap h4{line-height:2rem; font-size:1.3rem;}
+
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.ico{float:none; width:38%; padding:3% 0;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box{float:none; width:76%; padding:6% 0 14% 24%;}
+#sub_cont section#cont article.sub_wrap .wrap dl.box dd div.txt_box p.ctxt span{display:inline-block;}
+#sub_cont section#cont article.sub_wrap .wrap dl.w33 dd .reserv_btn{bottom:-24%;}
+#sub_cont section#charge_box article.wrap dl.box2 dd div.txt{font-size:1rem;}
+
+#sub_cont section#sub_map article.map_wrap .container ul.tab li{font-size:1rem;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box .ibox{height:12rem;}
+#sub_cont section#sub_map article.map_wrap .container .tab_cont .box{height:28rem;}
+#sub_cont section#hotel_search article.wrap .hotel_list dl dd .sale{width:21%;}
+
+
+#reserv_page .reserv-title{font-size:1.2rem;}
+
+/*event*/
+dl.event_list dd.item{height:132px;}
+dl.event_list dd.item div.event_ico{left:0;}
+dl.event_list dd.item .box p.data{font-size:0.82rem;}
+dl.event_list dd.item .box h4{line-height:2rem !important;}
+}

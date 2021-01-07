@@ -1,0 +1,176 @@
+--sql.txt
+--1)공지사항
+create table Tnotice(
+  nonum          number         NOT NULL,-- 시퀀스 
+  nosubject      varchar(50)    NOT NULL,-- 제목
+  nocontent      varchar2(2000) NOT NULL,-- 내용
+  nowriter       varchar2(20)   NOT NULL,-- 작성자
+  nodate         date           NOT NULL,-- 작성일
+  noreadcnt      number         default 0,-- 조회수
+  PRIMARY KEY(nonum)  
+);
+
+create sequence nonum_seq;
+
+insert into Tnotice(nonum, nosubject, nocontent, nowriter, nodate)
+values(nonum_seq.nextval,'공지사항1','내용1','관리자',sysdate);
+
+select * from Tnotice;
+
+insert into Tnotice(nonum, nosubject, nocontent, nowriter, nodate)
+values(nonum_seq.nextval,'공지사항2','코로나 사태로 인한 잠정적 휴지기간 안내','관리자',sysdate);
+
+
+--2) 여행루트
+drop table Troute;
+drop sequence tno_seq;
+create sequence tno_seq;
+
+icon=''
+for(int i=1,i<=con.size
+Tregion+=icon;
+if(i=con.size){
+break;
+}
+Tregion+=',';
+)
+Tregion	=this.Tregion	
+
+--썜의 추천
+create table Troute(
+    Tno		    NUMBER          NOT NULL    --글번호
+   ,Tsubject	VARCHAR(60)     NOT NULL    --글제목    
+   ,Tid		    VARCHAR(20)     NOT NULL	--작성자(id)    
+   ,Tdate		DATE            NOT NULL    --등록일
+   ,Treadcnt	NUMBER          default 0	--조회수
+   ,Tlike		NUMBER          default 0   --좋아요
+   ,Tmapsub		VARCHAR2(2000)  NOT NULL	--주소검색내용    
+   ,Tmapcont	VARCHAR2(4000)  NOT NULL	--세부내용    
+   ,Ticon		VARCHAR(30)                --아이콘(여행지,맛집,숙소,축제)
+   ,TaddrW		BINARY_DOUBLE   NOT NULL	--위도    
+   ,TaddrG		BINARY_DOUBLE   NOT NULL	--경도
+   ,Tregion		VARCHAR(30)                 --지역(강릉,동해,삼척,속초)
+   ,PRIMARY KEY(Tno) 
+);
+
+insert into Troute(Tno,Tsubject,Tid,Tdate,Tmapsub,Tmapcont,Ticon,TaddrW,TaddrG,Tregion)
+values(tno_seq.nextval,'강릉가즈아','오박사',sysdate,'월정리,오두막카페','주소1,주소2','여행지,맛집',33.1215465,127.1546865,'강릉');
+
+select * from Troute;
+
+
+--3)후기
+create table review(
+     Rnum            NUMBER          NOT NULL     --글번호 
+    ,Rsubject        VARCHAR   (60)  NOT NULL     --제목 
+    ,Rcontent        VARCHAR2(4000)  NOT NULL     --내용
+    ,Rpasswd		 VARCHAR2(10)    NOT NULL	  --글비밀번호
+    ,Rphoto_name     VARCHAR2(250)                --사진이름
+    ,Rphoto_size     NUMBER                       --사진크기
+    ,Rregion         VARCHAR(30)                  --지역(강릉,동해,삼척,속초)
+    ,Rid             VARCHAR   (20)  NOT NULL     --작성자 
+    ,Rdate           DATE            NOT NULL     --작성일
+    ,Rreadcnt        NUMBER          default 0    --조회수
+    ,PRIMARY KEY(Rnum)
+);
+
+create sequence Rnum_seq;
+
+insert into review(Rnum,Rsubject,Rcontent,Rpasswd,Rphoto_name,Rphoto_size,Rregion,Rid,Rdate)
+values(Rnum_seq.nextval,'강릉가즈아','강릉재밌어요','1234','강릉',23548,'강릉','삼시세깡',sysdate);
+
+select * from review;
+
+--4)프로모션
+create table Tpromotion(
+    Tbno            NUMBER          NOT NULL    --글번호  
+    ,Timage_name    VARCHAR2(250)   NOT NULL    --업체사진이름(리스트 이미지)     
+    ,Timage_size    NUMBER          NOT NULL    --업체사진사이즈
+    ,Timage_name2   VARCHAR2(250)   NOT NULL    --업체사진이름(상세보기 이미지)     
+    ,Timage_size2   NUMBER          NOT NULL    --업체사진사이즈   
+    ,Tregion        VARCHAR(30)     NOT NULL    --지역(강릉,동해,삼척,속초)
+    ,Tsubject       VARCHAR   (60)  NOT NULL    --글제목
+    ,Twdate         DATE            NOT NULL    --작성일
+    ,Ttime          DATE            NOT NULL    --게시기간
+    ,Tnum           NUMBER          NOT NULL    --사업자번호
+    ,Twriter        VARCHAR   (20)  NOT NULL    --작성자
+    ,Ticon         VARCHAR(30)      NOT NULL   --아이콘(숙소,음식점, 액티비티)
+    ,PRIMARY KEY(Tbno)
+);
+
+create sequence Tbno_seq;
+
+insert into Tpromotion(Tbno,Timage_name,Timage_size,Tregion,Tsubject,Twdate,Ttime,Tnum,Twrter)
+values(Tbno_seq.nextval,'짬뽕',23548,'강릉','교동짬뽕',sysdate,'2021-1-20',10245215,'관리자');
+
+select * from Tpromotion;
+
+
+--5)관심여행지
+create table likelocation(
+    Lno         NUMBER      NOT NULL    --글번호 
+    ,Licon      VARCHAR(30) NOT NULL    --아이콘(여행지,맛집,숙소,축제)
+    ,Lsubject   VARCHAR(60) NOT NULL    --글제목
+    ,Lid        VARCHAR(20) NOT NULL    --작성자(id)
+    ,Ldate      DATE        NOT NULL    --등록일
+    ,Lregion    VARCHAR(30) NOT NULL    --지역(강릉,동해,삼척,속초)
+    ,PRIMARY KEY(Lno)
+);
+create sequence Lno_seq;
+
+insert into likelocation(Lno,Licon,Lsubject,Lid,Ldate,Lregion)
+values(Lno_seq.nextval,'숙박,축제','강릉가즈아','오박사',sysdate,'강릉');
+
+select * from likelocation;
+
+
+--6)회원
+create table Tmember(
+    Mid         VARCHAR(20)  NOT NULL           --유저 아이디
+    ,Mpasswd    VARCHAR(15)  NOT NULL           --비밀번호(특문 포함 8~12)
+    ,Mname      VARCHAR(50)  NOT NULL           --유저 이름
+    ,Mtel       VARCHAR(20)  NOT NULL           --전화번호
+    ,Memail     VARCHAR(50)  Unique NOT NULL    --이메일
+    ,Mzipcode   VARCHAR(7)   NULL               --우편번호
+    ,Maddress1  VARCHAR(255) NULL               --주소1
+    ,Maddress2  VARCHAR(255) NULL               --주소2(나머지주소)
+    ,Mlevel     CHAR(2)      default 'C1'       --회원등급
+    ,Mnum       NUMBER       NULL               --사업자등록번호
+    ,Mdate      DATE         NOT NULL           --가입일
+    ,PRIMARY KEY(Mid)
+);
+
+insert into Tmember(Mid,Mpasswd,Mname,Mtel,Memail,Mzipcode,Maddress1,Maddress2,Mnum,Mdate)
+values('member','123456','회원','010-6886-4885','emeber@naver.com',02682,'서울시노원구상계1동','204동 1204호',12354845,sysdate);
+
+select * from Tmember;
+
+--7)예약
+create table Treserve(
+    resid        VARCHAR(20) NOT NULL   --아이디
+    ,resdate     DATE        NOT NULL   --예약날짜
+    ,resbno      NUMBER      NOT NULL   --사업자번호
+    ,ressub      VARCHAR(60) NOT NULL   --글제목    
+    ,result      VARCHAR(20) default '예약대기'  --결과(예약대기,예약완료,예약실패)
+    ,resnum   NUMBER      NOT NULL  --번호비교
+    ,resregion   VARCHAR(30) NOT NULL    --지역(강릉,동해,삼척,속초)
+    ,resicon      VARCHAR(30) NOT NULL    --아이콘(여행지,맛집,숙소,축제)
+    ,resimage_name    VARCHAR2(250)   NOT NULL    --업체사진이름     
+    ,resimage_size    NUMBER          NOT NULL    --업체사진사이즈
+);
+
+insert into reserve(resid,resdate,resbno,ressub,result)
+values('member','2021-1-28',12354844,'교동짬뽕','예약완료');
+
+select * from reserve;
+
+ order by mediano desc
+ 
+ --쓰기
+ INSERT INTO media(mediano, title, rdate, poster, filename, filesize, mediagroupno)
+ VALUES(시퀀스, ?, ?, ?, ?, ?, sysdate, ? )
+ 
+ --상세보기 
+ SELECT mediano, title, rdate, poster, filename, filesize, mediagroupno
+ from media
+ where mediano=?

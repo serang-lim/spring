@@ -1,0 +1,6 @@
+@RequestMapping(value = "Tmember/Tmy.do")
+	public ModelAndView Tmy() {
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("Tmember/Tmy");
+		return mav;
+	}//Tmy() end

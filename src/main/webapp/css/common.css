@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+@import url("fonts/nanumgothic/NanumGothic.css");
+@import url("fonts/nanumsquare/nanumsquare.css");
+
+/* CSS Document */
+
+html, body {position: relative; color: #333333; font-size:15px; font-family: "Nanum Gothic", sans-serif; margin:0; padding:0; height:100%; width:100%; box-sizing: border-box;}
+form, div, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, pre, input, blockquote, th, td, thead, tbody, legend, label, select, option, button, fieldset, select, textarea {margin:0; padding:0;}
+button {cursor:pointer; border:none; background:none;}
+ol, ul, dl {list-style: none; padding:0; margin:0;}
+fieldset, img {border:0; margin:0; padding:0; outline:0;}
+input, select, button {vertical-align: top;}
+li{list-style:none; padding:0; margin:0;}
+textarea {overflow: auto;vertical-align: top; font-family: "Nanum Gothic", sans-serif !important;}
+label {cursor:pointer;}
+select{font-family: "Nanum Gothic", sans-serif !important;}
+table {width:100%; border-collapse:collapse; table-layout:fixed; border-spacing:0; word-break:break-all;}
+a {text-decoration:none; cursor:pointer; color:#555;}
+section, article, aside, hgroup, header, footer, nav, figure, figcaption, time, mark, canvas, video, audio, details, summary{display:block; font-family: "Nanum Gothic", sans-serif !important;}
+h2{padding:0; margin:0; font-size:19px; letter-spacing:-1.5px;}
+table caption {height: 0;width: 0;text-indent: -9999px;}
+
+input[type='tel'], input[type='url'], input[type='number'], input[type='email'], input[type='text'], input[type='password'], input.text, input.password{border:1px solid #ddd; font-size:15px; font-family: "Nanum Gothic", sans-serif !important;}
+input[type="radio"],
+input[type="checkbox"]   {display:compact; -webkit-appearance:checkbox;}   
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button{-webkit-appearance: none;margin: 0;}
+input[type=number]{-moz-appearance: textfield;}
+
+input, textarea {-webkit-appearance:none; -webkit-border-radius:0;}/*아이폰 그림자제거*/
+address{font-style: normal;}
+
+button:focus{outline: none;}
+input:focus {outline:none;}
+.ns{font-family: 'NanumSquare', sans-serif;}
+i, em, address, del, small {font-style: normal;}
+
+#wrap {width:100%; /*height:100% !important*/ margin: 0 auto; position:relative;}

@@ -1,0 +1,32 @@
+﻿--3)후기
+create table review(
+     Rnum            NUMBER          NOT NULL     --글번호 
+    ,Rsubject        VARCHAR   (60)  NOT NULL     --제목 
+    ,Rcontent        VARCHAR2(4000)  NOT NULL     --내용
+    ,Rpasswd		 VARCHAR2(10)    NOT NULL	  --글비밀번호
+    ,Rregion         VARCHAR(30)                  --지역(강릉,동해,삼척,속초)
+    ,Rid             VARCHAR   (20)  NOT NULL     --작성자 
+    ,Rdate           DATE            NOT NULL     --작성일
+    ,Rreadcnt        NUMBER          default 0    --조회수
+    ,PRIMARY KEY(Rnum)
+);
+
+create sequence Rnum_seq;
+
+insert into review(Rnum,Rsubject,Rcontent,Rpasswd,Rregion,Rid,Rdate)
+values(Rnum_seq.nextval,'강릉가즈아','강릉재밌어요','1234','강릉','삼시세깡',sysdate);
+
+select * from review;
+
+create table treviewfile(
+	fileNum NUMBER primary key
+	,fileName VARCHAR2(4000)
+	,filesize NUMBER
+	,rnum NUMBER 
+);
+
+create sequence filenum_seq;
+ALTER SEQUENCE filenum_seq INCREMENT BY 1;
+
+insert into treviewfile(filenum, rnum, filename)
+values(filenum_seq.nextval, rnum_seq.currval, '1609923290242_sea4.png');
