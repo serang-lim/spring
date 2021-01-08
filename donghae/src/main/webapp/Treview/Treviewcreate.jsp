@@ -21,11 +21,11 @@
    <table class='table_write'>
    <tr>
       <th>제목</th>
-      <td><input type="text" name="rsubject"></td>
+      <td><input type="text" name="rsubject" id="rsubject"></td>
    </tr>
    <tr>
       <th>비밀번호</th>
-      <td><input type="password" name="rpasswd"></td>
+      <td><input type="password" name="rpasswd" id="rpasswd"></td>
    </tr>
    <tr>
       <th>지역</th>
@@ -41,8 +41,8 @@
    </tr>
    <tr>
       <th>내용</th>
-      <td><textarea col="5" style="resize: none;"></textarea></td>
-      <!-- <input type="text" name="rcontent" > -->
+      <td><input type="text" name="rcontent"></td>
+      <!-- <textarea col="5" style="resize: none;" name="rcontent" ></textarea> -->
    </tr>
    <tr>
       <th>파일첨부</th>

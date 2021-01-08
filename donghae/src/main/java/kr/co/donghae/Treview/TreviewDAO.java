@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import kr.co.donghae.Tmember.TmemberDTO;
 import net.utility.DBClose;
 import net.utility.DBOpen;
 
@@ -143,36 +144,42 @@ public class TreviewDAO {
     //---------------------------------------------------------------------------------------------
       
       public TreviewDTO read(int rnum) { //상세보기
-         TreviewDTO dto = null;
-         try {
-                 con=dbopen.getConnection();
-                 sql=new StringBuilder();
-                 sql.append(" SELECT Rnum, Rsubject, Rcontent, Rregion, Rid, Rdate, Rreadcnt");
-                 sql.append(" FROM review");
-                 sql.append(" WHERE Rnum=?");
-                 pstmt=con.prepareStatement(sql.toString());
-                 pstmt.setInt(1, rnum);
-                 rs=pstmt.executeQuery();
-                 
-                 if(rs.next()) {
-                    dto=new TreviewDTO();
-                    dto.setRnum(rs.getInt("rnum"));
-                    dto.setRsubject(rs.getString("rsubject"));
-                    dto.setRcontent(rs.getString("rcontent"));
-                    dto.setRregion(rs.getString("rregion"));
-                    dto.setRid(rs.getString("rid"));
-                    dto.setRdate(rs.getString("rdate"));
-                    dto.setRreadcnt(rs.getInt("rreadcnt"));
-                 }else {
-                    dto=null;
-                 }//if end
-              }catch(Exception e) {
-                 System.out.println("게시물 상세보기 실패" + e);
-              }finally {
-                 DBClose.close(con,pstmt,rs);
-              }//end
-              return dto;
-      }//read() end
+          TreviewDTO dto = null;
+          try {
+                  con=dbopen.getConnection();
+                  sql=new StringBuilder();
+                  sql.append(" UPDATE review SET Rreadcnt=Rreadcnt+1 WHERE rnum=?");
+                  pstmt=con.prepareStatement(sql.toString());
+                  pstmt.setInt(1, rnum);
+                  pstmt.executeUpdate();
+                  
+                  sql=new StringBuilder();
+                  sql.append(" SELECT Rnum, Rsubject, Rcontent, Rregion, Rid, Rdate, Rreadcnt");
+                  sql.append(" FROM review");
+                  sql.append(" WHERE Rnum=?");
+                  pstmt=con.prepareStatement(sql.toString());
+                  pstmt.setInt(1, rnum);
+                  rs=pstmt.executeQuery();
+                  
+                  if(rs.next()) {
+                     dto=new TreviewDTO();
+                     dto.setRnum(rs.getInt("rnum"));
+                     dto.setRsubject(rs.getString("rsubject"));
+                     dto.setRcontent(rs.getString("rcontent"));
+                     dto.setRregion(rs.getString("rregion"));
+                     dto.setRid(rs.getString("rid"));
+                     dto.setRdate(rs.getString("rdate"));
+                     dto.setRreadcnt(rs.getInt("rreadcnt"));
+                  }else {
+                     dto=null;
+                  }//if end
+               }catch(Exception e) {
+                  System.out.println("게시물 상세보기 실패" + e);
+               }finally {
+                  DBClose.close(con,pstmt,rs);
+               }//end
+               return dto;
+       }//read() end
       
       public ArrayList<TreviewFileDTO> fread(int rnum){ //목록
           ArrayList<TreviewFileDTO> list = null;
@@ -234,24 +241,30 @@ public class TreviewDAO {
       }//update() end
     //---------------------------------------------------------------------------------------------  
 
-      public int checkpw(int rnum, String rpasswd) {
-          int cnt=0;
-          try {
-                  con=dbopen.getConnection();
-                  sql=new StringBuilder();
-                  sql.append(" select rnum, rpasswd FROM review");
-                  sql.append(" WHERE rnum=? AND rpasswd=?");
-                  pstmt=con.prepareStatement(sql.toString());
-                  pstmt.setInt(1, rnum);
-                  pstmt.setString(2, rpasswd);
-                  cnt = pstmt.executeUpdate();
-                } catch (Exception e) {
-                   System.out.println("비번확인 실패" + e);
-                }finally {
-                   DBClose.close(con,pstmt);
-                }//end
-                return cnt;
-       }//checkpw() end
+      public int pwcheck(TreviewDTO dto) {
+    		int res=0;
+    		try {
+    			con=dbopen.getConnection();
+    			sql =new StringBuilder();
+    			 sql.append(" SELECT COUNT(rnum) as cnt ");  
+    	         sql.append(" FROM review ");
+    	         sql.append(" WHERE rnum=? AND rpasswd=?");
+    			pstmt=con.prepareStatement(sql.toString());
+    			pstmt.setInt(1,dto.getRnum());
+    			pstmt.setString(2,dto.getRpasswd());
+    			rs=pstmt.executeQuery();
+    			if(rs.next()==true) {
+    				res=rs.getInt("cnt");
+    			}
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}finally {
+    			DBClose.close(con,pstmt,rs);
+    		}
+    		System.out.println(res);
+    		return res;
+    		
+    	}//pwcheck end
 
     //---------------------------------------------------------------------------------------------
       public int delete(int rnum) {

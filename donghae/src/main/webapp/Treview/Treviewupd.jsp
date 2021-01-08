@@ -3,13 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <%@ include file="../header.jsp"%>
-<script src="../js/treviewscript.js"></script>
-  
+<%@ include file="../header.jsp" %>
+<%-- <script type="text/javaScript" src="../js/treviewscript.js"></script>
+<script type="text/javaScript"><%@ include file="../js/treviewscript.js" %></script> --%>
+
 <!-- 본 문 시 작 TreviewcreateFrom -->
    <form name='updatefrm' method="post" action="update.do"
    		 enctype="multipart/form-data" onsubmit="return pdsCheck()">
    	<input type="hidden" name="rnum" id="rnum" value="${dto.rnum}" />	 
    	<input type="hidden" name="rid" id="rid" value="${dto.rid}" />	 
+ 	<input type="hidden" name="rpasswd" id="rpasswd" value="${dto.rpasswd}">
    	<input type="hidden" name="rdate" id="rdate" value="${dto.rdate}" />	
 	<table class='table_write'>
 	<tr>

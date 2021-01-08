@@ -1,10 +1,10 @@
 package kr.co.donghae.Treview;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -63,19 +63,62 @@ public class TreviewCont {
  //------------------------------------------------------------------------------------------
 
    @RequestMapping(value = "Treview/checkpawdform.do", method = RequestMethod.GET)
-   public String checkpawdfrom() {
-      return "Treview/checkPassword";
+   public ModelAndView checkpawdfrom(@ModelAttribute TreviewDTO dto
+									 ,HttpServletRequest req
+									 ,HttpServletResponse resp
+									 ,HttpSession session) {
+	   ModelAndView mav = new ModelAndView();
+	   mav.addObject("root", Utility.getRoot());
+	   mav.addObject("Rrnum",dto.getRnum());
+	   mav.addObject("Rpasswd",dto.getRpasswd());
+	   
+       mav.setViewName("Treview/checkPassword");
+       return mav;
+      
    }// checkpawdform() end
 
    @RequestMapping(value = "Treview/checkpawd.do", method = RequestMethod.POST)
-   public String checkpawd(TreviewDTO dto
+   public ModelAndView checkpawd(TreviewDTO dto
 						  ,HttpServletRequest req
 						  ,HttpServletResponse resp
-						  ,HttpSession session) {
-
-      return "Treview/checkPassword";
+						  ,HttpSession session) throws IOException {
+	  
+	    ModelAndView mav = new ModelAndView();
+	    
+	    String rnum=req.getParameter("Rnum").trim();
+		String rpasswd=req.getParameter("Rpasswd").trim();
+		 
+		mav.addObject("root", Utility.getRoot());
+		mav.addObject("Rrnum",dto.getRnum());
+		mav.addObject("Rpasswd",dto.getRpasswd());
+		
+		dto.setRpasswd(rpasswd);
+		
+		int res=0;
+	    System.out.println("res:" +res);
+	    
+	    if(res==0) {
+	    	resp.setContentType("text/html;charset=utf-8");
+	   		PrintWriter out=resp.getWriter();
+	   		out.println("<script>");
+	   		out.println("alert('비밀번호가 틀렸습니다');");
+	   		out.println("history.back();");
+	   		out.println("</script>");
+	   		out.close();
+	   }else {
+		   PrintWriter out=resp.getWriter();
+		   out.println("<script>");
+	   		out.println("alert('수정하시겠습니까<br>수정 시 기존 파일은 모두 삭제됩니다.');");
+	   		out.println("</script>");
+	   		out.close();
+	   		mav.setViewName("Treview/updateform.do");
+	   }//if end
+	   
+      return mav;
+      
    }// checkpawd() end
 
+   
    
 //----------------------------------------------------------------------------------------
    @RequestMapping(value = "Treview/createrform.do", method = RequestMethod.GET)
@@ -180,7 +223,7 @@ public class TreviewCont {
       
       return mav;
    
-}//createProc() end   
+   }//createProc() end   
 //-----------------------------------------------------------------------
    
 

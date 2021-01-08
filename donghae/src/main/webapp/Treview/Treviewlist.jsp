@@ -6,8 +6,7 @@
 
 <!-- 본문 시작 Treview.jsp -->
 
-   <h3 align="center">후기</h3>
-   <p><a href="createrform.do">[작성하기]</a></p>
+   <br><p><a href="createrform.do">[작성하기]</a></p>
    <table border="1" align="center" width='70%' >
    <tr height="20">
       <th>글번호</th>
