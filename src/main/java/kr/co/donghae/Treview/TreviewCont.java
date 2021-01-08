@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.donghae.Tmember.TmemberDTO;
 import net.utility.UploadSaveManager;
 import net.utility.Utility;
 
@@ -60,13 +61,27 @@ public class TreviewCont {
       return mav;
    }//read() end
    
+ //------------------------------------------------------------------------------------------
+   
+   @RequestMapping(value = "Treview/checkpawdform.do", method = RequestMethod.GET)
+   public String checkpawdfrom() {
+      return "Treview/checkPassword";
+   }// checkpawdform() end
+   
+   @RequestMapping(value = "Treview/checkpawd.do", method = RequestMethod.POST)
+   public String checkpawd(TreviewDTO dto
+						  ,HttpServletRequest req
+						  ,HttpServletResponse resp
+						  ,HttpSession session) {
+  	   
+      return "Treview/checkPassword";
+   }// create() end
+   
 //----------------------------------------------------------------------------------------
    @RequestMapping(value = "Treview/createrform.do", method = RequestMethod.GET)
    public String createForm() {
       return "Treview/Treviewcreate";
    }// createform() end
-
- //------------------------------------------------------------------------------------------  
    
    @RequestMapping(value = "Treview/create.do", method = RequestMethod.POST)
    public ModelAndView createProc(@ModelAttribute TreviewDTO dto , TreviewFileDTO fdto

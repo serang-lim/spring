@@ -59,7 +59,8 @@
    </table>
 	<br>
 	<p align="center">
-	<input type="button" value=" 수정 " onclick="location.href='updateform.do?rnum=${dto.rnum}'">
+	<input type="button" value=" 수정 " onclick="checkpawdform.do?rnum=${dto.rnum}">
+	<!-- location.href='updateform.do?rnum=${dto.rnum}' -->
     <input type="button" value=" 삭제 " onclick="location.href='delete.do?rnum=${dto.rnum}'">
 	</p><br><br>
    

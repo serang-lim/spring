@@ -238,7 +238,28 @@ public class TreviewDAO {
                }//end
                return cnt;
       }//update() end
+      
+    //---------------------------------------------------------------------------------------------  
     
+      public int checkpw(int rnum, String rpasswd) {
+          int cnt=0;
+          try {
+                  con=dbopen.getConnection();
+                  sql=new StringBuilder();
+                  sql.append(" select rnum, rpasswd FROM review");
+                  sql.append(" WHERE rnum=? AND rpasswd=?");
+                  pstmt=con.prepareStatement(sql.toString());
+                  pstmt.setInt(1, rnum);
+                  pstmt.setString(2, rpasswd);
+                  cnt = pstmt.executeUpdate();
+                } catch (Exception e) {
+                   System.out.println("비번확인 실패" + e);
+                }finally {
+                   DBClose.close(con,pstmt);
+                }//end
+                return cnt;
+       }//checkpw() end
+      
     //---------------------------------------------------------------------------------------------
       
       public int delete(int rnum) {

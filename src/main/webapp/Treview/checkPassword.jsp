@@ -5,8 +5,9 @@
 <!-- 본 문 시 작 -->
 <div>
    <h1 align="center">비밀번호 확인</h1><br>
-   <form name="checkfrm" method="post" onsubmit="return pwCheck2()" >
+   <form name="checkfrm" method="post" onsubmit="pwCheck2()" >
    <input type="hidden" name="rnum" value="${dto.rnum}">
+   <input type="hidden" name="rpasswd" value="${dto.rpasswd}">
        <table>
            <tr>
                <th> 비밀번호 </th>
