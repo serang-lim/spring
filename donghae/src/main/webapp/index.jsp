@@ -22,8 +22,11 @@
 <script type="text/javascript" src="js/common.js"></script>
 <link rel=" shortcut icon" href="images/common/favicon.ico">
 <link rel="icon" href="images/common/favicon.ico">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <title> 동 해 지 니 </title>
-<!-- <link rel="shortcut icon" href=></link>  -->
 </head>
 <body>
 <!--S:wrap-->
@@ -34,23 +37,24 @@
       <div id="header">
          <div><a href="index.do">HOME</a>
            <div style=float:right;>
-              <a href="Tlogin.do">로그인</a>
+            <c:if test="${empty sessionScope.memid}">  <a href="Tmember/Tlogin.do">로그인</a></c:if>
+            <c:if test="${sessionScope.memid!=null}"><a href="Tmember/Tlogout.do">로그아웃</a></c:if>
               &nbsp;
-              <a href="Tmy.do">| &nbsp; 마이페이지</a>
+              <a href="Tmember/Tmy.do">| &nbsp; 마이페이지</a>
            </div> 
          </div>
          <!--S:lnb-->
          <nav id="lnb">
             <ul class="lnb">
-               <li class="depth1"><a href="Tnotice.do">공지사항</a>
+               <li class="depth1"><a href="Tnotice/TnoticeList.do">공지사항</a>
                </li>
-               <li class="depth1"><a href="Troute.do">여행루트</a>
+               <li class="depth1"><a href="Troute/Troute.do">여행루트</a>
                </li>
                <li class="depth1"><a href="Treview/Treview.do">후기</a>
                </li>
                <li class="depth1"><a href="Tpromotion/Tpromotion.do">프로모션</a>
                </li>
-               <li class="depth1"><a href="Tlikelocation.do">관심여행지</a>
+               <li class="depth1"><a href="Tlikelocation/TlikelocationList.do?Lid=${sessionScope.s_id}">관심여행지</a>
                </li>
             </ul>
          </nav>
@@ -69,16 +73,17 @@
             <a href="#" class="close"><img src="images/common/mobile_close.jpg" alt="메뉴닫기" /></a>
             &nbsp;
             <div class="lnb_login" align="right">
-                 <a href="Tlogin.do">로그인</a>
+            <c:if test="${empty sessionScope.memid}">  <a href="Tmember/Tlogin.do">로그인</a></c:if>
+            <c:if test="${sessionScope.memid!=null}"><a href="Tmember/Tlogout.do">로그아웃</a></c:if>
                  &nbsp;&nbsp;
-                 <a href="Tmy.do">마이페이지</a>
+                 <a href="Tmember/Tmy.do">마이페이지</a>
               </div>
             <ul class="left_lnb">
                <li>
-                  <a href="Tnotice.do">공지사항</a>
+                  <a href="Tnotice/TnoticeList.do">공지사항</a>
                </li>
                <li>
-                  <a href="Troute.do">여행루트</a>
+                  <a href="Troute/Troute.do">여행루트</a>
                </li>
                <li>
                   <a href="Treview/Treview.do">후기</a>
@@ -87,7 +92,7 @@
                   <a href="Tpromotion/Tpromotion.do">프로모션</a>
                </li>
                <li>
-                  <a href="Tlikelocation.do">관심여행지</a>
+                  <a href="Tlikelocation/TlikelocationList.do?Lid=${sessionScope.s_id}">관심여행지</a>
                </li>
             </ul>
          </nav>

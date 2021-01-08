@@ -3,32 +3,34 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../header.jsp"%>
-  
+<%-- <%@ include file="script.jsp"%> --%>
+<script src="../js/treviewscript.js"></script>
+
 <!-- 본 문 시 작 TreviewcreateFrom -->
+<c:if test="${empty sessionScope.memid }">
+<script>
+	alert("로그인 해주세요");
+	document.location.href="../Tmember/Tlogin.do";
+</script>
+</c:if>
+<c:if test="${sessionScope.memid !=null }">
+
    <form name='createfrm' method="post" action="create.do"
-   		 enctype="multipart/form-data" onsubmit="return pdsCheck()">
-   		 
-	<table class='table_write'>
-	<tr>
-	   <th>제목</th>
-	   <td><input type="text" name="rsubject"></td>
-	</tr>
-	<tr>
-	   <th>비밀번호</th>
-	   <td><input type="password" name="rpasswd"></td>
-	</tr>
-	<tr>
-	   <th>작성자</th>
-	   <td><input type="text" name="rid"></td>
-	</tr>
-	<tr>
-	   <th>첨부파일</th>
-	   <td><input type="file" name="photonameMF" multiple size='50'></td>
-	</tr>
-	<tr>
-	   <th>지역</th>
-	   <td>
-	   <select name="rregion"  id="rregion">
+          enctype="multipart/form-data" onsubmit="return pdsCheck()">
+   <input type="hidden" name="rid" value="${sessionScope.memid}">       
+   <table class='table_write'>
+   <tr>
+      <th>제목</th>
+      <td><input type="text" name="rsubject"></td>
+   </tr>
+   <tr>
+      <th>비밀번호</th>
+      <td><input type="password" name="rpasswd"></td>
+   </tr>
+   <tr>
+      <th>지역</th>
+      <td>
+      <select name="rregion"  id="rregion">
           <option value="0" selected>선택하세요.</option>
           <option value="동해">동해</option>
           <option value="삼척">삼척</option>
@@ -36,19 +38,28 @@
           <option value="강릉">강릉</option>
         </select>
         </td>
-	</tr>
-	<tr>
-	   <th>내용</th>
-	   <td><input type="text" name="rcontent" rows="5" cols="30"></td>
-	</tr>
-	
-	
-	<td colspan='2'>
-      <input type="submit"  value="등록">
-      <input type="button" value="목록" onclick="location.href='Treview.do'">
-      <input type="button" value="HOME" onclick="location.href=${root}/home.do'">
-	</table>
+   </tr>
+   <tr>
+      <th>내용</th>
+      <td><textarea col="5" style="resize: none;"></textarea></td>
+      <!-- <input type="text" name="rcontent" > -->
+   </tr>
+   <tr>
+      <th>파일첨부</th>
+      <td>
+      <input type="file" name="photonameMF" multiple size="50">
+        <!-- <input type="button" id="button2" value="파일 추가" onclick="addFile()">   
+        <div id="filebox"></div> -->
+      </td>
+   </tr>
+   <tr>
+   </table>
+   <br><p align="center">
+      <input type="submit"  value=" 등록 ">
+      <input type="button" value=" 목록 " onclick="location.href='Treview.do'">
+      <%-- <input type="button" value=" HOME " onclick="location.href=${root}/home.do'"> --%>
+   </p><br>
 </form>
-	
+</c:if>   
 <!-- 본 문 끝 !! -->
 <%@ include file="../footer.jsp"%>

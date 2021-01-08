@@ -10,12 +10,12 @@ public class TmemberDTO {
 	private String Maddress1;
 	private String Maddress2;
 	private String Mlevel;
-	private int Mnum;
+	private String Mnum;
 	private String Mdate;
 	
-public TmemberDTO() {
-	System.out.println("---DTO객체생성---");
-}
+	public TmemberDTO() {
+		System.out.println("---DTO객체생성---");
+	}
 	
 	public String getMid() {
 		return Mid;
@@ -71,10 +71,10 @@ public TmemberDTO() {
 	public void setMlevel(String mlevel) {
 		Mlevel = mlevel;
 	}
-	public int getMnum() {
+	public String getMnum() {
 		return Mnum;
 	}
-	public void setMnum(int mnum) {
+	public void setMnum(String mnum) {
 		Mnum = mnum;
 	}
 	public String getMdate() {

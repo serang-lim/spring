@@ -17,13 +17,7 @@ public class TreviewDTO {
 	  private int Rreadcnt;
 	  
   //-------------------------------------
-	  //createForm.jsp에서 복사
-	  
-	  //1)스프링 파일 객체 멤버 변수 선언
-	  
-	  //<input type='file' name='photonameMF'> 
-	  private MultipartFile photonameMF;
-	  private List<MultipartFile> files;
+
 	  
   //-------------------------------------
 	
@@ -109,32 +103,14 @@ public class TreviewDTO {
 		Rreadcnt = rreadcnt;
 	}
 
-	public MultipartFile getPhotonameMF() {
-		return photonameMF;
-	}
-
-	public void setPhotonameMF(MultipartFile photonameMF) {
-		this.photonameMF = photonameMF;
-	}
-	
-	
-
-	public List<MultipartFile> getFiles() {
-		return files;
-	}
-
-	public void setFiles(List<MultipartFile> files) {
-		this.files = files;
-	}
-
 	@Override
 	public String toString() {
 		return "TreviewDTO [Rnum=" + Rnum + ", Rsubject=" + Rsubject + ", Rcontent=" + Rcontent + ", Rpasswd=" + Rpasswd
 				+ ", Rphoto_name=" + Rphoto_name + ", Rphoto_size=" + Rphoto_size + ", Rregion=" + Rregion + ", Rid="
-				+ Rid + ", Rdate=" + Rdate + ", Rreadcnt=" + Rreadcnt + ", photonameMF=" + photonameMF + ", files="
-				+ files + "]";
+				+ Rid + ", Rdate=" + Rdate + ", Rreadcnt=" + Rreadcnt + "]";
 	}
-	
+
+
 	
 
 	

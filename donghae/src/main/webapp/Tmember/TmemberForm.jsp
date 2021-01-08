@@ -124,7 +124,7 @@
 
   <td><select name="Mlevel"  id="Mlevel">
 
-          <option value="0" selected>선택하세요.</option>
+          <option value="E" selected>선택하세요.</option>
 
           <option value="B1" >기업</option>
 
@@ -143,7 +143,7 @@
 
 		<input type="submit" value="회원가입"  class="btn btn-primary"/>
 
-		<input type="reset"  value="취소"  class="btn btn-primary"/>
+		<input type="reset"  value="취소"  class="btn btn-primary"  onclick="location.href='../home.do'"/>
 
 	</td>
 
@@ -218,12 +218,14 @@
         // iframe을 넣은 element를 보이게 한다.
         element_wrap.style.display = 'block';
     }
+    
+    
     function memberCheck(){
     	//회원가입 유효성검사
     	//1)아이디 5~10글자 인지
     	var id=document.getElementById("Mid").value; //작성자 가져오기
     	id=id.trim();		//좌우 공백 제거하기
-    	if(!(mid.length>=5 && mid.length<=10)){
+    	if(!(id.length>=5 && id.length<=10)){
     		alert("id 5~10글자 이내");
     		document.getElementById("Mid").focus();
     		return false;		//전송하지 않음
@@ -243,7 +245,7 @@
         repasswd=repasswd.trim();
        if(passwd!=repasswd){
        alert("비밀번호와 비밀번호 확인이 같지 않습니다.");
-       document.getElementById("passwd").focus();      
+       document.getElementById("repasswd").focus();      
        return false;
        }//if end
        
@@ -259,17 +261,35 @@
     	var email=document.getElementById("Memail").value;
     	email=email.trim();
     	if(email.length <=4){
-    		alert("5글자 이상 써주세요")
+    		alert("이메일 5글자 이상 써주세요")
     		document.getElementById("Memail").focus();
     		return false;
     	}
-    	//6)직업을 선택했는지?
-    	var job=document.getElementById("Mlevel").value;
-    	if(Mlevel=="0"){
-    		alert("직업 선택 요망");
+    	//6)회원등급선택
+    	var Mlevel=document.getElementById("Mlevel").value;
+    	Mlevel=Mlevel.trim();
+    	if(Mlevel=="E"){
+    		alert("회원등급 선택 요망");
+ 
     		return false;
     	}
-
+    	//7) 기업선택시 사업자번호 넣게하기
+    	var Mnum=document.getElementById("Mnum").value;
+    	Mnum=Mnum.trim();
+    	if(Mlevel=="B1"){
+    		if(Mnum==""){
+    			alert("사업자번호를 작성해주세요");
+    			return false;
+    		}
+     	}
+    	//8) 회원선택 시 사업자번호 생략시키기
+    	
+    	if(Mlevel=="C1"){
+    		if(Mnum!=""){
+    			alert("기업만 사업자번호 작성바랍니다.");
+    			return false;
+    		}
+     	}
     	return true;
     }//memberCheck end
 

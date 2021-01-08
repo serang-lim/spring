@@ -7,11 +7,11 @@
 
 
       
-<!-- 본문시작 loginForm.jsp -->
+
 <div align="center">
 <c:if test="${res==1 }">
    <c:set var="memid" value="${sessionScope.s_id}" scope="session"/>
-   <meta http-equiv="Refresh" content="0;url=../TloginForm.do">
+   <meta http-equiv="Refresh" content="0;url=../home.do">
 </c:if>
 
 <c:if test="${res==0}">

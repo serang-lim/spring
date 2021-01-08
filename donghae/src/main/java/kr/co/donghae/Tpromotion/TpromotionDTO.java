@@ -9,22 +9,25 @@ public class TpromotionDTO {
 	private int Tbno;
 	private String Timage_name;
 	private int Timage_size;
+	private String Timage_name2;
+	private int Timage_size2;
 	private String Tregion;
 	private String Tsubject;
 	private String Twdate;
 	private String Ttime;
-	private int Tnum;
+	private String Tnum;
 	private String Twriter;
 	private String Ticon;
 
 	
 	private MultipartFile Timage_nameMF;
-
+	private MultipartFile Timage_nameMF2;
 	
 	
 	public int getTbno() {
 		return Tbno;
 	}
+	
 	public void setTbno(int tbno) {
 		Tbno = tbno;
 	}
@@ -64,10 +67,10 @@ public class TpromotionDTO {
 	public void setTtime(String ttime) {
 		Ttime = ttime;
 	}
-	public int getTnum() {
+	public String getTnum() {
 		return Tnum;
 	}
-	public void setTnum(int tnum) {
+	public void setTnum(String tnum) {
 		Tnum = tnum;
 	}
 	
@@ -89,14 +92,37 @@ public class TpromotionDTO {
 	public void setTwriter(String twriter) {
 		Twriter = twriter;
 	}
+	
+	
+	
+	public String getTimage_name2() {
+		return Timage_name2;
+	}
+	public void setTimage_name2(String timage_name2) {
+		Timage_name2 = timage_name2;
+	}
+	public int getTimage_size2() {
+		return Timage_size2;
+	}
+	public void setTimage_size2(int timage_size2) {
+		Timage_size2 = timage_size2;
+	}
+	public MultipartFile getTimage_nameMF2() {
+		return Timage_nameMF2;
+	}
+	public void setTimage_nameMF2(MultipartFile timage_nameMF2) {
+		Timage_nameMF2 = timage_nameMF2;
+	}
 	@Override
 	public String toString() {
 		return "TpromotionDTO [Tbno=" + Tbno + ", Timage_name=" + Timage_name + ", Timage_size=" + Timage_size
-				+ ", Tregion=" + Tregion + ", Tsubject=" + Tsubject + ", Twdate=" + Twdate + ", Ttime=" + Ttime
-				+ ", Tnum=" + Tnum + ", Twriter=" + Twriter + ", Ticon=" + Ticon + ", Timage_nameMF=" + Timage_nameMF
-				+ "]";
+				+ ", Timage_name2=" + Timage_name2 + ", Timage_size2=" + Timage_size2 + ", Tregion=" + Tregion
+				+ ", Tsubject=" + Tsubject + ", Twdate=" + Twdate + ", Ttime=" + Ttime + ", Tnum=" + Tnum + ", Twriter="
+				+ Twriter + ", Ticon=" + Ticon + ", Timage_nameMF=" + Timage_nameMF + ", Timage_nameMF2="
+				+ Timage_nameMF2 + "]";
 	}
-
+	
+	
 	
 	
 	

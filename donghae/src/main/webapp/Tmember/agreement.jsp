@@ -201,12 +201,23 @@
 </table>
 
 <div style="text-align: center">
-  <input type="checkbox" value="동의" name="agree"/> 약관에 동의합니다
+  <input type="checkbox" value="동의" name="agree" id="agree"/> 약관에 동의합니다
   <input type="submit" value="회원가입" class="btn btn-primary"/> 
   <input type="button" value="취소"  class="btn btn-primary" onclick="javascript:history.back();"/>
 </div>
 </form>
 
+
+<script>
+function send() {
+   if(document.getElementById("agree").checked==true){
+      return true;
+   }else{
+      alert("약관에 동의한 후 회원가입이 가능합니다");
+      return false;
+   }//if end
+}// send() end
+</script>
 <!-- 본문 끝 -->
 <%@ include file="../footer.jsp"%>			
 
