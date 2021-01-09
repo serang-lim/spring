@@ -25,7 +25,7 @@
    </tr>
    <tr>
       <th>비밀번호</th>
-      <td><input type="password" name="rpasswd" id="rpasswd"></td>
+      <td><input type="password" name="rpasswd" id="rpasswd" required></td>
    </tr>
    <tr>
       <th>지역</th>

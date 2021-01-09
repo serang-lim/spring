@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -59,67 +60,7 @@ public class TreviewCont {
       
       return mav;
    }//read() end
-   
- //------------------------------------------------------------------------------------------
-
-   @RequestMapping(value = "Treview/checkpawdform.do", method = RequestMethod.GET)
-   public ModelAndView checkpawdfrom(@ModelAttribute TreviewDTO dto
-									 ,HttpServletRequest req
-									 ,HttpServletResponse resp
-									 ,HttpSession session) {
-	   ModelAndView mav = new ModelAndView();
-	   mav.addObject("root", Utility.getRoot());
-	   mav.addObject("Rrnum",dto.getRnum());
-	   mav.addObject("Rpasswd",dto.getRpasswd());
-	   
-       mav.setViewName("Treview/checkPassword");
-       return mav;
-      
-   }// checkpawdform() end
-
-   @RequestMapping(value = "Treview/checkpawd.do", method = RequestMethod.POST)
-   public ModelAndView checkpawd(TreviewDTO dto
-						  ,HttpServletRequest req
-						  ,HttpServletResponse resp
-						  ,HttpSession session) throws IOException {
-	  
-	    ModelAndView mav = new ModelAndView();
-	    
-	    String rnum=req.getParameter("Rnum").trim();
-		String rpasswd=req.getParameter("Rpasswd").trim();
-		 
-		mav.addObject("root", Utility.getRoot());
-		mav.addObject("Rrnum",dto.getRnum());
-		mav.addObject("Rpasswd",dto.getRpasswd());
-		
-		dto.setRpasswd(rpasswd);
-		
-		int res=0;
-	    System.out.println("res:" +res);
-	    
-	    if(res==0) {
-	    	resp.setContentType("text/html;charset=utf-8");
-	   		PrintWriter out=resp.getWriter();
-	   		out.println("<script>");
-	   		out.println("alert('비밀번호가 틀렸습니다');");
-	   		out.println("history.back();");
-	   		out.println("</script>");
-	   		out.close();
-	   }else {
-		   PrintWriter out=resp.getWriter();
-		   out.println("<script>");
-	   		out.println("alert('수정하시겠습니까<br>수정 시 기존 파일은 모두 삭제됩니다.');");
-	   		out.println("</script>");
-	   		out.close();
-	   		mav.setViewName("Treview/updateform.do");
-	   }//if end
-	   
-      return mav;
-      
-   }// checkpawd() end
-
-   
-   
+ 
 //----------------------------------------------------------------------------------------
    @RequestMapping(value = "Treview/createrform.do", method = RequestMethod.GET)
    public String createForm() {
@@ -223,10 +164,62 @@ public class TreviewCont {
       
       return mav;
    
-   }//createProc() end   
+   }//createProc() end
+   
+ //------------------------------------------------------------------------------------------
+
+   @RequestMapping(value = "Treview/checkpawdform.do", method = RequestMethod.GET)
+   public ModelAndView checkpawdfrom(@ModelAttribute TreviewDTO dto
+									 ,HttpServletRequest req
+									 ,HttpServletResponse resp
+									 ,HttpSession session) {
+	   ModelAndView mav = new ModelAndView();
+	   
+	   mav.setViewName("Treview/checkPassword");
+	   mav.addObject("root", Utility.getRoot());
+	   mav.addObject("dto", dao.read(dto.getRnum()));
+       return mav;
+      
+   }// checkpawdform() end
+
+   @RequestMapping(value = "Treview/checkpawd.do", method = RequestMethod.POST)
+   public ModelAndView checkpawd(TreviewDTO dto
+								  ,HttpServletRequest req
+								  ,HttpServletResponse resp
+								  ,HttpSession session){
+	   int rnum = Integer.parseInt(req.getParameter("rnum"));
+	   ModelAndView mav= new ModelAndView();
+	   
+	   String rpasswd=req.getParameter("rpasswd").trim(); 
+	   mav.addObject("root", Utility.getRoot());
+	   
+	   int cnt=0;
+	   dto.setRpasswd(rpasswd);
+	   cnt=dao.pwcheck(dto);
+	   req.setAttribute("rpasswd", rpasswd);
+	   System.out.println(rpasswd);
+	   System.out.println(cnt);
+	   
+	   String msg="";
+	    if(cnt==0) {
+	    	msg +="<script>";
+	    	msg +="alert('비밀번호가 일치하지 않습니다');";
+	    	msg +="history.go(-1)";
+	    	msg +="</script>";
+	    	msg+="<meta http-equiv='refresh' content='0;url=/Treview.do'>";
+	    }else {
+	    	msg +="<script>";
+	    	msg +="alert('수정 시에 모든 첨부 파일이 삭제됩니다');";
+	    	msg +="</script>";
+	    	msg+="<meta http-equiv='refresh' content='0;url=checkpawdform.do?rnum=${dto.rnum}'>";
+	    	//msg+="<meta http-equiv='refresh' content='0;url=checkpawdform.do?rnum=${dto.rnum}'>";
+	    }
+	  req.setAttribute("msg", msg);
+      return mav;
+      
+   }// checkpawd() end
 //-----------------------------------------------------------------------
    
-
    @RequestMapping(value="Treview/updateform.do", method = RequestMethod.GET)
       public ModelAndView updateForm(TreviewDTO dto, TreviewFileDTO fdto) {
          ModelAndView mav = new ModelAndView();
@@ -369,7 +362,7 @@ public class TreviewCont {
 //----------------------------------------------------------------------------------------   
    @RequestMapping(value="Treview/delete.do", method = RequestMethod.POST)
    public ModelAndView deleteProc(int rnum, HttpServletRequest req) {
-	   rnum=Integer.parseInt(req.getParameter("rnum"));
+	  rnum=Integer.parseInt(req.getParameter("rnum"));
       ModelAndView mav = new ModelAndView();
       mav.setViewName("Treview/msgView");
       mav.addObject("root", Utility.getRoot());

@@ -35,7 +35,7 @@ public class TmemberCont {
 		mav.addObject("root",Utility.getRoot());
 		mav.addObject("Mid",dto.getMid());
 		mav.addObject("Mpasswd",dto.getMpasswd());
-
+		
 	    mav.setViewName("Tmember/TloginForm");
 	        
 		return mav;	

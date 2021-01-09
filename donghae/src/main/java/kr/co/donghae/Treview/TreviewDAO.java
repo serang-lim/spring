@@ -5,10 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import kr.co.donghae.Tmember.TmemberDTO;
 import net.utility.DBClose;
 import net.utility.DBOpen;
 
@@ -240,9 +240,9 @@ public class TreviewDAO {
                return cnt;
       }//update() end
     //---------------------------------------------------------------------------------------------  
-
+      
       public int pwcheck(TreviewDTO dto) {
-    		int res=0;
+    		int cnt=0;
     		try {
     			con=dbopen.getConnection();
     			sql =new StringBuilder();
@@ -250,21 +250,21 @@ public class TreviewDAO {
     	         sql.append(" FROM review ");
     	         sql.append(" WHERE rnum=? AND rpasswd=?");
     			pstmt=con.prepareStatement(sql.toString());
-    			pstmt.setInt(1,dto.getRnum());
-    			pstmt.setString(2,dto.getRpasswd());
+    			pstmt.setInt(1, dto.getRnum());
+    			pstmt.setString(2, dto.getRpasswd());
     			rs=pstmt.executeQuery();
-    			if(rs.next()==true) {
-    				res=rs.getInt("cnt");
-    			}
-    		}catch(Exception e) {
-    			e.printStackTrace();
-    		}finally {
-    			DBClose.close(con,pstmt,rs);
-    		}
-    		System.out.println(res);
-    		return res;
-    		
-    	}//pwcheck end
+    			if(rs.next()) {
+    				cnt=rs.getInt("cnt"); 
+    			}//if end
+	    		}catch(Exception e) {
+	    			e.printStackTrace();
+	    		}finally {
+	    			DBClose.close(con,pstmt,rs);
+	    		}
+	    		System.out.println(cnt);
+	    		return cnt;
+	    		
+	    	}//pwcheck end
 
     //---------------------------------------------------------------------------------------------
       public int delete(int rnum) {
