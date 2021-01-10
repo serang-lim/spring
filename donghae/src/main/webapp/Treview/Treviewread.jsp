@@ -58,10 +58,11 @@
    </table>
 	<br>
 	<p align="center">
-	<input type="button" value=" 수정 " onclick="location.href='checkpawdform.do?rnum=${dto.rnum}'"/>
+	<input type="button" value=" 수정 " onclick="location.href='upcheckform.do?rnum=${dto.rnum}'"/>
 	<!-- location.href='updateform.do?rnum=${dto.rnum}' -->
-    <input type="button" value=" 삭제 " onclick="location.href='checkpawdform.do?rnum=${dto.rnum}'"/>
-    <!-- location.href='delete.do?rnum=${dto.rnum}' -->
+    <input type="button" value=" 삭제 " onclick="location.href='delcheckform.do?rnum=${dto.rnum}'"/>
+    <!--  location.href='delete.do?rnum=${dto.rnum}'
+    -->
 	</p><br><br>
 
 <!-- 본문 끝 -->

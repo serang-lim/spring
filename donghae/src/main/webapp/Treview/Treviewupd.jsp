@@ -5,24 +5,22 @@
 <%@ include file="../header.jsp"%>
 <%-- <script type="text/javaScript" src="../js/treviewscript.js"></script>
 <script type="text/javaScript"><%@ include file="../js/treviewscript.js" %></script> --%>
-
-<!-- 본 문 시 작 Treviewup -->
-<c:if test="${res==0}">
-   <script>
-   alert("비밀번호가 일치하지 않습니다")<br/>
-   <a href='history.go(-1)''>[돌아가기]</a>
-   </script>
-</c:if>
-
-<c:if test="${res==1 }">
-	<script>
+<script>
+	function add(){
 	var message="정말 수정하시겠습니까? 수정 시 기존 파일은 삭제됩니다";
     if(confirm(message)){//확인 true, 취소 false
-       return true;//서버전송
+       //return true;//서버전송
     }else{
-       return false;
+    	alert('취소하였습니다');
+    	history.back();
+       //return false;
     }//if end
-   </script>
+	}//add end
+</script>
+
+<!-- 본 문 시 작 Treviewup -->
+<div onload="add()">
+
    <form name='updatefrm' method="post" action="update.do"
    		 enctype="multipart/form-data" onsubmit="return pdsCheck()">
    	<input type="hidden" name="rnum" id="rnum" value="${dto.rnum}" />	 
@@ -65,6 +63,7 @@
       <input type="button" value="목록" onclick="location.href='Treview.do'">
       </p><br>
 	</form>
-</c:if>
+</div>
+
 <!-- 본 문 끝 !! -->
 <%@ include file="../footer.jsp"%>
