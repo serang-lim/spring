@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,8 +55,7 @@ public class TreviewCont {
           mav.addObject("root", Utility.getRoot());
           mav.addObject("dto",dto);  
           mav.addObject("list",fdto);  
-          
-        }//if end
+          }//if end
       
       return mav;
    }//read() end
@@ -77,68 +77,30 @@ public class TreviewCont {
                            ) throws IOException {
 	   //String msg="";
 	   ModelAndView mav = new ModelAndView();
-       //mav.setViewName("Treview/msgView");
+       mav.setViewName("Treview/msg");
 
 	   if(file.getSize()==0) {
 		  int cnt=dao.create(dto);
 		  if(cnt==0) {
-			  	 resp.setContentType("text/html; charset=UTf-8;");
-	     	   	 PrintWriter out = resp.getWriter();
-	     	     out.println("<script> alert('게시물 등록에 실패하였습니다');");
-	     	     out.println("history.back(); </script>");
-	     	     out.flush();
-	             /*
-	             msg  ="<p>후기 등록 실패</p>";
-	             String link1="<input type='button' value='다시시도' onclick='javascript:history.back()'>";
-	             String link2="<input type='button' value='목록' onclick='location.href=\"Treview/Treview.do\"'>";
-	             mav.addObject("msg2",  msg);
-	             mav.addObject("link3", link1);
-	             mav.addObject("link4", link2);
-	              */
-	          }else {
-	        	 resp.setContentType("text/html; charset=UTf-8;");
-	     	   	 PrintWriter out = resp.getWriter();
-	     	     out.println("<script> alert('등록되었습니다.');");
-	     	     out.println("location.href='../Treview/Treview.do'; </script>");
-	     	     out.flush();
-	     	     /*
-	             msg  ="<p>후기 등록 성공</p>";
-	             String link1="<input type='button' value='계속등록' onclick='location.href=\"createrform.do\"'>";
-	             String link2="<input type='button' value='그룹목록' onclick='location.href=\"Treview.do\"'>";
-	             mav.addObject("msg2",  msg);
-	             mav.addObject("link1", link1);
-	             mav.addObject("link2", link2);
-	             */
-	          }//if end
+		  	  mav.addObject("msg","게시물 등록에 실패하였습니다");
+		  	  mav.addObject("back","history.back()");
+          }else {
+        	  mav.addObject("msg","등록되었습니다.");
+        	  mav.addObject("url","../Treview/Treview.do");
+          }//if end
 	   }else {
-		   //mav.setViewName("Treview/msgView");
 		   mav.addObject("root", Utility.getRoot());
 		   int cnt=dao.create(dto);
 		   int seq=dao.seqselect();
 
 		   System.out.println(seq);
 		   if(cnt==0) {
-			   /*
-			   msg  ="<p>후기 등록 실패</p>";
-			   mav.addObject("msg1",  msg);
-			   System.out.println("후기 등록 실패");
-			   */
-			   resp.setContentType("text/html; charset=UTf-8;");
-	     	   PrintWriter out = resp.getWriter();
-	     	   out.println("<script> alert('게시물 등록에 실패하였습니다');");
-	     	   out.println("history.back(); </script>");
-	     	   out.flush();
+			   mav.addObject("msg","게시물 등록에 실패하였습니다");
+			   mav.addObject("back","history.back()");
 		   }else {
-	    	 /*
-	    	 msg  ="<p>후기 등록 성공</p>";
-	         mav.addObject("msg1",  msg);
-	         System.out.println("후기 등록 성공");
-	         */
-			 resp.setContentType("text/html; charset=UTf-8;");
-	     	 PrintWriter out = resp.getWriter();
-	     	 out.println("<script> alert('등록되었습니다.');");
-	     	 out.println("location.href='../Treview/Treview.do'; </script>");
-	     	 out.flush();
+			   mav.addObject("msg","등록되었습니다.");
+			   mav.addObject("url","../Treview/Treview.do");
+			   System.out.println("후기 등록 성공");
 	     	     
 	         List<MultipartFile> fileList = req.getFiles("photonameMF");
 	         String path=req.getRealPath("./storage");
@@ -168,31 +130,13 @@ public class TreviewCont {
 
 	         }//for end
 	         if(cnt1==0) {
-	        	 /*
-	             msg  ="<p>사진 등록 실패</p>";
-	             String link1="<input type='button' value='다시시도' onclick='javascript:history.back()'>";
-	             String link2="<input type='button' value='목록' onclick='location.href=\"Treview/Treview.do\"'>";
-	             mav.addObject("msg2",  msg);
-	             mav.addObject("link3", link1);
-	             mav.addObject("link4", link2);
-	            */
 	        	 System.out.println("사진 등록 실패");
 	          }else {
-	          /*
-	             msg  ="<p>사진 등록 성공</p>";
-	             String link1="<input type='button' value='계속등록' onclick='location.href=\"createrform.do\"'>";
-	             String link2="<input type='button' value='그룹목록' onclick='location.href=\"Treview.do\"'>";
-	             mav.addObject("msg2",  msg);
-	             mav.addObject("link1", link1);
-	             mav.addObject("link2", link2);
-	             */
 	        	 System.out.println("사진 등록 성공");
 	          }//if end
 	     }//if end
-		      System.out.println(dto.toString());
-
+		      	 System.out.println(dto.toString());
 	   }//if end
-	   
       return mav;
    
    }//createProc() end
@@ -213,6 +157,8 @@ public class TreviewCont {
       
    }//upcheckform() end
 
+ //--------------------------------------------------------------------------------------------------------------------------
+   
    @RequestMapping(value = "Treview/upcheck.do", method = {RequestMethod.POST, RequestMethod.GET})
    public ModelAndView upcheck(TreviewDTO dto
 								  ,HttpServletRequest req
@@ -231,7 +177,6 @@ public class TreviewCont {
 	   System.out.println(rpasswd);
 	   System.out.println(cnt);
 	   
-	   //String msg="";
 	    if(cnt==0) {
 	    	resp.setContentType("text/html; charset=UTf-8;");
 	    	PrintWriter out = resp.getWriter();
@@ -263,10 +208,11 @@ public class TreviewCont {
    public ModelAndView updateProc(TreviewDTO dto
 		   						,TreviewFileDTO fdto
 		   						,MultipartHttpServletRequest req
-		   						,@RequestParam("photonameMF")MultipartFile file) {
+		   						,HttpServletResponse resp
+		   						,@RequestParam("photonameMF")MultipartFile file) throws IOException{
 	   ModelAndView mav = new ModelAndView();
 	   mav.addObject("root", Utility.getRoot());
-	   mav.setViewName("Treview/msgView");
+	   mav.setViewName("Treview/msg");
 
 		 String basePath=req.getRealPath("./storage"); //삭제하고자 하는 정보 가져오기 
 		 TreviewDTO oldDTO=dao.read(dto.getRnum()); 
@@ -281,21 +227,23 @@ public class TreviewCont {
 		        	 UploadSaveManager.deleteFile(basePath, oldfDTO.get(i).getFileName());
 		         }//for end
 				 if(cnt1==0) { //삭제되었는지?
-			    	  mav.addObject("msg1","<p>파일 수정 실패</p>");
-			    	  mav.addObject("link1", "<input type='button' value='다시시도' onclick='javascript:history.back()'>");
-			    	  mav.addObject("link2", "<input type='button' value='목록' onclick='location.href=\"Treview.do\"'>");
+					 mav.addObject("msg","수정 실패하였습니다");
+				  	 mav.addObject("back","history.back()");
+				     System.out.println("수정 실패하였습니다.1");
 			      }else {
-			         mav.addObject("msg1","<p>파일 수정 되었습니다</p>");
-			         mav.addObject("link1", "<input type='button' value='목록' onclick='location.href=\"Treview.do\"'>");
+			    	 mav.addObject("msg","수정되었습니다.");
+					 mav.addObject("url","../Treview/Treview.do");
+					 System.out.println("수정되었습니다.1");
 			      }//if end
 			 }//if end
 			 if(cnt==0) { //삭제되었는지?
-		    	  mav.addObject("msg1","<p>수정 실패</p>");
-		    	  mav.addObject("link1", "<input type='button' value='다시시도' onclick='javascript:history.back()'>");
-		    	  mav.addObject("link2", "<input type='button' value='목록' onclick='location.href=\"Treview.do\"'>");
+				 mav.addObject("msg","수정 실패하였습니다.");
+			  	 mav.addObject("back","history.back()");
+			     System.out.println("수정 실패하였습니다.2");
 		      }else {
-		         mav.addObject("msg1","<p>수정 되었습니다</p>");
-		         mav.addObject("link1", "<input type='button' value='목록' onclick='location.href=\"Treview.do\"'>");
+		      	 mav.addObject("msg","수정되었습니다.");
+				 mav.addObject("url","../Treview/Treview.do");
+				 System.out.println("수정되었습니다.2");
 		      }//if end
 		 }else {
 			 //파일수정할때
@@ -325,15 +273,15 @@ public class TreviewCont {
 		              System.out.println("파일생성 실패"+e);
 		           }//try end
 		           if(cnt1==0) { //수정 되었는지?
-				    	  mav.addObject("msg1","<p>사진 수정 실패</p>");
+				    	 System.out.println("사진 수정 실패");
 				      }else {
-				         mav.addObject("msg1","<p>사진 수정 되었습니다</p>");
+				         System.out.println("사진 수정 되었습니다");
 				      }//if end
 		         }//for end
 			 }else {//기존 사진 존재할때
 				 
 		          dao.fdelete(dto.getRnum());
-
+	
 				 List<MultipartFile> fileList = req.getFiles("photonameMF");
 		         String path=req.getRealPath("./storage");
 		         File fileDir = new File(path);
@@ -358,22 +306,24 @@ public class TreviewCont {
 		              System.out.println("파일생성 실패"+e);
 		           }//try end
 		           if(cnt1==0) { //수정 되었는지?
-				    	  mav.addObject("msg1","<p>사진 수정 실패</p>");
+				    	 System.out.println("사진 수정 실패");
 				      }else {
-				         mav.addObject("msg1","<p>사진 수정 되었습니다</p>");
+				         System.out.println("사진 수정 되었습니다");
 				      }//if end
 		         }//for end
 			 }//if end
 		 }//if end
 		 int cnt=dao.update(dto);
 		 if(cnt==0) { //삭제되었는지?
-	    	  mav.addObject("msg1","<p>후기 수정 실패</p>");
-	    	  mav.addObject("link1", "<input type='button' value='다시시도' onclick='javascript:history.back()'>");
-	    	  mav.addObject("link2", "<input type='button' value='목록' onclick='location.href=\"Treview.do\"'>");
+	    	 mav.addObject("msg","후기 수정 실패");
+		  	 mav.addObject("back","history.back()");
+		     System.out.println("수정 실패하였습니다.3");
 		 }else {
-	         mav.addObject("msg1","<p>후기 수정 성공</p>");
-	         mav.addObject("link1", "<input type='button' value='목록' onclick='location.href=\"Treview.do\"'>");
+			 mav.addObject("msg","수정되었습니다.");
+			 mav.addObject("url","../Treview/Treview.do");
+			 System.out.println("수정되었습니다.3");
 		 }//if end
+		 
 	   return mav;
    }//updateproc()end
  //------------------------------------------------------------------------------------------
@@ -393,7 +343,7 @@ public class TreviewCont {
    }//upcheckform() end
 
    @RequestMapping(value = "Treview/delcheck.do", method = {RequestMethod.POST, RequestMethod.GET})
-   public ModelAndView delcheck(TreviewDTO dto
+   public ModelAndView delcheck(TreviewDTO dto, Model model
 								  ,HttpServletRequest req
 								  ,HttpServletResponse resp
 								  ,HttpSession session) throws IOException{
@@ -441,11 +391,11 @@ public class TreviewCont {
    @RequestMapping(value="Treview/delete.do", method = {RequestMethod.GET, RequestMethod.POST} )
    public ModelAndView deleteProc(TreviewDTO dto, int rnum
 		   						, HttpServletRequest req, HttpServletResponse resp) throws IOException{
-	   rnum=Integer.parseInt(req.getParameter("rnum"));
+	  rnum=Integer.parseInt(req.getParameter("rnum"));
       ModelAndView mav = new ModelAndView();
       mav.addObject("root", Utility.getRoot());
       mav.addObject("dto", dao.read(dto.getRnum()));
-      //mav.setViewName("Treview/msgView");
+      mav.setViewName("Treview/msg");
       
       //삭제하고자 하는 정보 가져오기
       TreviewDTO oldDTO=dao.read(rnum);
@@ -456,28 +406,21 @@ public class TreviewCont {
       //System.out.println(oldfDTO.get(1));
       
       if(cnt==0||cnt1==0) { //삭제되었는지?
-    	  /*
-    	  mav.addObject("msg1","<p>삭제 실패</p>");
-    	  mav.addObject("link1", "<input type='button' value='다시시도' onclick='javascript:history.back()'>");
-    	  mav.addObject("link2", "<input type='button' value='목록' onclick='location.href=\"Treview.do\"'>");
-    	  */
-    	  resp.setContentType("text/html; charset=UTf-8;");
- 	   	  PrintWriter out = resp.getWriter();
- 	      out.println("<script> alert('삭제 실패하였습니다');");
- 	      out.println("history.back(); </script>");
- 	      out.flush();
+    	  mav.addObject("msg","삭제 되었습니다.");
+    	  mav.addObject("url","../Treview/Treview.do");
+		  System.out.println("삭제성공");
       }else {
          //관련 파일 삭제
          String basePath=req.getRealPath("./storage");
          for(int i=0; i<=oldfDTO.size()-1; i++) {
         	 UploadSaveManager.deleteFile(basePath, oldfDTO.get(i).getFileName());
          }//for end
-         resp.setContentType("text/html; charset=UTf-8;");
-	   	 PrintWriter out = resp.getWriter();
-	     out.println("<script> alert('삭제 되었습니다');");
-	     out.println("location.href='../Treview/Treview.do'; </script>");
-	     out.flush();
+         mav.addObject("msg","삭제 실패하였습니다.");
+         mav.addObject("back","history.back()");
+		 
+		 System.out.println("삭제실패");
       }//if end
+      
       return mav;
       
    }//deleteProc() end
