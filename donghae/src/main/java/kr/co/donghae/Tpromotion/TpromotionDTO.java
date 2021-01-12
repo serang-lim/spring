@@ -18,12 +18,30 @@ public class TpromotionDTO {
 	private String Tnum;
 	private String Twriter;
 	private String Ticon;
+	private int Tpasswd;
+	private String Tresult;
 
 	
 	private MultipartFile Timage_nameMF;
 	private MultipartFile Timage_nameMF2;
 	
-	
+
+	public String getTresult() {
+		return Tresult;
+	}
+
+	public void setTresult(String tresult) {
+		Tresult = tresult;
+	}
+
+	public int getTpasswd() {
+		return Tpasswd;
+	}
+
+	public void setTpasswd(int tpasswd) {
+		Tpasswd = tpasswd;
+	}
+
 	public int getTbno() {
 		return Tbno;
 	}
@@ -113,14 +131,17 @@ public class TpromotionDTO {
 	public void setTimage_nameMF2(MultipartFile timage_nameMF2) {
 		Timage_nameMF2 = timage_nameMF2;
 	}
+
 	@Override
 	public String toString() {
 		return "TpromotionDTO [Tbno=" + Tbno + ", Timage_name=" + Timage_name + ", Timage_size=" + Timage_size
 				+ ", Timage_name2=" + Timage_name2 + ", Timage_size2=" + Timage_size2 + ", Tregion=" + Tregion
 				+ ", Tsubject=" + Tsubject + ", Twdate=" + Twdate + ", Ttime=" + Ttime + ", Tnum=" + Tnum + ", Twriter="
-				+ Twriter + ", Ticon=" + Ticon + ", Timage_nameMF=" + Timage_nameMF + ", Timage_nameMF2="
-				+ Timage_nameMF2 + "]";
+				+ Twriter + ", Ticon=" + Ticon + ", Tpasswd=" + Tpasswd + ", Tresult=" + Tresult + ", Timage_nameMF="
+				+ Timage_nameMF + ", Timage_nameMF2=" + Timage_nameMF2 + "]";
 	}
+
+
 	
 	
 	

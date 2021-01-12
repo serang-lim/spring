@@ -9,7 +9,7 @@
    <br><p><a href="createrform.do">[작성하기]</a></p>
    <table border="1" align="center" width='70%' >
    <tr height="20">
-      <th>글번호</th>
+      <!-- <th>글번호</th>  -->
       <th>지역</th>
       <th>제목</th>
       <th>작성자</th>
@@ -18,7 +18,7 @@
    </tr>
    <c:forEach var="dto" items="${list}">
    <tr height="30">
-      <td align="center">${dto.rnum}</td>
+      <!--  <td align="center">${dto.rnum}</td> -->
       <td align="center">${dto.rregion}</td>
       <td align="center"><a href="read.do?rnum=${dto.rnum}">${dto.rsubject}</a></td>
       <td align="center">${dto.rid}</td>

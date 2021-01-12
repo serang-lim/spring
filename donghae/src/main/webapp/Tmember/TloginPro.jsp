@@ -4,6 +4,10 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../header.jsp" %>
 
+
+
+      
+
 <div align="center">
 <c:if test="${res==1 }">
    <c:set var="memid" value="${sessionScope.s_id}" scope="session"/>

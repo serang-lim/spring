@@ -415,8 +415,8 @@ public class TreviewCont {
          for(int i=0; i<=oldfDTO.size()-1; i++) {
         	 UploadSaveManager.deleteFile(basePath, oldfDTO.get(i).getFileName());
          }//for end
-         mav.addObject("msg","삭제 실패하였습니다.");
-         mav.addObject("back","history.back()");
+         mav.addObject("msg","삭제 되었습니다.");
+         mav.addObject("url","../Treview/Treview.do");
 		 
 		 System.out.println("삭제실패");
       }//if end

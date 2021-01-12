@@ -8,8 +8,8 @@
 <title>Tpromotion/msgView.jsp</title>
 </head>
 <body>
-	<div class="title">알림</div>
-	<div class="content">
+	<div align="center">알림</div>
+	<div align="center">
 	<dl>
 		<dd>${msg1 != null ? img : ""}${msg1}</dd>
 		<dd>${msg2 != null ? img : ""}${msg2}</dd>

@@ -97,6 +97,7 @@
 
 <tr>  
 
+
   <th>주소</th>
 
   <td><input type="text" name="Maddress1" id="Maddress1" size="45" readonly></td>
@@ -115,8 +116,10 @@
 
   <th>사업자번호</th>
 
-  <td><input type="text" name="Mnum" id="Mnum" size="45"></td>
-
+  <td>
+  <input type="text" name="Mnum" id="Mnum" size="20" readonly>
+   <input type="button" value="사업자번호중복확인" onclick="mnumCheck()">	
+</td>
 </tr>
 <tr>  
 
@@ -314,6 +317,14 @@
     function emailCheck(){
     	
     	window.open("TemailcheckForm.jsp"
+    				,"emailwin"
+    				,"width=400, height=350");
+    	
+    }//emailCheck end
+    
+function mnumCheck(){
+    	
+    	window.open("TnumcheckForm.jsp"
     				,"emailwin"
     				,"width=400, height=350");
     	

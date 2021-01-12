@@ -48,6 +48,7 @@
       <th>파일첨부</th>
       <td>
       <input type="file" name="photonameMF" multiple size="50">
+      <br>※ 올릴 사진은 모두 선택해주세요
         <!-- <input type="button" id="button2" value="파일 추가" onclick="addFile()">   
         <div id="filebox"></div> -->
       </td>

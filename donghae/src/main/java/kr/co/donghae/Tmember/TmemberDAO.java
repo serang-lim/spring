@@ -396,4 +396,30 @@ public int insert(TmemberDTO dto) {
 		} // end
 		return list;
 	}// list() end 
+//----------------------------------------------------------------------------------------
+	public int duplecateMnum(String Mnum) {
+		int cnt=0;
+		try {
+			con=dbopen.getConnection();
+			sql= new StringBuilder();
+			sql.append(" SELECT count(Mnum) as cnt ");
+	        sql.append(" FROM Tmember ");
+	        sql.append(" WHERE Mnum=?");  
+	        
+	        pstmt=con.prepareStatement(sql.toString());
+	        pstmt.setString(1, Mnum);
+	        rs=pstmt.executeQuery();
+	        
+	        if(rs.next()) {
+	        	cnt=rs.getInt("cnt");
+	        }
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(con,pstmt,rs);
+		}
+		return cnt;
+	}//id end
+//--------------------------------------------------------------------------------------
+	
 }//class end

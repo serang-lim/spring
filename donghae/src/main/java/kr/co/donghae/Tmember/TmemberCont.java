@@ -35,7 +35,7 @@ public class TmemberCont {
 		mav.addObject("root",Utility.getRoot());
 		mav.addObject("Mid",dto.getMid());
 		mav.addObject("Mpasswd",dto.getMpasswd());
-		
+
 	    mav.setViewName("Tmember/TloginForm");
 	        
 		return mav;	
@@ -479,7 +479,7 @@ public class TmemberCont {
 	        
 	  	  }else {
 	  		 msg+="<script>";
-	         msg+="   alert('비밀번호가 틀렸습니다.');";
+	         msg+="   alert('이름 또는 이메일이 일치하지 않습니다!');";
 	         msg+="</script>";
 	         msg+="<meta http-equiv='refresh' content='0;url=../Tmember/TfindID.do'>";
 
@@ -502,4 +502,38 @@ public class TmemberCont {
 		  
 		  return mav;
 	  }
+//-------------------------------------------------------------------------------------------------------
+		@RequestMapping(value="Tmember/TnumcheckForm.do")
+		public ModelAndView TnumcheckForm(String Mnum) {
+			ModelAndView mav=new ModelAndView();
+			mav.setViewName("Tmember/TnumcheckForm");
+			mav.addObject("root",Utility.getRoot());
+		
+			return mav;
+		}// TnumcheckForm
+	//----------------------------------------------------------------------------------------------	
+		@RequestMapping(value="Tmember/TnumcheckPro.do" ,method=RequestMethod.POST)
+		   public ModelAndView TnumcheckPro(@ModelAttribute TmemberDTO dto
+		                          ,HttpServletRequest req
+		                          ,HttpServletResponse resp
+		                          ,HttpSession session) {
+		      
+		      ModelAndView mav= new ModelAndView();
+		      String mnum=req.getParameter("Mnum").trim();
+		      mav.setViewName("Tmember/TnumcheckPro");
+		      mav.addObject("root", Utility.getRoot());
+		      int cnt=dao.duplecateMnum(mnum);
+		      
+		      String msg="";
+		      if(cnt==0) {
+		         req.setAttribute("mnum", mnum);
+		         msg+="사용가능한 사업자번호입니다.";
+		      }else {
+		         msg+="이미 사용하고 있는 사업자번호입니다.";
+		      }
+		   mav.addObject("msg",msg);
+		   return mav;   
+		   }
+
+	//-----------------------------------------------------------------------------------  
 }//class end
