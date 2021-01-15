@@ -221,7 +221,7 @@
             </div>
          </div>
       </section>
-      <div class="back_top"><a href="#n"><img src="images/common/back_top.png" alt="위로버튼"/></a></div>
+      <div class="back_top"><a href="#n"><img src="images/common/back_top.png"  alt="위로버튼"/></a></div>
 
    </footer>
    <!--//E:footer--><!--//E:footer-->

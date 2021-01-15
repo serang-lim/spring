@@ -199,12 +199,13 @@
         </td>
     </tr>
 </table>
-
+<br>
 <div style="text-align: center">
   <input type="checkbox" value="동의" name="agree" id="agree"/> 약관에 동의합니다
   <input type="submit" value="회원가입" class="btn btn-primary"/> 
   <input type="button" value="취소"  class="btn btn-primary" onclick="javascript:history.back();"/>
 </div>
+<br>
 </form>
 
 

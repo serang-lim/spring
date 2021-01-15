@@ -19,15 +19,15 @@
 
 <br>
 
-<table class="table" >
+<table class="notice_tal" style="width:80%; margin: auto;">
 
 <tr>
 
-	<th>*아이디</th>
+	<th width="30%">*아이디</th>
 
-	<td >
+	<td align="left">
 
-      <input type="text" name="Mid" id="Mid" size="15"  readonly>
+      <input type="text" name="Mid" id="Mid" size="30"  readonly>
 
       <input type="button" value="ID중복확인" onclick="idCheck()">	
 
@@ -39,7 +39,7 @@
 
 	<th>*비밀번호</th>
 
-	<td><input type="password" name="Mpasswd" id="Mpasswd" size="15" required></td>
+	<td align="left"><input type="password" name="Mpasswd" id="Mpasswd" size="30" required></td>
 
 </tr>
 
@@ -47,7 +47,7 @@
 
 	<th>*비밀번호 확인</th>
 
-	<td><input type="password" name="repasswd" id="repasswd" size="15" required></td>
+	<td align="left"><input type="password" name="repasswd" id="repasswd" size="30" required></td>
 
 </tr>
 
@@ -55,7 +55,7 @@
 
 	<th>*이름</th>
 
-	<td><input type="text" name="Mname" id="Mname" size="15" required></td>
+	<td align="left"><input type="text" name="Mname" id="Mname" size="30" required></td>
 
 </tr>
 
@@ -63,7 +63,7 @@
 
 	<th>*이메일</th>
 
-	<td>
+	<td align="left">
 
       <input type="email" name="Memail" id="Memail" size="30" readonly>
 
@@ -77,7 +77,7 @@
 
 	<th>전화번호</th>
 
-	<td><input type="text" name="Mtel" id="Mtel" size="15"></td>
+	<td align="left"><input type="text" name="Mtel" id="Mtel" size="30"></td>
 
 </tr>
 
@@ -85,9 +85,9 @@
 
 	<th>우편번호</th>
 
-	<td>
+	<td align="left">
 
-      <input type="text" name="Mzipcode" id="Mzipcode" size="7"  readonly>
+      <input type="text" name="Mzipcode" id="Mzipcode" size="30"  readonly>
 
       <input type="button" value="주소찾기"  onclick="DaumPostcode()">	
 
@@ -100,7 +100,7 @@
 
   <th>주소</th>
 
-  <td><input type="text" name="Maddress1" id="Maddress1" size="45" readonly></td>
+  <td align="left"><input type="text" name="Maddress1" id="Maddress1" size="30" readonly></td>
 
 </tr>
 
@@ -108,7 +108,7 @@
 
   <th>나머지주소</th>
 
-  <td><input type="text" name="Maddress2" id="Maddress2" size="45"></td>
+  <td align="left"><input type="text" name="Maddress2" id="Maddress2" size="30"></td>
 
 </tr>
 
@@ -116,8 +116,8 @@
 
   <th>사업자번호</th>
 
-  <td>
-  <input type="text" name="Mnum" id="Mnum" size="20" readonly>
+  <td align="left">
+  <input type="text" name="Mnum" id="Mnum" size="30" readonly>
    <input type="button" value="사업자번호중복확인" onclick="mnumCheck()">	
 </td>
 </tr>
@@ -125,7 +125,7 @@
 
   <th>회원분류</th>
 
-  <td><select name="Mlevel"  id="Mlevel">
+  <td align="left"><select name="Mlevel"  id="Mlevel">
 
           <option value="E" selected>선택하세요.</option>
 

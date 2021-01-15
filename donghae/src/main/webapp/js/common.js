@@ -129,8 +129,7 @@ function mobile_menu(){
                 $this.addClass('on');
                 $this_ul.stop(true,true).slideDown();
             }
-        });
-        */
+        });*/
         
         /* ����̽� ũ�� ����� ����� �޴����� ����� */
        // $(window).resize(function(){

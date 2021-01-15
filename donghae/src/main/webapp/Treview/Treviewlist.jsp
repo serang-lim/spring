@@ -6,8 +6,8 @@
 
 <!-- 본문 시작 Treview.jsp -->
 
-   <br><p><a href="createrform.do">[작성하기]</a></p>
-   <table border="1" align="center" width='70%' >
+   <br><p align='right'><a href="createrform.do">[작성하기]&nbsp;&nbsp;</a></p><br>
+   <table class="notice_tal">
    <tr height="20">
       <!-- <th>글번호</th>  -->
       <th>지역</th>

@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 
 import org.springframework.stereotype.Component;
 
-//스프링 컨테이너(웹서버)가 자동으로 객체 생성함
+//스프링컨테이너(웹서버)가 자동으로 객체 생성함
 @Component
 public class DBClose { //DB연결 자원 반납
 
 	public DBClose() {
-		System.out.println("---DBClose() 객체 생성됨...");
-	}//DBClose() end
+		System.out.println("--DBClose()객체 생성됨...");
+	}//DBClose
 	
   public static void close(Connection con) {
     try{

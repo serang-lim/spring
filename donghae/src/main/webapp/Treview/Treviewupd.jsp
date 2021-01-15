@@ -26,18 +26,18 @@
    	<input type="hidden" name="rnum" id="rnum" value="${dto.rnum}" />	 
    	<input type="hidden" name="rid" id="rid" value="${dto.rid}" />	 
  	<input type="hidden" name="rdate" id="rdate" value="${dto.rdate}" />	
-	<table class='table_write'>
+	<table class="notice_tal">
 	<tr>
-	   <th>제목</th>
-	   <td><input type="text" name="rsubject" value="${dto.rsubject }"></td>
+	   <th width="30%">제목</th>
+	   <td align="left"><input type="text" name="rsubject" value="${dto.rsubject }"></td>
 	</tr>
 	<tr>
 	   <th>비밀번호</th>
-	   <td><input type="password" name="rpasswd" required></td>
+	   <td align="left"><input type="password" name="rpasswd" required></td>
 	</tr>
 	<tr>
 	   <th>지역</th>
-	   <td>
+	   <td align="left">
 	   <select name="rregion"  id="rregion">
           <option value="없음" selected>선택하세요.</option>
           <option value="동해">동해</option>
@@ -49,17 +49,17 @@
 	</tr>
 	<tr>
 	   <th>내용</th>
-	   <td><input type="text" name="rcontent" rows="5" cols="30" value="${dto.rcontent }"></td>
+	   <td align="left"><input type="text" name="rcontent" rows="5" cols="30" value="${dto.rcontent }"></td>
 	</tr>
 	<tr>
 	   <th>첨부파일</th>
-	   <td><input type="file" name="photonameMF" multiple size='50'></td>
+	   <td align="left"><input type="file" name="photonameMF" multiple size='50'></td>
 	</tr>
 	</table>
 	<br>
 	<p align="center">
 	<td colspan='2'>
-      <input type="submit"  value="등록">
+      <input type="submit"  value="수정">
       <input type="button" value="목록" onclick="location.href='Treview.do'">
       </p><br>
 	</form>

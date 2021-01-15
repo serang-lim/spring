@@ -18,18 +18,18 @@
    <form name='createfrm' method="post" action="create.do"
           enctype="multipart/form-data" onsubmit="return pdsCheck()">
    <input type="hidden" name="rid" value="${sessionScope.memid}">       
-   <table class='table_write'>
+   <table class="notice_tal">
    <tr>
-      <th>제목</th>
-      <td><input type="text" name="rsubject" id="rsubject"></td>
+      <th width="30%">제목</th>
+      <td align="left"><input type="text" name="rsubject" id="rsubject" size="50%"></td>
    </tr>
    <tr>
       <th>비밀번호</th>
-      <td><input type="password" name="rpasswd" id="rpasswd" required></td>
+      <td align="left"><input type="password" name="rpasswd" id="rpasswd" size="50%" required></td>
    </tr>
    <tr>
       <th>지역</th>
-      <td>
+      <td align="left">
       <select name="rregion"  id="rregion">
           <option value="0" selected>선택하세요.</option>
           <option value="동해">동해</option>
@@ -41,12 +41,12 @@
    </tr>
    <tr>
       <th>내용</th>
-      <td><input type="text" name="rcontent"></td>
+      <td align="left"><textarea rows="15%" cols="60%" name="rcontent"></textarea></td>
       <!-- <textarea col="5" style="resize: none;" name="rcontent" ></textarea> -->
    </tr>
    <tr>
       <th>파일첨부</th>
-      <td>
+      <td align="left">
       <input type="file" name="photonameMF" multiple size="50">
       <br>※ 올릴 사진은 모두 선택해주세요
         <!-- <input type="button" id="button2" value="파일 추가" onclick="addFile()">   

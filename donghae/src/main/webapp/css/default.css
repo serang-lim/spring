@@ -43,7 +43,7 @@ header .m_head{display:none;}
 footer{width:100%; background:#2f3640; position:relative;}
 footer::after{content:''; display:block; clear:both;}
 
-footer .back_top{display:block; position:absolute; bottom:90%; right:13%;}
+footer .back_top{display:block; position:absolute; bottom:50%; right:5%;}
 
 footer #f_menu{border-bottom:solid 1px #74777c;}
 footer #f_menu::after{content:''; display:block; clear:both;}

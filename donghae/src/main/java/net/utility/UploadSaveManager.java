@@ -40,10 +40,10 @@ import org.springframework.web.multipart.MultipartFile;
   │       └ ServletRequestWrapper
   │                        △
   │                        │                 
-  └─ HttpServletRequest    │
+  └─ HttpServletRequest   │
        △     request       │상속 
        │                   │
-       │ 구현               │ 
+       │ 구현              │ 
        └─ HttpServletRequestWrapper
             △
             │

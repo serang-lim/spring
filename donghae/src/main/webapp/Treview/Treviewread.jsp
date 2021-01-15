@@ -15,7 +15,7 @@
 	<a href="Treview.do">[글목록]</a>
 	</p>
 	<br><br>
-   <table class="table_view">
+   <table class="notice_tal">
 	<form role="form" method="get">
    	<input type="hidden" name="rid" id="rid" value="${dto.rid}">
    	<input type="hidden" name="rnum" id="rnum" value="${dto.rnum}">
@@ -28,18 +28,19 @@
       <th>조회수</th>
       <td>${dto.rreadcnt}</td>
    </tr>
-   <tr height="30">  
-      <th>제목</th>
-      <td>${dto.rsubject}</td>
-   </tr>
    <tr height="30">   
       <th>지역</th>
-      <td>${dto.rregion}</td>
+      <td colspan="3" align="left">${dto.rregion}</td>
    </tr>
+   <tr height="30">  
+      <th>제목</th>
+      <td colspan="3" align="left">${dto.rsubject}</td>
+   </tr>
+  
 	<c:forEach var="dto" items="${list}"> 
 	<tr height="30">
 	<th>사진</th>
-	<td>
+	<td colspan="3" align="left">
         <img src="../storage/${dto.fileName}" width="500">
 		<script type="text/javascript">
 			var img = document.getElementsByTagName("img");
@@ -52,7 +53,7 @@
 	</c:forEach>
    <tr height="30">   
       <th>내용</th>
-      <td>${dto.rcontent}</td>
+      <td colspan="3" align="left">${dto.rcontent}</td>
    </tr>
    
    </table>

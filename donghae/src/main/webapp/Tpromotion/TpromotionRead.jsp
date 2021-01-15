@@ -8,7 +8,7 @@
 <h3 align="center"> 프로모션 상세보기 </h3>
 	<form action="updateRes.do" name="readfrm">
 	<input type="hidden" name="tbno" value="${dto.tbno}">
-	<table border="1" align="center" style="font-size:15pt">
+	<table class="notice_tal">
 	<c:if test="${sessionScope.s_mlevel=='A1'}">
 	<tr>
 		<td colspan="6" style="text-align: right;">

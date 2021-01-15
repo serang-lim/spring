@@ -9,7 +9,7 @@
 	
 	<input type="hidden" name="twriter" id="twriter" value="${sessionScope.s_id}">
 
-	<table border="1" align="center">
+	<table class="notice_tal" border="1" align="center">
 	<tr>
 		<th width="15%">분류</th>
 			<td> <select name="ticon" id="ticon">
@@ -18,6 +18,7 @@
 					<option value="주요행사">주요행사</option>
 					<option value="숙소">숙소</option>
 					<option value="액티비티">액티비티</option>
+					<option value="사진스팟">사진스팟</option>
 				 </select></td>
 	</tr>
 	<tr>

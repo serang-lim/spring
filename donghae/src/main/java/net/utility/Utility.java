@@ -169,7 +169,7 @@ public class Utility {
    */
   public static synchronized String convertChar(String str) {
 
-	str = str.replaceAll(" ", "&nbsp;");  
+   str = str.replaceAll(" ", "&nbsp;");
     str = str.replaceAll("<", "&lt;");
     str = str.replaceAll(">", "&gt;");
     str = str.replaceAll("'", "&apos;");   // '

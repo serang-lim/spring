@@ -11,9 +11,9 @@
 <c:when test="${s_mlevel=='A1'}">
 <h3 align="center"> 프 로 모 션 </h3>
 <form action="TproDel.do" name="listfrm">
-	<table border="1" align="center" style="font-size:15pt">
+	<table class="notice_tal">
 	<tr>		
-		<th colspan="9" align="left"><input type="submit" value="삭제"> </th>
+		<th colspan="9" align="right"><input type="submit" value=" 삭 제 "> </th>
 	</tr>
 	<tr>
 		<th width="10%">체크</th>
@@ -88,12 +88,13 @@
 
 <c:otherwise>
 <h3 align="center"> 프 로 모 션 </h3>
+<br>
 	<input type="hidden" value="${dto.tbno}" name="tbno">
-	<table border="1" align="center" style="font-size:15pt">
+	<table class="notice_tal">
 	<tr align="center">
-		<th width="20%">분류</th>
+		<th width="15%">분류</th>
 		<th width="20%">사진</th>
-		<th width="10%">지역</th>
+		<th width="15%">지역</th>
 		<th width="30%">제목</th>
 		<th width="15%">작성자</th>
 		<th width="15%">작성일</th>
