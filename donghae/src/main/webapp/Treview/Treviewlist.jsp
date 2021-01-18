@@ -6,7 +6,7 @@
 
 <!-- 본문 시작 Treview.jsp -->
 
-   <br><p align='right'><a href="createrform.do">[작성하기]&nbsp;&nbsp;</a></p><br>
+   <br>
    <table class="notice_tal">
    <tr height="20">
       <!-- <th>글번호</th>  -->

@@ -49,7 +49,9 @@
 	</tr>
 	<tr>
 	   <th>내용</th>
-	   <td align="left"><input type="text" name="rcontent" rows="5" cols="30" value="${dto.rcontent }"></td>
+	   <td align="left">
+	   <%-- <input type="text" name="rcontent" rows="5" cols="30" value="${dto.rcontent }"> --%>
+	   <textarea rows="15%" cols="60%" name="rcontent" value="${dto.rcontent}"></textarea></td>
 	</tr>
 	<tr>
 	   <th>첨부파일</th>

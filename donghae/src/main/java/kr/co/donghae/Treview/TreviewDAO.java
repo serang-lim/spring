@@ -66,14 +66,15 @@ public class TreviewDAO {
             	 
               con = dbopen.getConnection();
                sql =new StringBuilder();
-               sql.append(" INSERT INTO review(Rnum, Rsubject, Rcontent, Rpasswd, Rregion, Rid, Rdate)");
-               sql.append(" VALUES( Rnum_seq.nextval, ?, ?, ?, ?, ?, sysdate)");
+               sql.append(" INSERT INTO review(Rnum, Rsubject, Rcontent, Rpasswd, Rregion, Rid, Rdate, tno)");
+               sql.append(" VALUES( Rnum_seq.nextval, ?, ?, ?, ?, ?, sysdate, ?)");
                pstmt = con.prepareStatement(sql.toString());
                pstmt.setString(1, dto.getRsubject());
                pstmt.setString(2, dto.getRcontent());
-                pstmt.setString(3, dto.getRpasswd());
-                pstmt.setString(4, dto.getRregion());
-                pstmt.setString(5, dto.getRid());
+               pstmt.setString(3, dto.getRpasswd());
+               pstmt.setString(4, dto.getRregion());
+               pstmt.setString(5, dto.getRid());
+               pstmt.setInt(6, dto.getTno());
 
                cnt = pstmt.executeUpdate();
             } catch (Exception e) {
@@ -154,7 +155,7 @@ public class TreviewDAO {
                   pstmt.executeUpdate();
                   
                   sql=new StringBuilder();
-                  sql.append(" SELECT Rnum, Rsubject, Rcontent, Rregion, Rid, Rdate, Rreadcnt");
+                  sql.append(" SELECT Rnum, Rsubject, Rcontent, Rregion, Rid, Rdate, Rreadcnt, tno");
                   sql.append(" FROM review");
                   sql.append(" WHERE Rnum=?");
                   pstmt=con.prepareStatement(sql.toString());
@@ -170,6 +171,7 @@ public class TreviewDAO {
                      dto.setRid(rs.getString("rid"));
                      dto.setRdate(rs.getString("rdate"));
                      dto.setRreadcnt(rs.getInt("rreadcnt"));
+                     dto.setTno(rs.getInt("tno"));
                   }else {
                      dto=null;
                   }//if end

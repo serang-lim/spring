@@ -179,6 +179,17 @@ public class Utility {
     return str;
   }
   
+  public static synchronized String convertChar2(String str) {
+
+      str = str.replaceAll(" ", "&nbsp;");
+      str = str.replaceAll("<", "&lt;");
+      str = str.replaceAll(">", "&gt;");
+      str = str.replaceAll("'", "&apos;");   // '
+      str = str.replaceAll("\"", "&quot;"); // "
+      str = str.replaceAll("\r\n", "\n");  // 라인 변경
+      return str;
+    }
+  
   public static synchronized String convertCharTA(String str) {
 
     str = str.replaceAll("<", "&lt;");

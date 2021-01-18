@@ -10,18 +10,18 @@
    <h3 align="center">* 게시물 상세보기 *</h3>
    <br>
 	<p align="center">
-	<a href="createrform.do">[새로 작성하기]</a>
-	&nbsp;&nbsp;
 	<a href="Treview.do">[글목록]</a>
+	&nbsp;&nbsp;
+	<a href="../Troute/Read.do?cno=${dto.tno}">[원글보기]</a>
 	</p>
 	<br><br>
-   <table class="notice_tal">
+   
 	<form role="form" method="get">
    	<input type="hidden" name="rid" id="rid" value="${dto.rid}">
    	<input type="hidden" name="rnum" id="rnum" value="${dto.rnum}">
    	<input type="hidden" name="rpasswd" id="uppw" value="${dto.rpasswd}">
- 	
-	</form>
+   	
+ 	<table class="notice_tal">
 	<tr height="30">   
       <th>작성일</th>
       <td>${dto.rdate}</td>
@@ -55,8 +55,8 @@
       <th>내용</th>
       <td colspan="3" align="left">${dto.rcontent}</td>
    </tr>
-   
    </table>
+   </form>
 	<br>
 	<p align="center">
 	<input type="button" value=" 수정 " onclick="location.href='upcheckform.do?rnum=${dto.rnum}'"/>
