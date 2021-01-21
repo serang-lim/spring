@@ -22,6 +22,8 @@
 <script type="text/javascript" src="js/common.js"></script>
 <link rel=" shortcut icon" href="images/common/favicon.ico">
 <link rel="icon" href="images/common/favicon.ico">
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -35,7 +37,8 @@
    <header>
       <!--S:header-->
       <div id="header">
-         <div><a href="index.do">HOME</a>
+         
+        <div>
            <div style=float:right;>
             <c:if test="${empty sessionScope.memid}">  <a href="Tmember/Tlogin.do">로그인</a></c:if>
             <c:if test="${sessionScope.memid!=null}"><a href="Tmember/Tlogout.do">로그아웃</a></c:if>
@@ -45,6 +48,11 @@
          </div>
          <!--S:lnb-->
          <nav id="lnb">
+         <div id="h_logo">
+         <a href="index.do">
+            <img src="./images/lamp.png" width="70px">
+         </a>
+          </div>
             <ul class="lnb">
                <li class="depth1"><a href="Tnotice/TnoticeList.do">공지사항</a>
                </li>
@@ -54,7 +62,7 @@
                </li>
                <li class="depth1"><a href="Tpromotion/Tpromotion.do">프로모션</a>
                </li>
-               <li class="depth1"><a href="Tlikelocation/TlikelocationList.do?Lid=${sessionScope.s_id}">관심여행지</a>
+               <li class="depth1"><a href="Tlikelocation/TlikelocationList.do">관심여행지</a>
                </li>
             </ul>
          </nav>
@@ -92,7 +100,7 @@
                   <a href="Tpromotion/Tpromotion.do">프로모션</a>
                </li>
                <li>
-                  <a href="Tlikelocation/TlikelocationList.do?Lid=${sessionScope.s_id}">관심여행지</a>
+                  <a href="Tlikelocation/TlikelocationList.do">관심여행지</a>
                </li>
             </ul>
          </nav>

@@ -79,6 +79,7 @@ public class TmemberCont {
         dto=dao.read(id);
         session.setAttribute("s_mlevel", dto.getMlevel());	
         session.setAttribute("s_mnum", dto.getMnum());
+        
 //-----------------------------------------쿠키 아이디저장
        String c_id=req.getParameter("c_id");
           if(c_id==null){ 
@@ -300,7 +301,7 @@ public class TmemberCont {
 	System.out.println(dto);
 	
 	if(dto==null) {
-		 String msg="비밀번호 확인부탁드릴게요";
+		 String msg="<script>alert('비밀번호 확인부탁드릴게요');history.back();</script>";
 		 mav.addObject("msg" ,msg);
 		 mav.setViewName("Tmember/msgView");
 		 
@@ -363,11 +364,7 @@ public class TmemberCont {
 		    int cnt= dao.modifyPro(dto);
 		    String msg="";
 		    if(cnt==0) {
-		    	msg +="<script>";
-		    	msg +="alert('실패했습니다');";	
-		    	msg+="</script>";
-		         msg+="<meta http-equiv='refresh' content='0;url=javascript:history.back()'>";
-		         
+		    	msg +="<script>alert('실패했습니다');history.back();</script>";
 		      }else {
 		         msg+="<script>";
 		         msg+="   alert('수정완료되었습니다');";

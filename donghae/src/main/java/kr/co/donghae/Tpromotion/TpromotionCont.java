@@ -346,55 +346,61 @@ public class TpromotionCont {
     }//deleteForm() end
     
     
-    @RequestMapping(value="/Tpromotion/TproDel.do",method=RequestMethod.GET)
-    public ModelAndView deleteTpro(TpromotionDTO dto, HttpServletRequest req) {
+    @RequestMapping(value="/Tpromotion/TproDel.do")
+    public ModelAndView deleteTpro(String tbnos, TpromotionDTO dto, HttpServletRequest req) {
   	  ModelAndView mav= new ModelAndView();
         mav.setViewName("/Tpromotion/msgView");
         mav.addObject("root",Utility.getRoot());
-        String msg1="<p>이 프로모션을 삭제하시겠습니까?</p>";
-		String link1="<input type='button' value='삭제하기' onclick='location.href=\"TproDelete.do?tbno="+dto.getTbno()+"\"'>";
-		String link2="<input type='button' value='목록으로' onclick='location.href=\"Tpromotion.do?tbno="+dto.getTbno()+"\"'>";
+        String msg1="<p>프로모션을 모두 삭제하시겠습니까?</p>";
+		String link1="<input type='button' value='삭제하기' onclick='location.href=\"TproDelete.do?tbnos="+tbnos+"\"'>";
+		String link2="<input type='button' value='목록으로' onclick='location.href=\"Tpromotion.do?tbnos="+tbnos+"\"'>";
 		mav.addObject("msg1",msg1);
 		mav.addObject("link1", link1);
 		mav.addObject("link2", link2);
-		mav.addObject("dto",dto);
   	  return mav;
     }//deleteForm() end
     
     
-    @RequestMapping(value="/Tpromotion/TproDelete.do",method=RequestMethod.GET)
-    public ModelAndView deleteTpromotion(TpromotionDTO dto, HttpServletRequest req) {
+    @RequestMapping(value="/Tpromotion/TproDelete.do")
+    public ModelAndView deleteTpromotion(String tbnos, TpromotionDTO dto, HttpServletRequest req) {
   	  ModelAndView mav= new ModelAndView();
         mav.setViewName("/Tpromotion/msgView");
         mav.addObject("root",Utility.getRoot());
     	String basePath=req.getRealPath("./storage");
+    	
+    	String[] tbnosArr = tbnos.split("-");
+    	if(tbnosArr!=null&&tbnosArr.length>0) {
+    		for(int i=0; i<tbnosArr.length; i++) {
+    			int tbno=Integer.parseInt(tbnosArr[i]);
+    			//삭제할정보가져오기
+    	        TpromotionDTO oldDTO  = dao.read(tbno);
+    	        int cnt=dao.delete(tbno);
+    	        if(cnt==0) {
+    	      		UploadSaveManager.deleteFile(basePath, oldDTO.getTimage_name());
+    	      		UploadSaveManager.deleteFile(basePath, oldDTO.getTimage_name2());
 
-        //삭제할정보가져오기
-        TpromotionDTO oldDTO  = dao.read(dto.getTbno());
-        int cnt=dao.delete(dto.getTbno());
-     	  if(cnt==0) {
-      		UploadSaveManager.deleteFile(basePath, oldDTO.getTimage_name());
-      		UploadSaveManager.deleteFile(basePath, oldDTO.getTimage_name2());
+					String msg1="<p>프로모션 삭제 실패</p>";
+					String img="<img src='../images/k1.png'>";
+					String link1="<input type='button' value='다시시도' onclick='javascript:history.back()'>";
+		     		String link2="<input type='button' value='목록으로' onclick='location.href=\"./Tpromotion.do?tbno="+dto.getTbno()+"\"'>";
+					mav.addObject("msg1",msg1);
+					mav.addObject("link1", link1);
+					mav.addObject("link2", link2);
+    	        }else {
+	     		  	String basepath=req.getRealPath("./storage");
+	     		  	UploadSaveManager.deleteFile(basepath, oldDTO.getTimage_name());
+	     		  	UploadSaveManager.deleteFile(basepath, oldDTO.getTimage_name2());
+	    		  	mav.setViewName("Tpromotion/msg");
+	          		String msg="<script>";
+	    	    	msg+="alert('프로모션 삭제 성공 목록으로 돌아갑니다');";	
+	    	    	msg+="</script>";
+	    	    	msg+="<meta http-equiv='refresh' content='0;url=Tpromotion.do'>";
+	    	    	req.setAttribute("msg",msg);
 
-				String msg1="<p>프로모션 삭제 실패</p>";
-				String img="<img src='../images/k1.png'>";
-				String link1="<input type='button' value='다시시도' onclick='javascript:history.back()'>";
-	     		String link2="<input type='button' value='목록으로' onclick='location.href=\"./Tpromotion.do?tbno="+dto.getTbno()+"\"'>";
-				mav.addObject("msg1",msg1);
-				mav.addObject("link1", link1);
-				mav.addObject("link2", link2);
-     	  }else {
-     		  	String basepath=req.getRealPath("./storage");
-     		  	UploadSaveManager.deleteFile(basepath, oldDTO.getTimage_name());
-     		  	UploadSaveManager.deleteFile(basepath, oldDTO.getTimage_name2());
-    		  	mav.setViewName("Tpromotion/msg");
-          		String msg="<script>";
-    	    	msg+="alert('프로모션 삭제 성공 목록으로 돌아갑니다');";	
-    	    	msg+="</script>";
-    	    	msg+="<meta http-equiv='refresh' content='0;url=Tpromotion.do'>";
-    	    	req.setAttribute("msg",msg);
-
-     	  }//if end
+    	        }//if end
+    		}
+    	}
+        
 		return mav; 
     }//deleteForm() end
     

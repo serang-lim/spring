@@ -15,8 +15,10 @@
 </c:if>
 
 <c:if test="${res==0}">
-   아이디 또는 비밀번호를 확인해주세요<br/>
-   <a href="javascript:history.go(-1)">[돌아가기]</a>
+   <script>
+   alert("아이디 또는 비밀번호를 확인해주세요");
+   history.back();
+   </script>
 </c:if>
 </div>
 <!-- 본문 끝 -->

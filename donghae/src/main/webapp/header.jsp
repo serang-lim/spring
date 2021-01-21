@@ -23,11 +23,12 @@
 <script type="text/javascript" src="../js/common.js"></script>
 <link rel=" shortcut icon" href="../images/common/favicon.ico">
 <link rel="icon" href="../images/common/favicon.ico">
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <title> 동 해 지 니 </title>
-<!-- <link rel="shortcut icon" href=></link>  -->
+ <link rel="shortcut icon" href=></link> 
 </head>
 <body>
 <!--S:wrap-->
@@ -36,17 +37,23 @@
    <header>
       <!--S:header-->
       <div id="header">
-         <div><a href="../index.do">HOME</a>
+        <div>
            <div style=float:right;>
            <c:if test="${empty sessionScope.memid}">  <a href="../Tmember/Tlogin.do">로그인</a></c:if>
             <c:if test="${sessionScope.memid!=null}"><a href="../Tmember/Tlogout.do">로그아웃</a></c:if>
               &nbsp;
               <a href="../Tmember/Tmy.do">| &nbsp; 마이페이지</a>
            </div> 
-         </div>
+        </div>
          <!--S:lnb-->
          <nav id="lnb">
+         <div id="h_logo">
+         <a href="../index.do">
+            <img src="../images/lamp.png" width="70px">
+         </a>
+        </div>
             <ul class="lnb">
+            
                <li class="depth1"><a href="../Tnotice/TnoticeList.do">공지사항</a>
                </li>
                <li class="depth1"><a href="../Troute/Troute.do">여행루트</a>
@@ -55,7 +62,7 @@
                </li>
                <li class="depth1"><a href="../Tpromotion/Tpromotion.do">프로모션</a>
                </li>
-			    <li class="depth1"><a href="../Tlikelocation/TlikelocationList.do?Lid=${sessionScope.s_id}">관심여행지</a>               </li>
+             <li class="depth1"><a href="../Tlikelocation/TlikelocationList.do">관심여행지</a></li>
             </ul>
          </nav>
          <!--//E:lnb-->
@@ -92,7 +99,7 @@
                   <a href="../Tpromotion/Tpromotion.do">프로모션</a>
                </li>
                <li>
-                 <a href="../Tlikelocation/TlikelocationList.do?Lid=${sessionScope.s_id}">관심여행지</a>
+                 <a href="../Tlikelocation/TlikelocationList.do">관심여행지</a>
                </li>
             </ul>
          </nav>
@@ -100,3 +107,4 @@
       <!--//E:mobile_header-->
    </header>
    <div>
+   <hr>

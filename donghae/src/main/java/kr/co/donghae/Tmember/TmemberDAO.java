@@ -315,7 +315,8 @@ public int insert(TmemberDTO dto) {
 		               if(cnt==1) {
 		                 String id=rs.getString("Mid");
 		                 String content="";
-		                 content += " 아이디 : "+ id;
+		                 content += " 아이디 : "+ id+ "\n";
+		                 
 		                 content += " 비밀번호 : "+imsiPW;
 		                    //임시비밀번호를 이메일로 전송하기
 		                String mailServer="mw-002.cafe24.com";

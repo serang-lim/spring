@@ -14,7 +14,6 @@ import net.utility.DBOpen;
 @Component
 public class TpromotionDAO {
 	
-
 	@Autowired
 	DBOpen dbopen;
 	@Autowired

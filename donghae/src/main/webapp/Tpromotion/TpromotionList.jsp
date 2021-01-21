@@ -10,10 +10,10 @@
 <c:choose>
 <c:when test="${s_mlevel=='A1'}">
 <h3 align="center"> 프 로 모 션 </h3>
-<form action="TproDel.do" name="listfrm">
+<form name="listfrm">
 	<table class="notice_tal">
 	<tr>		
-		<th colspan="9" align="right"><input type="submit" value=" 삭 제 "> </th>
+		<th colspan="9" align="right"><input type="button" value=" 삭 제 " onclick="return del()"> </th>
 	</tr>
 	<tr>
 		<th width="10%">체크</th>
@@ -28,15 +28,14 @@
 		
 	</tr>
 	
-	<c:forEach var="dto" items="${list}">
+	<c:forEach var="dto" items="${list}" varStatus="status">
 	<tr align="center">
-		<td><input type="checkbox" name="tbno" value="${dto.tbno}"></td>
+		<td><input type="checkbox" name="tbno${status.count}" value="${dto.tbno}" ></td>
 		<td>
 			<c:if test="${dto.ticon=='숙소'}"><img src="../images/숙소아이콘.png" width="15%"></c:if>
 			<c:if test="${dto.ticon=='주위식당'}"><img src="../images/식당아이콘.png" width="20%"></c:if>
 			<c:if test="${dto.ticon=='주요행사'}"><img src="../images/.png" width="15%"></c:if>
 			<c:if test="${dto.ticon=='액티비티'}"><img src="../images/.png" width="15%"></c:if>
-			
 		</td>
 		<td>${dto.tbno}</td>
 		<td><img src="../storage/${dto.timage_name}" width="60%" height="auto"></td>
@@ -46,11 +45,33 @@
 		<td style="font-size:12pt;">${fn:substring(dto.twdate,0,10)}</td>
 		<td>${dto.tresult }</td>
 	</tr>	
+	<c:if test="${status.last=='true'}">
+    <input type="hidden" id="number" value="${status.count}">
+    </c:if>
 	</c:forEach>
 	
 	</table>	
 </form>
 	<br><br><br>
+<script>
+function del() {
+	var number=document.getElementById('number').value;
+	var tbnos="";
+	var indextbno = false;
+	for(i=1; i<=number; i++){
+		//alert(document.getElementsByName('tbno'+i+'')[0].checked);
+		//alert(document.getElementsByName('tbno'+i+'')[0].value);
+		if(document.getElementsByName('tbno'+i+'')[0].checked==true){
+		 	if(indextbno){
+		 		tbnos = tbnos + '-';
+		   	}
+		 	tbnos = tbnos + document.getElementsByName('tbno'+i+'')[0].value;
+		 	indextbno = true;
+		}
+	}
+	location.href="TproDel.do?tbnos="+tbnos;
+}
+</script>	
 	
 		<!-- 검색 시작  -->
 

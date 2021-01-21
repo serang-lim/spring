@@ -325,7 +325,7 @@
 function mnumCheck(){
     	
     	window.open("TnumcheckForm.jsp"
-    				,"emailwin"
+    				,"mnumwin"
     				,"width=400, height=350");
     	
     }//emailCheck end

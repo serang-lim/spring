@@ -6,7 +6,7 @@
 
 <!-- 본문 시작 Treview.jsp -->
 
-   <br>
+   <br><br>
    <table class="notice_tal">
    <tr height="20">
       <!-- <th>글번호</th>  -->

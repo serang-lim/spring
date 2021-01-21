@@ -17,8 +17,8 @@
 
    <form name='createfrm' method="post" action="create.do"
           enctype="multipart/form-data" onsubmit="return pdsCheck()">
-   <input type="hidden" name="rid" value="${sessionScope.memid}">
-   <input type="hidden" id="tno" name="tno" value="${tno}">      
+   <input type="hidden" name="rid" value="${sessionScope.memid}">       
+   <input type="hidden" id="tno" name="tno" value="${tno}">
    <table class="notice_tal">
    <tr>
       <th width="30%">제목</th>

@@ -8,12 +8,12 @@ header::after {content:""; display:block; clear:both;}
 header #header{width:1200px; margin:0 auto; padding:10px 0;}
 header #header::after {content:""; display:block; clear:both; width: 100%;}
 
-header #header #h_logo{float:left; width:210px;}
+header #header #h_logo{float:left; width:100px;}
 header #header nav#lnb{float:left; width:100%; margin-left:50px;}
 header #header nav#gnb{float:left; width:330px; position:relative;}
 
 header #header nav#lnb{font-size:19px; letter-spacing:-1.6px; font-weight:500;}
-header #header nav#lnb ul li.depth1{float:left; width:20%; line-height:80px;}
+header #header nav#lnb ul li.depth1{float:left; width:17%; line-height:80px;}
 header #header nav#lnb ul li.depth1 a{display:block; text-align:center; color:#333;}
 
 header #header nav#lnb ul li::after{opacity:0; transform: translate3d(0, 100%, 0); transition: transform .3s ease-out, opacity .3s ease-out;}
@@ -40,7 +40,7 @@ header #header nav#gnb dl dd a{display:block; color:#999;}
 header .m_head{display:none;}
 
 /*footer*/
-footer{width:100%; background:#2f3640; position:relative;}
+footer{width:100%; background:#7bb0ff; position:relative;}
 footer::after{content:''; display:block; clear:both;}
 
 footer .back_top{display:block; position:absolute; bottom:50%; right:5%;}

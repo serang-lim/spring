@@ -17,11 +17,13 @@ alert("로그인 해주세요");
    <input type="button" value="회원정보수정"
        onclick="location.href='./Tmodifycheck.do'">
    </div>
+   <br>
    <c:if test="${sessionScope.s_mlevel =='A1' }">
    <div align="center">
       <input type="button" value="회원정보리스트"
        onclick="location.href='./Tlist.do'">   
    </div>
+   <br>
    </c:if>
    <c:if test="${sessionScope.s_mlevel=='B1' }">
    <div align="center">
@@ -29,13 +31,11 @@ alert("로그인 해주세요");
        onclick="location.href='../Treserve/listent.do'">   
    </div>
    </c:if>
- 
    <div align="center">
       <input type="button" value="나의예약내역확인"
        onclick="location.href='../Treserve/listper.do'">   
    </div>
-  
-   
+   <br>
    <div align="center">
    <input type="button" value="회원탈퇴" 
        onclick="location.href='./Tdelcheck.do'">
