@@ -7,6 +7,8 @@
 <script src="../js/treviewscript.js"></script>
 
 <!-- 본 문 시 작 TreviewcreateFrom -->
+   <br>
+
 <c:if test="${empty sessionScope.memid }">
 <script>
 	alert("로그인 해주세요");
@@ -19,6 +21,9 @@
           enctype="multipart/form-data" onsubmit="return pdsCheck()">
    <input type="hidden" name="rid" value="${sessionScope.memid}">       
    <input type="hidden" id="tno" name="tno" value="${tno}">
+   <input type="hidden" id="rregion" name="rregion" value="${rregion}">
+   
+   <div style="margin: 0 10% 0 10%">
    <table class="notice_tal">
    <tr>
       <th width="30%">제목</th>
@@ -28,18 +33,7 @@
       <th>비밀번호</th>
       <td align="left"><input type="password" name="rpasswd" id="rpasswd" size="50%" required></td>
    </tr>
-   <tr>
-      <th>지역</th>
-      <td align="left">
-      <select name="rregion"  id="rregion">
-          <option value="0" selected>선택하세요.</option>
-          <option value="동해">동해</option>
-          <option value="삼척">삼척</option>
-          <option value="속초">속초</option>
-          <option value="강릉">강릉</option>
-        </select>
-        </td>
-   </tr>
+
    <tr>
       <th>내용</th>
       <td align="left"><textarea rows="15%" cols="60%" name="rcontent"></textarea></td>
@@ -56,8 +50,9 @@
    </tr>
    <tr>
    </table>
+   </div>
    <br><p align="center">
-      <input type="submit"  value=" 등록 ">
+      <input type="submit"  value=" 등록 " style="background-color: white; color: black; font-size: 15px; width: 100px; height:40px;border-color: black; border-radius: 5px; font-size: 10pt;">
       <input type="button" value=" 목록 " onclick="location.href='Treview.do'">
       <%-- <input type="button" value=" HOME " onclick="location.href=${root}/home.do'"> --%>
    </p><br>

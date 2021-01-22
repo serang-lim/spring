@@ -351,8 +351,9 @@ dl.step_list dd:last-child{border-right:none;}
 .btn_wrap button.add_btn{background:#828282; color:#fff;}
 .btn_wrap button.next_btn{background:#ffda00; color:#333;}
 
-
-
+.btn_wrap button.btn{background:#ffda00; color:#333;}
+/* .btn_wrap2{background-color: white; color: black; font-size: 15px; width: 70px; height:22px;border-color: black; border-radius: 5px; font-size: 10pt;}<!--검색-->
+ */
 /*고객정보입력*/
 
 .user-form h3{margin-left:0; margin-right:0;}
@@ -367,6 +368,7 @@ dl.step_list dd:last-child{border-right:none;}
 .user-form input{border:none;}
 .user-form fieldset input[type="text"] {display:block; width:100%; height:100%;  box-sizing:border-box; padding-left:6%;}
 .user-form fieldset input[type="password"] {display:block; width:100%; height:100%;  box-sizing:border-box; padding-left:6%; font-size: large;}
+.user-form fieldset.frm-input.phone input {width:30%; height:100%; float:left;}
 
 .user-form fieldset.frm-input.phone i {display:block; line-height:70px; width:2%; float:left; text-align:center;}
 .user-form .check-box {padding:0 0 10px;}
@@ -581,7 +583,7 @@ dl.event_list dd{float:left; width:367px; margin-right:33px !important;}
 
 .notice_tal {width:100%; clear:both; border-collapse:collapse; table-layout:fixed; word-wrap:break-word; border-spacing:0; text-align:center; font-size:16px; letter-spacing:-0.8px;}
 .notice_tal thead th{color:#54546a;padding:18px 25px;word-wrap:break-word; background:#f8f8f8;}
-.notice_tal tbody th{background:#f0f8ff;border-bottom:1px solid #000000;padding:11px 25px; word-wrap:break-word;}
+.notice_tal tbody th{background:#f0f8ff;border-bottom:1px solid #061842;padding:11px 25px; word-wrap:break-word;}
 .notice_tal tbody td {border-bottom:1px solid #d8d8da; padding:17px 14px; word-wrap:break-word; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
 .notice_tal tbody td.bg {background:#f9f9f9}
 .notice_tal thead th:last-child, .tbl-st01 tbody td:last-child{ border-right:none;}

@@ -380,7 +380,6 @@ public class TpromotionCont {
     	      		UploadSaveManager.deleteFile(basePath, oldDTO.getTimage_name2());
 
 					String msg1="<p>프로모션 삭제 실패</p>";
-					String img="<img src='../images/k1.png'>";
 					String link1="<input type='button' value='다시시도' onclick='javascript:history.back()'>";
 		     		String link2="<input type='button' value='목록으로' onclick='location.href=\"./Tpromotion.do?tbno="+dto.getTbno()+"\"'>";
 					mav.addObject("msg1",msg1);

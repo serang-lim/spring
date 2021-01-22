@@ -5,9 +5,11 @@
 <%@ include file="../header.jsp"%>
 <!-- 본 문 시 작 -->
 <br>
-<h3 align="center"> 프로모션 상세보기 </h3>
+<h2 align="center"> 프로모션 상세보기 </h2>
+	
 	<form action="updateRes.do" name="readfrm">
 	<input type="hidden" name="tbno" value="${dto.tbno}">
+	<div style="margin: 0 10% 0 10%;"> 
 	<table class="notice_tal">
 	<c:if test="${sessionScope.s_mlevel=='A1'}">
 	<tr>
@@ -16,21 +18,32 @@
 			<option ${dto.tresult.equals("Y") ? "selected" : ""} value="Y">Y</option>
 			<option ${dto.tresult.equals("N") ? "selected" : ""} value="N">N</option>
 			</select>
-			<input type="submit" value="변경하기">
+			<input type="submit" value="변경하기" style="background-color: white; color: black; font-size: 15px; width: 70px; height:22px;border-color: black; border-radius: 5px; font-size: 10pt;">
 		</td>
 	</tr>	
 		</c:if>
 	<tr>
-		<th colspan="2">제목</th>
-			<td colspan="4">${dto.tsubject }</td>
+		<th colspan="1">제목</th>
+			<td colspan="5">${dto.tsubject }</td>
 	</tr>
 	<tr>
 		<th>글번호</th>
 			<td>${dto.tbno}</td>
 		<th>분류</th>
-			<td>${dto.ticon}</td>
+			<td>
+			<c:if test="${dto.ticon=='숙소'}"><img src="../images/zam.png" width="35px"></c:if>
+			<c:if test="${dto.ticon=='주위식당'}"><img src="../images/bob.png" width="35px"></c:if>
+			<c:if test="${dto.ticon=='주요행사'}"><img src="../images/fe.png" width="35px"></c:if>
+			<c:if test="${dto.ticon=='액티비티'}"><img src="../images/act.png" width="35px"></c:if>
+			<c:if test="${dto.ticon=='사진스팟'}"><img src="../images/sajin.png" width="35px"></c:if>
+			</td>
 		<th>지역</th>
-			<td>${dto.tregion }</td>
+			<td>
+			<c:if test="${dto.tregion=='강릉'}"><img src="../images/강릉.png" width="35px"></c:if>
+			<c:if test="${dto.tregion=='삼척'}"><img src="../images/삼척.png" width="35px"></c:if>
+			<c:if test="${dto.tregion=='속초'}"><img src="../images/속초.png" width="35px"></c:if>
+			<c:if test="${dto.tregion=='동해'}"><img src="../images/동해.png" width="35px"></c:if>
+			</td>
 	</tr>
 	<tr>
 		<th>작성자</th>
@@ -44,7 +57,8 @@
 		<th colspan="1">사진</th>
 			<td colspan="5"><img src="../storage/${dto.timage_name2}" width="80%" height="auto" align="middle"></td>
 	</tr>	
-	</table>			
+	</table>	
+	</div>		
 	</form>
 	<div align="center" style="padding: 1%  1%  1%  1%;">
 	 

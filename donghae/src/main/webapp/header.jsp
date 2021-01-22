@@ -48,9 +48,9 @@
          <!--S:lnb-->
          <nav id="lnb">
          <div id="h_logo">
-         <a href="../index.do">
-            <img src="../images/lamp.png" width="70px">
-         </a>
+	         <a href="../index.do">
+	         	<img src="../images/lamp_han.png" width="70px">
+	         </a>
         </div>
             <ul class="lnb">
             
@@ -62,7 +62,7 @@
                </li>
                <li class="depth1"><a href="../Tpromotion/Tpromotion.do">프로모션</a>
                </li>
-             <li class="depth1"><a href="../Tlikelocation/TlikelocationList.do">관심여행지</a></li>
+			    <li class="depth1"><a href="../Tlikelocation/TlikelocationList.do">관심여행지</a></li>
             </ul>
          </nav>
          <!--//E:lnb-->
@@ -72,7 +72,7 @@
       <!--S:mobile_header-->
       <div class="m_head">
          <div class="menu_bar">
-            <p class="logo"><a href="../index.do"><img src="../images/common/homeicon2.png" alt="홈"/></a></p>
+            <p class="logo"><a href="../index.do"><img src="../images/lamp_han.png" alt="홈"/></a></p>
             <p class="all_menu"><a href="#n"><img src="../images/common/mobile_allmenu.jpg" alt="전체메뉴"/> </a></p>
          </div>
 
@@ -107,4 +107,4 @@
       <!--//E:mobile_header-->
    </header>
    <div>
-   <hr>
+   <hr style="margin: 0 0 0 0;">

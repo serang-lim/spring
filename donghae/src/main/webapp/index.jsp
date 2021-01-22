@@ -50,7 +50,7 @@
          <nav id="lnb">
          <div id="h_logo">
          <a href="index.do">
-            <img src="./images/lamp.png" width="70px">
+            <img src="./images/lamp_han.png" width="70px">
          </a>
           </div>
             <ul class="lnb">
@@ -73,7 +73,7 @@
       <!--S:mobile_header-->
       <div class="m_head">
          <div class="menu_bar">
-            <p class="logo"><a href="index.do"><img src="images/common/homeicon2.png" alt="홈"/></a></p>
+            <p class="logo"><a href="index.do"><img src="images/lamp_han.png" alt="홈"/></a></p>
             <p class="all_menu"><a href="#n"><img src="images/common/mobile_allmenu.jpg" alt="전체메뉴"/> </a></p>
          </div>
 
@@ -107,6 +107,7 @@
       </div>
       <!--//E:mobile_header-->
    </header>
+      <hr style="margin: 0 0 0 0;">
    <!--//E:header--><!--//E:header-->
    <!--S:mainvisual-->
    <section id="main">

@@ -29,7 +29,7 @@
 
       <input type="text" name="Mid" id="Mid" size="30"  readonly>
 
-      <input type="button" value="ID중복확인" onclick="idCheck()">	
+      <input type="button" value="중복확인" onclick="idCheck()">	
 
 	</td>
 
@@ -67,7 +67,7 @@
 
       <input type="email" name="Memail" id="Memail" size="30" readonly>
 
-      <input type="button" value="Email 중복확인" onclick="emailCheck()">	
+      <input type="button" value="중복확인" onclick="emailCheck()">	
 
 	</td>
 
@@ -118,7 +118,7 @@
 
   <td align="left">
   <input type="text" name="Mnum" id="Mnum" size="30" readonly>
-   <input type="button" value="사업자번호중복확인" onclick="mnumCheck()">	
+   <input type="button" value="중복확인" onclick="mnumCheck()">	
 </td>
 </tr>
 <tr>  
@@ -144,9 +144,9 @@
 
 	<td colspan="2" align="center">
 
-		<input type="submit" value="회원가입"  class="btn btn-primary"/>
+		<input type="submit" value="회원가입"  class="btn btn-primary" style="background-color: white; color: black; font-size: 15px; width: 100px; height:40px;border-color: black; border-radius: 5px; font-size: 10pt;"/>
 
-		<input type="reset"  value="취소"  class="btn btn-primary"  onclick="location.href='../home.do'"/>
+		<input type="reset"  value="취소"  class="btn btn-primary"  onclick="location.href='../home.do'" style="background-color: white; color: black; font-size: 15px; width: 100px; height:40px;border-color: black; border-radius: 5px; font-size: 10pt;"/>
 
 	</td>
 

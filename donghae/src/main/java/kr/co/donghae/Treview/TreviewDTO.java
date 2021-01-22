@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public class TreviewDTO {
-	  private int tno;
 	  private int Rnum;
 	  private String Rsubject;
 	  private String Rcontent;
@@ -16,15 +15,12 @@ public class TreviewDTO {
 	  private String Rid;
 	  private String Rdate;
 	  private int Rreadcnt;
+	  private int tno;
 	  
   //-------------------------------------
 
 	  
   //-------------------------------------
-	
-	public TreviewDTO() {}
-
-	
 	
 	public int getTno() {
 		return tno;
@@ -33,6 +29,8 @@ public class TreviewDTO {
 	public void setTno(int tno) {
 		this.tno = tno;
 	}
+
+	public TreviewDTO() {}
 
 	public int getRnum() {
 		return Rnum;
@@ -114,13 +112,16 @@ public class TreviewDTO {
 		Rreadcnt = rreadcnt;
 	}
 
-
 	@Override
 	public String toString() {
-		return "TreviewDTO [tno=" + tno + ", Rnum=" + Rnum + ", Rsubject=" + Rsubject + ", Rcontent=" + Rcontent
-				+ ", Rpasswd=" + Rpasswd + ", Rphoto_name=" + Rphoto_name + ", Rphoto_size=" + Rphoto_size
-				+ ", Rregion=" + Rregion + ", Rid=" + Rid + ", Rdate=" + Rdate + ", Rreadcnt=" + Rreadcnt + "]";
+		return "TreviewDTO [Rnum=" + Rnum + ", Rsubject=" + Rsubject + ", Rcontent=" + Rcontent + ", Rpasswd=" + Rpasswd
+				+ ", Rphoto_name=" + Rphoto_name + ", Rphoto_size=" + Rphoto_size + ", Rregion=" + Rregion + ", Rid="
+				+ Rid + ", Rdate=" + Rdate + ", Rreadcnt=" + Rreadcnt + ", tno=" + tno + "]";
 	}
+
+
+
 	
+
 	
 }//class end

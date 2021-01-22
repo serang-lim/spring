@@ -738,7 +738,7 @@ dl.step_list dd.on{text-align:center; padding-left:0; background-color:#f7b618; 
 .quantity-button.quantity-up{height:55px; line-height:55px;}
 .quantity-button.quantity-down{height:55px; line-height:55px;}
 
-#reserv_page{margin:5% 0;}
+#reserv_page{margin:0 0;}
 span.useful{margin:7% 0 0 0; border:none; background:#efefef;}
 .payment{font-size:17px;}
 .payment strong{28px;}

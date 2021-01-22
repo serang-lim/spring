@@ -2,7 +2,7 @@
 
 /*header*/
 header{width:100%; position:relative; top:0; left:0; background:rgba(255,255,255,0.9); z-index:99;}
-header::before {content:""; display:none; position:absolute; bottom:0; left:0; right:0; top:100px; border-top:1px solid #d4d4d4; background:rgba(255,255,255,0.9); z-index:0; box-shadow: 10px 10px 10px rgba(0,0,0,0.05)}
+header::before {content:""; display:none; position:absolute; bottom:0; left:0; right:0; top:100px; border-top:1px solid #d4d4d4; background:rgba(255,255,255,0.9); z-index:0;}
 header::after {content:""; display:block; clear:both;}
 
 header #header{width:1200px; margin:0 auto; padding:10px 0;}
@@ -40,7 +40,7 @@ header #header nav#gnb dl dd a{display:block; color:#999;}
 header .m_head{display:none;}
 
 /*footer*/
-footer{width:100%; background:#7bb0ff; position:relative;}
+footer{width:100%; background:#061842; position:relative;}
 footer::after{content:''; display:block; clear:both;}
 
 footer .back_top{display:block; position:absolute; bottom:50%; right:5%;}

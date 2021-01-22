@@ -71,9 +71,9 @@ public class TreviewDAO {
                pstmt = con.prepareStatement(sql.toString());
                pstmt.setString(1, dto.getRsubject());
                pstmt.setString(2, dto.getRcontent());
-               pstmt.setString(3, dto.getRpasswd());
-               pstmt.setString(4, dto.getRregion());
-               pstmt.setString(5, dto.getRid());
+	           pstmt.setString(3, dto.getRpasswd());
+	           pstmt.setString(4, dto.getRregion());
+	           pstmt.setString(5, dto.getRid());
                pstmt.setInt(6, dto.getTno());
 
                cnt = pstmt.executeUpdate();

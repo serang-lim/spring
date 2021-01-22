@@ -202,7 +202,8 @@
 <br>
 <div style="text-align: center">
   <input type="checkbox" value="동의" name="agree" id="agree"/> 약관에 동의합니다
-  <input type="submit" value="회원가입" class="btn btn-primary"/> 
+  <br>
+  <input type="submit" value="회원가입" class="btn btn-primary" style="background-color: white; color: black; font-size: 15px; width: 100px; height:40px;border-color: black; border-radius: 5px; font-size: 10pt;"/> 
   <input type="button" value="취소"  class="btn btn-primary" onclick="javascript:history.back();"/>
 </div>
 <br>

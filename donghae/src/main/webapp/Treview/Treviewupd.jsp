@@ -26,6 +26,8 @@
    	<input type="hidden" name="rnum" id="rnum" value="${dto.rnum}" />	 
    	<input type="hidden" name="rid" id="rid" value="${dto.rid}" />	 
  	<input type="hidden" name="rdate" id="rdate" value="${dto.rdate}" />	
+	<div style="margin: 0 10% 0 10%;">
+	<br>
 	<table class="notice_tal">
 	<tr>
 	   <th width="30%">제목</th>
@@ -49,17 +51,19 @@
 	</tr>
 	<tr>
 	   <th>내용</th>
-	   <td align="left"><input type="text" name="rcontent" rows="5" cols="30" value="${dto.rcontent }"></td>
+	   <td align="left"><input type="text" name="rcontent" value="${dto.rcontent }"></td>
 	</tr>
 	<tr>
 	   <th>첨부파일</th>
 	   <td align="left"><input type="file" name="photonameMF" multiple size='50'></td>
 	</tr>
 	</table>
+	</div>
 	<br>
 	<p align="center">
-	<td colspan='2'>
-      <input type="submit"  value="수정">
+	
+      <input type="submit"  value="수정" style="background-color: white; color: black; font-size: 15px; width: 100px; height:40px;border-color: black; border-radius: 5px; font-size: 10pt;">
+      &nbsp;
       <input type="button" value="목록" onclick="location.href='Treview.do'">
       </p><br>
 	</form>

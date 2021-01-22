@@ -26,6 +26,11 @@ input[type="radio"],
 input[type="checkbox"]   {display:compact; -webkit-appearance:checkbox;}	
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button{-webkit-appearance: none;margin: 0;}
 input[type=number]{-moz-appearance: textfield;}
+input[type='button']{background-color: white; color: black; font-size: 15px; width: 100px; height:40px;border-color: black; border-radius: 5px; font-size: 10pt; cursor:pointer;}
+input[type='file']{background-color: white; color: black; font-size: 15px; width: 200px; height:40px;border-color: black; border-radius: 5px; font-size: 10pt;}
+
+/* input[type='submit']{background-color: white; color: black; font-size: 15px; width: 100px; height:40px;border-color: black; border-radius: 5px} */
+ */
 
 input, textarea {-webkit-appearance:none; -webkit-border-radius:0;}/*아이폰 그림자제거*/
 address{font-style: normal;}

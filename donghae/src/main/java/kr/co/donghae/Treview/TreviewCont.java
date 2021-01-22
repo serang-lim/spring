@@ -50,9 +50,6 @@ public class TreviewCont {
       ModelAndView mav=new ModelAndView();
       TreviewDTO dto=dao.read(rnum);
       ArrayList<TreviewFileDTO> fdto=dao.fread(rnum);
-      dto.setRcontent(Utility.convertChar(dto.getRcontent()));
-      dto.setRsubject(Utility.convertChar(dto.getRsubject()));
-      
       if(dto!=null) {
           mav.setViewName("Treview/Treviewread");
           mav.addObject("root", Utility.getRoot());
@@ -66,8 +63,10 @@ public class TreviewCont {
 //----------------------------------------------------------------------------------------
    @RequestMapping(value = "Treview/createrform.do", method = RequestMethod.GET)
    public String createForm(HttpServletRequest req) {
-	  int tno = Integer.parseInt(req.getParameter("tno"));
+	  int tno=Integer.parseInt(req.getParameter("tno"));
+	  String rregion=req.getParameter("rregion");
 	  req.setAttribute("tno", tno);
+	  req.setAttribute("rregion", rregion);
       return "Treview/Treviewcreate";
    }// createform() end
 
@@ -83,7 +82,7 @@ public class TreviewCont {
 	   //String msg="";
 	   ModelAndView mav = new ModelAndView();
        mav.setViewName("Treview/msg");
-
+      
 	   if(file.getSize()==0) {
 		  int cnt=dao.create(dto);
 		  if(cnt==0) {
