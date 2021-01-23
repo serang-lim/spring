@@ -25,7 +25,8 @@
    		 enctype="multipart/form-data" onsubmit="return pdsCheck()">
    	<input type="hidden" name="rnum" id="rnum" value="${dto.rnum}" />	 
    	<input type="hidden" name="rid" id="rid" value="${dto.rid}" />	 
- 	<input type="hidden" name="rdate" id="rdate" value="${dto.rdate}" />	
+ 	<input type="hidden" name="rdate" id="rdate" value="${dto.rdate}" />
+ 	<input type="hidden" id="rregion" name="rregion" value="${dto.rregion}">	
 	<div style="margin: 0 10% 0 10%;">
 	<br>
 	<table class="notice_tal">
@@ -38,24 +39,15 @@
 	   <td align="left"><input type="password" name="rpasswd" required></td>
 	</tr>
 	<tr>
-	   <th>지역</th>
-	   <td align="left">
-	   <select name="rregion"  id="rregion">
-          <option value="없음" selected>선택하세요.</option>
-          <option value="동해">동해</option>
-          <option value="삼척">삼척</option>
-          <option value="속초">속초</option>
-          <option value="강릉">강릉</option>
-        </select>
-        </td>
-	</tr>
-	<tr>
 	   <th>내용</th>
-	   <td align="left"><input type="text" name="rcontent" value="${dto.rcontent }"></td>
+	   <td align="left"><textarea rows="15%" cols="60%" name="rcontent" >${dto.rcontent}</textarea></td>
 	</tr>
 	<tr>
 	   <th>첨부파일</th>
-	   <td align="left"><input type="file" name="photonameMF" multiple size='50'></td>
+	   <td align="left">
+	   <input type="file" name="photonameMF" multiple size='50'>
+	   <br>※ 올릴 사진은 모두 선택해주세요
+	   </td>
 	</tr>
 	</table>
 	</div>
